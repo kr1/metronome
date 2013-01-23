@@ -1,10 +1,11 @@
-meter = [2,3,2,3,2,3,3]
+meter = [1,3,2,3,2,3,3,1,3,2,3]
 speed = {bpm: 120,
          unitLengthInMsecs: 250, // NB: we tick at half beats
         }
 
 state = {
     position:0,
+    displayRhythM: true,
     meter: meter,
     pauseD: true,
     speed: speed

@@ -24,7 +24,7 @@ $(document).ready(function() {
             if (state.pauseD) {
                 //stopNotes(1000)
             } else {
-                playMetro()
+                playMetro();
             }
             $(this).text(state.pauseD ? "Play" : "Pause")
         }
