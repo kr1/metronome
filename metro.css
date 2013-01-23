@@ -6,6 +6,10 @@ body{background-Color:#DDEEDD}
 #speedSlider{width:99%;}
 #speedMonitor{width:200px;}
 .volVertical {width: 20px;
-              height: 200px;
-              -webkit-appearance: slider-vertical;"}
-.impulse {background-Color:#123456}
+              height: 120px;
+              -webkit-appearance: slider-vertical;}
+.meterItem.light{background-Color:#FF4477;}
+.meterItem.heavy{background-Color:#44DDAA;}
+.meterItem.fill{background-Color:#9944FF;}
+.meterItem.highlight {background-Color: #002200;}
+.impulse {background-Color:#123456;}
