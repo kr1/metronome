@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Rogba</title>
+        <meta name="keywords" content="metronome, online, browser, web audio api, multirhythm, rhythmic metroome" />
+        <meta name="description" content="an audio-visual metronome supporting various rhythms and patterns" />
+        <meta name="author" content="christian wörner, ernst modersohn" />
+        <script type="text/javascript" src="/javascripts/jquery-1.7.2.min.js" ></script>
+        <script type="text/javascript" src="/javascripts/init.js" ></script>
+        <script type="text/javascript" src="/javascripts/handlers.js" ></script>
+        <script type="text/javascript" src="/javascripts/wavetables.js" ></script>
+        <script type="text/javascript" src="/javascripts/rhythmViewPort.js" ></script>
+        <script type="text/javascript" src="/javascripts/drums.js" ></script>
+        <script type="text/javascript" src="/javascripts/metronome.js" ></script>
+        <script type="text/javascript" src="/javascripts/audio_graph.js" ></script>
+        <script type="text/javascript" src="/javascripts/audio.js" ></script>
+        <link rel="shortcut icon" href="/favicon.ico">
+        <link rel="stylesheet" href="/metro.css" type="text/css">
+    </head>
+    <body id="body">
+        <h2>Metronome</h2>
+        <button id="playButton">Play/Pause</button>
+        <input id="speedSlider" min="5" max="666" step="0.1" value="120" type="range"/>
+        <span id="speedMonitor" class="Monitor">120</span>
+        <span id="speedMonitorUnit" class="Monitor">BPM</span>
+        <input type="range" name="kickVol" class="volVertical" rel="kick" min="0" max="1.2" step="0.01" value="1">
+        <span id="kickVolMonitor" class="Monitor"></span>
+        <input type="range" name="snareVol" class="volVertical" rel="snare"  min="0" max="1.2" step="0.01" value="1">
+        <span id="snareVolMonitor" class="Monitor"></span>
+        <input type="range" name="hihatVol" class="volVertical" rel="hihat"  min="0" max="1.2" step="0.01" value="1">
+        <span id="hihatVolMonitor" class="Monitor"></span>
+        <div id="rhythmViewPort" style="position:relative">
+            <span id="meter" style="background-color:#888888;position:absolute;"></span>
+            <span id="one" style="background-color:#BB9999;position:absolute;"></span>
+            <span id="two" style="background-color:#8888BB;position:absolute;"></span>
+            <span id="three" style="background-color:#AAAA11;position:absolute;"></span>
+            <span id="four" style="background-color:#7788FF;position:absolute;"></span>
+        </div>
+    </body>
+</html>
+

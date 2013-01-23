@@ -1,0 +1,11 @@
+body{background-Color:#DDEEDD}
+#melodyViewPort {margin-left: auto;
+                 margin-right: auto;
+                 width: 80%;
+                text-align:center}
+#speedSlider{width:99%;}
+#speedMonitor{width:200px;}
+.volVertical {width: 20px;
+              height: 200px;
+              -webkit-appearance: slider-vertical;"}
+.impulse {background-Color:#123456}
