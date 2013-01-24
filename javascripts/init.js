@@ -1,16 +1,6 @@
-var meterStr = "_**-**_*-*"
-var meter =  meterStr.split("")
 var speed = {bpm: 120,
              unitLengthInMsecs: 250, // NB: we tick at half beats
             }
-
-state = {
-    position:0,
-    displayRhythM: true,
-    meter: meter,
-    pauseD: true,
-    speed: speed
-}
 
 speed.newSpeedBpm = function(bpm){
     this.bpm = bpm;
@@ -21,5 +11,10 @@ speed.newSpeedMsec = function(msec){
     this.unitLengthInMsecs
 }
 
-
+state = {
+    position:0,
+    displayRhythM: true,
+    pauseD: true,
+    speed: speed
+}
 

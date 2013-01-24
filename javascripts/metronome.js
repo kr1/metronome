@@ -1,4 +1,8 @@
 rhythm = {}
+
+var meterStr = "_**-**_*-*"
+var meter =  meterStr.split("")
+rhythm.meter = meter
 rhythm.weightNames = {"_": "heavy",
                       "-":"light",
                       "*":"fill"}
@@ -16,20 +20,17 @@ rhythm.colors = {"_": "#FF4477",
                  "°": "#FEED33",
 }
 
-function playMetro(){
+rhythm.playMetro = function(){
     window.setTimeout(function(){
         if (!state.pauseD) {
-            playBeat(state.meter[state.position]);
-            drawRhythm();
+            aGraph.playBeat(rhythm.meter[state.position]);
+            viewPort.drawRhythm();
             $('.meterItem').removeClass('highlight')
             $('#meterItem_' + state.position).addClass('highlight')
-            state.position = (state.position + 1) % state.meter.length
-            playMetro();
+            state.position = (state.position + 1) % rhythm.meter.length
+            rhythm.playMetro();
         }
     }, state.speed.unitLengthInMsecs)
 }
 
 
-function playBeat(weight){
-    playAudioFile(rhythm.weightToBuffer[weight])
-}

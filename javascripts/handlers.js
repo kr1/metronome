@@ -19,10 +19,18 @@ $(document).ready(function() {
     });
 
     $('#unhideControlsButton').bind("click",function(e){
+        $('.modalPanelContainer').hide();
         $("#controlsContainer").show();
     })
     $('#hideControls').bind("click",function(e){
         $("#controlsContainer").hide();
+    })
+    $('#unhideNewRhythmButton').bind("click",function(e){
+        $('.modalPanelContainer').hide();
+        $("#newRhythmContainer").show();
+    })
+    $('#hideNewRhythmButton').bind("click",function(e){
+        $("#newRhythmContainer").hide();
     })
     $('#playButton').bind("click",
         function(e){
@@ -30,7 +38,7 @@ $(document).ready(function() {
             if (state.pauseD) {
                 //stopNotes(1000)
             } else {
-                playMetro();
+                rhythm.playMetro();
             }
             $(this).text(state.pauseD ? "Play" : "Pause")
         }

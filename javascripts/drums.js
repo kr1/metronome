@@ -1,14 +1,14 @@
-DRUM_BUFFER_NAMES = ["kickBuffer",
-                     "snareBuffer",
-                     "hihatBuffer",
-                     "hihat2Buffer"]
+aGraph.DRUM_BUFFER_NAMES = ["kickBuffer",
+                            "snareBuffer",
+                            "hihatBuffer",
+                            "hihat2Buffer"]
 
-function setUpDrumGraph(){
+aGraph.setUpDrumGraph = function(){
     aGraph.gainNodeDrums = context.createGainNode();
     aGraph.gainNodeDrums.gain.value = 2;
     aGraph.gainNodeDrums.connect(aGraph.gainNodeAll)
-    for (bufferNameIdx in DRUM_BUFFER_NAMES){
-        bufferName = DRUM_BUFFER_NAMES[bufferNameIdx]
+    for (bufferNameIdx in aGraph.DRUM_BUFFER_NAMES){
+        bufferName = aGraph.DRUM_BUFFER_NAMES[bufferNameIdx]
         console.log("setting up: ", bufferName)
         var panner = context.createPanner();
         var gain = context.createGainNode();
@@ -20,7 +20,7 @@ function setUpDrumGraph(){
     aGraph["kickBufferGainNode"].gain.value = 0.8
 }
 
-function newDrumParams(){
+aGraph.newDrumParams = function(){
     // Panorama
     aGraph.drums.kickPos = Math.random() * 0.5 - 0.25
     aGraph.drums.snarePos = Math.random() * 0.5 - 0.25

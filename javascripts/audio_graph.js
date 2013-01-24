@@ -1,5 +1,6 @@
-function setUpAudioGraph(context){
-    aGraph = {}
+aGraph = {}
+
+aGraph.setUpAudioGraph = function(context){
     aGraph.drums = {kickBufferSpeed : 1.0,
                     snareBufferSpeed : 1.0,
                     hihatBufferSpeed : 1.0,
@@ -7,7 +8,7 @@ function setUpAudioGraph(context){
     // Create Main Volume Node
     aGraph.gainNodeAll = context.createGainNode();
     aGraph.gainNodeAll.gain.value = 0.2;
-    setUpDrumGraph();
+    aGraph.setUpDrumGraph();
     // connect global gain to destination
     aGraph.gainNodeAll.connect(context.destination); // Connect gain node to speakers
     aGraph.sources = [[aGraph.source1l, aGraph.source1r],
