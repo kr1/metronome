@@ -12,7 +12,7 @@ function drawRhythm(){
     $.each(state.meter, function(idx, weight){
         var eles = getOrCreate(idx, weight)
         eles.text(idx).css({"left": idx * viewPort.slotWidth,
-                                 "top": viewPort.fullHeight - (weight * 20 * viewPort.heightMult),
+                                 "top": viewPort.fullHeight - (rhythm.weightToPosition[weight] * 20 * viewPort.heightMult),
                                  "width": viewPort.slotWidth,
                                 });
 })
@@ -26,7 +26,6 @@ function getOrCreate(idx, weight){
             var ele = $('#rhythmViewPort').append("<span id=" + id + "></span>");
             var eles = $('#' + id);
             eles.addClass(rhythm.weightNames[weight])
-            //eles.css({"background-Color": document.colors[weight], "position":"absolute"})
             eles.css({"position":"absolute"})
         }
     eles.addClass("meterItem");

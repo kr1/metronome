@@ -1,4 +1,21 @@
-rhythm = {weightNames:{1:"heavy", 2:"light", 3:"fill"}}
+rhythm = {}
+rhythm.weightNames = {"_": "heavy",
+                      "-":"light",
+                      "*":"fill"}
+rhythm.weightToBuffer = {"_": "kickBuffer",
+                         "-": "snareBuffer",
+                         "*": "hihatBuffer"}
+rhythm.weightToPosition = {
+                          "_": 1,
+                          "-": 2,
+                          "*": 3
+                        }
+rhythm.colors = {"_": "#FF4477",
+                 "-": "#44DDAA",
+                 "*": "#9944FF",
+                 "°": "#FEED33",
+}
+
 function playMetro(){
     window.setTimeout(function(){
         if (!state.pauseD) {
@@ -14,5 +31,5 @@ function playMetro(){
 
 
 function playBeat(weight){
-    playAudioFile(weightToBuffer[weight])
+    playAudioFile(rhythm.weightToBuffer[weight])
 }

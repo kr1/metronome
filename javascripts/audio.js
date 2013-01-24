@@ -2,9 +2,6 @@ var context = new webkitAudioContext(),
         buffer;
 setUpAudioGraph(context)
 
-weightToBuffer = {1: "kickBuffer",
-                  2: "snareBuffer",
-                  3: "hihatBuffer"}
 // make wavetables
 gainNodes = [[aGraph.gainNode1l, aGraph.gainNode1r], [aGraph.gainNode2l, aGraph.gainNode2r], [aGraph.gainNode3l, aGraph.gainNode3r], [aGraph.gainNode4l, aGraph.gainNode4r]]
 

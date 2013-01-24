@@ -1,7 +1,8 @@
-meter = [1,3,2,3,2,3,3,1,3,2,3]
-speed = {bpm: 120,
-         unitLengthInMsecs: 250, // NB: we tick at half beats
-        }
+var meterStr = "_**-**_*-*"
+var meter =  meterStr.split("")
+var speed = {bpm: 120,
+             unitLengthInMsecs: 250, // NB: we tick at half beats
+            }
 
 state = {
     position:0,
@@ -20,14 +21,5 @@ speed.newSpeedMsec = function(msec){
     this.unitLengthInMsecs
 }
 
-document.colors = ["#FF4477",
-                   "#44DDAA",
-                   "#9944FF",
-                   "#FEED33"
-                  ]
-document.meterColors = ["#BBBBBB",
-                        "#999999",
-                        "#777777"
-                   ]
 
 
