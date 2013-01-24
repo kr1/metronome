@@ -19,15 +19,45 @@
     <body id="body">
         <h2>Metronome</h2>
         <button id="playButton">Play/Pause</button>
-        <input id="speedSlider" min="5" max="666" step="0.1" value="120" type="range"/>
-        <span id="speedMonitor" class="Monitor">120</span>
-        <span id="speedMonitorUnit" class="Monitor">BPM</span>
-        <input type="range" name="kickVol" class="volVertical" rel="kick" min="0" max="1.2" step="0.01" value="1">
-        <span id="kickVolMonitor" class="Monitor"></span>
-        <input type="range" name="snareVol" class="volVertical" rel="snare"  min="0" max="1.2" step="0.01" value="1">
-        <span id="snareVolMonitor" class="Monitor"></span>
-        <input type="range" name="hihatVol" class="volVertical" rel="hihat"  min="0" max="1.2" step="0.01" value="1">
-        <span id="hihatVolMonitor" class="Monitor"></span>
+        <button id="unhideControlsButton">controls</button>
+        <div id="controlsContainer" class="hidden">
+            <div id="controls">
+                <table class="broad">
+                    <tr>
+                        <td>
+                            <input id="speedSlider" min="5" max="333" step="0.1" value="120" type="range"/>
+                        </td>
+                        <td>
+                            <span id="speedMonitor" class="Monitor">120.0</span>
+                        </td>
+                        <td>
+                            <span id="speedMonitorUnit" class="Monitor">BPM</span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="broad">
+                    <tr>
+                        <td>
+                            <input type="range" name="kickVol" class="volVertical" rel="kick" min="0" max="1.2" step="0.01" value="1"><br/>
+                            <span id="kickVolMonitor" class="Monitor">1.0</span>
+                        </td>
+                        <td>
+                            <input type="range" name="snareVol" class="volVertical" rel="snare"  min="0" max="1.2" step="0.01" value="1"><br/>
+                            <span id="snareVolMonitor" class="Monitor">1.0</span>
+                        </td>
+                        <td>
+                            <input type="range" name="hihatVol" class="volVertical" rel="hihat"  min="0" max="1.2" step="0.01" value="1"><br/>
+                            <span id="hihatVolMonitor" class="Monitor">1.0</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button id="hideControls">hide controls</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
         <div id="rhythmViewPort" style="position:relative">
             <span id="meter" style="background-color:#888888;position:absolute;"></span>
             <span id="one" style="background-color:#BB9999;position:absolute;"></span>
