@@ -9,11 +9,11 @@ li{
  }
 .hidden{display:none;}
 .broad{width:100%}
-#controlsContainer{
+.modalPanelContainer{
     position: relative;
     z-index:2;
 }
-#controls{
+.modalPanel{
     position:absolute;
     background-Color: #CCCFCC;
     width:99%;}

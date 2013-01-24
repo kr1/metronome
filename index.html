@@ -20,18 +20,31 @@
         <h2>Metronome</h2>
         <ul>
             <li>
-            <button id="playButton">Play/Pause</button>
+                <button id="playButton">Play/Pause</button>
             </li>
             <li>
-            <button id="unhideControlsButton">controls</button>
+                <button id="unhideControlsButton">controls</button>
             </li>
             <li>
-            <span id="speedMonitor" class="Monitor">120.0</span>
-            <span id="speedMonitorUnit" class="Monitor">BPM</span>
+                <span id="speedMonitor" class="Monitor">120.0</span>
+                <span id="speedMonitorUnit" class="Monitor">BPM</span>
+            </li>
             <li>
+                <button id="unhideNewRhythmButton">New Rhythm</button>
+            </li>
         </ul>
-        <div id="controlsContainer" class="hidden">
-            <div id="controls">
+        <div id="newRhythmContainer" class="hidden modalPanelContainer">
+            <div id="neeRhythm" class="modalPanel">
+            <input id="newRhythmLengthSlider" min="2" max="27" step="1" value="4" type="range"/>
+            <span id="newRhythmLengthMonitor" class="Monitor">4</span>
+            <button id="hideNewRhythmButton">hide rhythm editor</button>
+            <div id="rhythmEditor">
+
+            </div>
+            </div>
+        </div>
+        <div id="controlsContainer" class="hidden modalPanelContainer">
+            <div id="controls" class="modalPanel">
                 <table class="broad">
                     <tr>
                         <td>

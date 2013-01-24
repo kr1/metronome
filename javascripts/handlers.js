@@ -48,6 +48,10 @@ $(document).ready(function() {
         state.speed.newSpeedBpm(newSpeed)
         $("#speedMonitor").text(newSpeed)
     })
+    $('#newRhythmLengthSlider').bind("change",function(e){
+        var newRhythmLength =$(this).val()
+        $("#newRhythmLengthMonitor").text(newRhythmLength)
+    })
     $('.volVertical').bind("change", function(e){
         var val =$(this).val()
         var which = $(this).attr('rel')
