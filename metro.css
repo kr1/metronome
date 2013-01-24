@@ -1,12 +1,22 @@
-body{background-Color:#DDEEDD}
+body{
+    background-Color:#DDEEDD}
+ul {
+    list-style: none;}
+li{
+    display: inline-block;
+    width:10%;
+    padding: 0.1em 1em 0.1em 0.1em;
+ }
 .hidden{display:none;}
 .broad{width:100%}
-#controlsContainer{position: relative;
+#controlsContainer{
+    position: relative;
     z-index:2;
-              }
-#controls{position:absolute;
-          background-Color: #CCCFCC;
-          width:99%;}
+}
+#controls{
+    position:absolute;
+    background-Color: #CCCFCC;
+    width:99%;}
 #speedSlider{width:70%;}
 #speedMonitor{width:15%;}
 #speedMonitorUnit{width:15%;}
