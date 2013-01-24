@@ -18,6 +18,12 @@ $(document).ready(function() {
         }
     });
 
+    $('#unhideControlsButton').bind("click",function(e){
+        $("#controlsContainer").show();
+    })
+    $('#hideControls').bind("click",function(e){
+        $("#controlsContainer").hide();
+    })
     $('#playButton').bind("click",
         function(e){
             state.pauseD = !state.pauseD
