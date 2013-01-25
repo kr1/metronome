@@ -62,10 +62,14 @@ rhythm.analyzedMeter = rhythm.analyzeMeter();
 rhythm.playMetro = function(){
     window.setTimeout(function(){
         if (!state.pauseD) {
-            aGraph.playBeat(rhythm.meter[state.position]);
-            viewPort.drawRhythm();
-            $('.meterItem').removeClass('highlight')
-            $('#meterItem_' + state.position).addClass('highlight')
+            if (!state.audioPauseD){
+                aGraph.playBeat(rhythm.meter[state.position]);
+            } 
+            if (!state.visualPauseD){
+                viewPort.drawRhythm();
+                $('.meterItem').removeClass('highlight')
+                $('#meterItem_' + state.position).addClass('highlight')
+            }
             state.position = (state.position + 1) % rhythm.meter.length
             rhythm.playMetro();
         }

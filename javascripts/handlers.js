@@ -1,7 +1,13 @@
 $(document).ready(function() {
     $('body').bind("keydown", function(e){
-        //console.log(e.which)
+        //console.log(e.which);
         switch (e.which){
+            case 86: //v
+                $('#visualOnOff').click();
+                break;
+            case 65: //a
+                $('#audioOnOff').click();
+                break;
             case 32:
                 $('#playButton').click()
                 break;
@@ -74,4 +80,20 @@ $(document).ready(function() {
         aGraph[gainNodeName].gain.value = val
         $("#"+ which + "VolMonitor").text(val)
     })
+
+    $('.onOffPic').bind("click",function(e){
+         var data = $(this).data();
+         var turningOff = data['onsrc'] == $(this).attr('src');
+         if (turningOff) {
+            $(this).attr('src', data['offsrc'])
+            state[data['name'] + "PauseD"] = true;
+         } else {
+            $(this).attr('src', data['onsrc'])
+            state[data['name'] + "PauseD"] = false;
+         }
+         if (data['name'] == 'visual'){
+            $('#rhythmViewPort').css('display', turningOff ? 'none' : 'block')
+         }
+    })
+
 });

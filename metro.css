@@ -4,9 +4,10 @@ ul {
     list-style: none;}
 li{
     display: inline-block;
-    width:15%;
+    width:10%;
     padding: 0.1em 1em 0.1em 0.1em;
  }
+li.broad{width:20%}
 .hidden{display:none;}
 .broad{width:100%}
 .modalPanelContainer{
@@ -42,3 +43,4 @@ li{
     padding: 2;
     height: 23px;
 }
+.onOffPic {height:35px}
