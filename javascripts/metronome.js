@@ -56,7 +56,7 @@ rhythm.analyzeMeter = function(){
         }
         counter++
     });
-    console.log(rhythm.analyzedMeter)
+    //console.log(rhythm.analyzedMeter)
 }
 rhythm.analyzedMeter = rhythm.analyzeMeter();
 rhythm.playMetro = function(){

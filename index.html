@@ -21,29 +21,29 @@
         <h2>Metronome</h2>
         <ul>
             <li>
-                <button id="playButton">Play/Pause</button>
+                <button id="playButton" title="keyboard: [space]">Play/Pause</button>
             </li>
             <li>
-                 <img id="audioOnOff" class="onOffPic"
+                 <img id="audioOnOff" class="onOffPic" title="keyboard: a"
                      data-onSrc="pics/ear_strong_green.png"
                      data-offSrc="pics/ear_strong_grey.png"
                      data-name="audio"
                      src="pics/ear_strong_green.png"/>
-                 <img id="visualOnOff" class="onOffPic" 
+                 <img id="visualOnOff" class="onOffPic" title="keyboard: v"
                      data-onSrc="pics/auge_green.png"
                      data-offSrc="pics/auge_grey.png"
                      data-name="visual"
                      src="pics/auge_green.png"/>
             </li>
             <li>
-                <button id="unhideControlsButton">Show Controls</button>
-            </li>
-            <li>
-                <span id="speedMonitor" class="Monitor">120.0</span>
+                <span id="speedMonitor" class="Monitor" title="keyboard: left/right arrow">120.0</span>
                 <span id="speedMonitorUnit" class="Monitor">BPM</span>
             </li>
             <li>
-                <span id="analyzedRhythmMonitor" class="Monitor"></span>
+                <span id="analyzedRhythmMonitor" class="Monitor broad"></span>
+            </li>
+            <li>
+                <button id="unhideControlsButton">Show Controls</button>
             </li>
             <li>
                 <button id="unhideNewRhythmButton">Modify Rhythm</button>
@@ -65,7 +65,7 @@
                 <table class="broad">
                     <tr>
                         <td>
-                            <input id="speedSlider" min="5" max="333" step="0.1" value="120" type="range"/>
+                            <input id="speedSlider" min="5" max="333" step="0.1" value="120" type="range" title="keyboard: left/right arrow"/>
                         </td>
                         <td>
                             <span id="speedMonitor" class="Monitor">120.0</span>

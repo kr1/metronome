@@ -15,7 +15,7 @@ rhythmEditor.takeMetroMeter = function(len){
         var diff = len - rhythm.meter.length
         this.meter = rhythm.meter.concat(rhythmEditor.defaultRhythm.slice(0,diff))
     }
-    console.log(len, this.meter)
+    //console.log(len, this.meter)
 }
 rhythmEditor.drawRhythm = function(){
     $('.rhythmEditorItem').hide();
