@@ -13,6 +13,7 @@
         <script type="text/javascript" src="/javascripts/drums.js"></script>
         <script type="text/javascript" src="/javascripts/metronome.js"></script>
         <script type="text/javascript" src="/javascripts/audio.js"></script>
+        <script type="text/javascript" src="/javascripts/rhythmEditor.js"></script>
         <link rel="shortcut icon" href="/favicon.ico">
         <link rel="stylesheet" href="/metro.css" type="text/css">
     </head>
@@ -23,24 +24,28 @@
                 <button id="playButton">Play/Pause</button>
             </li>
             <li>
-                <button id="unhideControlsButton">controls</button>
+                <button id="unhideControlsButton">Show Controls</button>
             </li>
             <li>
                 <span id="speedMonitor" class="Monitor">120.0</span>
                 <span id="speedMonitorUnit" class="Monitor">BPM</span>
             </li>
             <li>
-                <button id="unhideNewRhythmButton">New Rhythm</button>
+                <span id="analyzedRhythmMonitor" class="Monitor"></span>
+            </li>
+            <li>
+                <button id="unhideNewRhythmButton">Modify Rhythm</button>
             </li>
         </ul>
         <div id="newRhythmContainer" class="hidden modalPanelContainer">
-            <div id="neeRhythm" class="modalPanel">
-            <input id="newRhythmLengthSlider" min="2" max="27" step="1" value="4" type="range"/>
-            <span id="newRhythmLengthMonitor" class="Monitor">4</span>
-            <button id="hideNewRhythmButton">hide rhythm editor</button>
-            <div id="rhythmEditor">
-
-            </div>
+            <div id="newRhythm" class="modalPanel">
+                <input id="newRhythmLengthSlider" min="2" max="27" step="1" value="4" type="range"/>
+                <span id="newRhythmLengthMonitor" class="Monitor">4</span>
+                <button id="saveNewRhythmButton">Save New Rhythm</button>
+                <button id="hideNewRhythmButton">hide rhythm editor</button>
+                <div id="rhythmEditor">
+                    <!-- filled by JavaScript -->
+                </div>
             </div>
         </div>
         <div id="controlsContainer" class="hidden modalPanelContainer">

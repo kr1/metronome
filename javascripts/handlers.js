@@ -28,6 +28,8 @@ $(document).ready(function() {
     $('#unhideNewRhythmButton').bind("click",function(e){
         $('.modalPanelContainer').hide();
         $("#newRhythmContainer").show();
+        rhythmEditor.takeMetroMeter();
+        rhythmEditor.drawRhythm();
     })
     $('#hideNewRhythmButton').bind("click",function(e){
         $("#newRhythmContainer").hide();
@@ -43,15 +45,28 @@ $(document).ready(function() {
             $(this).text(state.pauseD ? "Play" : "Pause")
         }
     );
+
     $('#speedSlider').bind("change",function(e){
         var newSpeed =$(this).val()
         state.speed.newSpeedBpm(newSpeed)
         $("#speedMonitor").text(newSpeed)
-    })
+    });
+
     $('#newRhythmLengthSlider').bind("change",function(e){
-        var newRhythmLength =$(this).val()
+        var newRhythmLength = Number($(this).val());
+        rhythmEditor.takeMetroMeter(newRhythmLength);
+        rhythmEditor.drawRhythm();
         $("#newRhythmLengthMonitor").text(newRhythmLength)
     })
+
+    $('#saveNewRhythmButton').bind("click",function(e){
+        rhythm.meter = rhythmEditor.meter
+        $('#hideNewRhythmButton').click()
+        rhythm.analyzeMeter();
+        rhythmEditor.visualizeAnalyzedRhythm();
+        viewPort.drawRhythm();
+    });
+
     $('.volVertical').bind("change", function(e){
         var val =$(this).val()
         var which = $(this).attr('rel')

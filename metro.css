@@ -4,7 +4,7 @@ ul {
     list-style: none;}
 li{
     display: inline-block;
-    width:10%;
+    width:15%;
     padding: 0.1em 1em 0.1em 0.1em;
  }
 .hidden{display:none;}
@@ -14,7 +14,7 @@ li{
     z-index:2;
 }
 .modalPanel{
-    position:absolute;
+    position:relative;
     background-Color: #CCCFCC;
     width:99%;}
 #speedSlider{width:70%;}
@@ -23,11 +23,22 @@ li{
 .volVertical {width: 20px;
               height: 120px;
               -webkit-appearance: slider-vertical;}
-#rhythmViewPort {margin-left: auto;
+#rhythmViewPort #rhythmEditor {
+                 margin-left: auto;
                  margin-right: auto;
                  width: 80%;
-                text-align:center}
-.meterItem.light{background-Color:#FF4477;}
-.meterItem.heavy{background-Color:#44DDAA;}
-.meterItem.fill{background-Color:#9944FF;}
+                 text-align:center}
+.meterItem.light, .rhythmEditorItem.light {background-Color:#FF4477;}
+.meterItem.heavy, .rhythmEditorItem.heavy {background-Color:#44DDAA;}
+.meterItem.fill, .rhythmEditorItem.fill {background-Color:#9944FF;}
 .meterItem.highlight {background-Color: #002200;}
+#newRhythm {
+    height:50%;
+}
+#rhythmEditor {
+    position:relative;
+}
+.rhythmGrouping {
+    padding: 2;
+    height: 23px;
+}

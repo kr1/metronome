@@ -11,6 +11,8 @@ viewPort.drawRhythm = function(){
     }
     $.each(rhythm.meter, function(idx, weight){
         var eles = viewPort.getOrCreate(idx, weight)
+        $.each(rhythm.weightNames, function(idx, weight){eles.removeClass(weight)});
+        eles.addClass(rhythm.weightNames[weight])
         eles.text(idx).css({"left": idx * viewPort.slotWidth,
                                  "top": viewPort.fullHeight - (rhythm.weightToPosition[weight] * 20 * viewPort.heightMult),
                                  "width": viewPort.slotWidth,
@@ -25,7 +27,6 @@ viewPort.getOrCreate = function(idx, weight){
         if (eles.length == 0){
             var ele = $('#rhythmViewPort').append("<span id=" + id + "></span>");
             var eles = $('#' + id);
-            eles.addClass(rhythm.weightNames[weight])
             eles.css({"position":"absolute"})
         }
     eles.addClass("meterItem");
