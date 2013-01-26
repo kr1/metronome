@@ -22,7 +22,7 @@ aGraph.playAudioFile = function (bufferName, rate) {
 aGraph.loadAudioFile = (function (which, bufferName) {
     var request = new XMLHttpRequest();
     //buffer = eval(buffername)
-    request.open('get', 'sounds/' + which, true);
+    request.open('get', '/sounds/' + which, true);
     request.responseType = 'arraybuffer';
 
     request.onload = function () {
