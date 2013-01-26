@@ -60,13 +60,12 @@ rhythm.analyzeMeter = function(){
     //console.log(rhythm.analyzedMeter)
 }
 
-
 rhythm.rhythmGroupingPics ={
-      1: "pics/achtel.png",
-      2: "pics/zweierGruppe.png",
-      3: "pics/dreierGruppe.png",
-      4: "pics/viererGruppe.png",
-      5: "pics/fuenferGruppe.png",
+      1: "/pics/achtel.png",
+      2: "/pics/zweierGruppe.png",
+      3: "/pics/dreierGruppe.png",
+      4: "/pics/viererGruppe.png",
+      5: "/pics/fuenferGruppe.png",
 }
 
 rhythm.visualizeAnalyzedRhythm = function(){
@@ -78,7 +77,6 @@ rhythm.visualizeAnalyzedRhythm = function(){
         $('#analyzedRhythmMonitor').append(img);
     });
 }
-
 
 rhythm.playMetro = function(){
     window.setTimeout(function(){
