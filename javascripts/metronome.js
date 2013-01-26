@@ -24,6 +24,7 @@ rhythm.colors = {"_": "#FF4477",
 // i.e. 2,2,2,2 for _*-*_*-* or
 // 3,2,2 for _**-*-*
 rhythm.analyzeMeter = function(){
+    //console.log(rhythm.meter)
     rhythm.analyzedMeter = [];
     counter = 0;
     $.each(rhythm.meter, function(idx, sym){
@@ -58,7 +59,27 @@ rhythm.analyzeMeter = function(){
     });
     //console.log(rhythm.analyzedMeter)
 }
-rhythm.analyzedMeter = rhythm.analyzeMeter();
+
+
+rhythm.rhythmGroupingPics ={
+      1: "pics/achtel.png",
+      2: "pics/zweierGruppe.png",
+      3: "pics/dreierGruppe.png",
+      4: "pics/viererGruppe.png",
+      5: "pics/fuenferGruppe.png",
+}
+
+rhythm.visualizeAnalyzedRhythm = function(){
+    $('#analyzedRhythmMonitor').html("");
+    $.each(rhythm.analyzedMeter, function(idx, group){
+        var img = $("<img>");
+        img.addClass('rhythmGrouping');
+        img.attr('src', rhythm.rhythmGroupingPics[group])
+        $('#analyzedRhythmMonitor').append(img);
+    });
+}
+
+
 rhythm.playMetro = function(){
     window.setTimeout(function(){
         if (!state.pauseD) {
@@ -75,5 +96,3 @@ rhythm.playMetro = function(){
         }
     }, state.speed.unitLengthInMsecs)
 }
-
-

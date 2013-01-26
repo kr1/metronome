@@ -18,3 +18,7 @@ state = {
     speed: speed
 }
 
+$(document).ready(function(){
+    rhythm.analyzeMeter();
+    rhythm.visualizeAnalyzedRhythm()
+})

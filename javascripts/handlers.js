@@ -69,7 +69,7 @@ $(document).ready(function() {
         rhythm.meter = rhythmEditor.meter
         $('#hideNewRhythmButton').click()
         rhythm.analyzeMeter();
-        rhythmEditor.visualizeAnalyzedRhythm();
+        rhythm.visualizeAnalyzedRhythm();
         viewPort.drawRhythm();
     });
 

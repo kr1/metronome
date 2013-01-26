@@ -17,6 +17,7 @@ rhythmEditor.takeMetroMeter = function(len){
     }
     //console.log(len, this.meter)
 }
+
 rhythmEditor.drawRhythm = function(){
     $('.rhythmEditorItem').hide();
     $.each(this.meter, function(idx, weight){
@@ -48,27 +49,11 @@ $('.rhythmEditorItem').live("click", function(){
     rhythmEditor.meter[pos] = nextSym;
     rhythmEditor.drawRhythm();
 })
-rhythmEditor.rhythmGroupingPics ={
-      1: "pics/achtel.png",
-      2: "pics/zweierGruppe.png",
-      3: "pics/dreierGruppe.png",
-      4: "pics/viererGruppe.png",
-      5: "pics/fuenferGruppe.png",
-}
 
-rhythmEditor.visualizeAnalyzedRhythm = function(){
-    $('#analyzedRhythmMonitor').html("");
-    $.each(rhythm.analyzedMeter, function(idx, group){
-        var img = $("<img>");
-        img.addClass('rhythmGrouping');
-        img.attr('src', rhythmEditor.rhythmGroupingPics[group])
-        $('#analyzedRhythmMonitor').append(img);
-    });
-}
 
 rhythmEditor.nextWeightSymbol = function(sym){
     var syms = rhythmEditor.weightSymbols;
     var pos = syms.indexOf(sym);
     return syms[(pos + 1) % syms.length];
 }
-        $('#analyzedRhythmMonitor').text(rhythm.analyzedMeter)
+
