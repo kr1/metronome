@@ -1,5 +1,7 @@
 body{
-    background-Color:#DDEEDD}
+    background-Color:#DDEEDD;
+    font-family:sans-serif;
+}
 ul {
     list-style: none;}
 li{

@@ -6,7 +6,6 @@
         <meta name="author" content="christian wörner, ernst modersohn" />
         <script type="text/javascript" src="/javascripts/jquery-1.7.2.min.js"></script>
         <script type="text/javascript" src="/javascripts/handlers.js"></script>
-        <script type="text/javascript" src="/javascripts/wavetables.js"></script>
         <script type="text/javascript" src="/javascripts/rhythmViewPort.js"></script>
         <script type="text/javascript" src="/javascripts/audio_graph.js"></script>
         <script type="text/javascript" src="/javascripts/drums.js"></script>
@@ -77,15 +76,23 @@
                 </table>
                 <table class="broad">
                     <tr>
+                        <th>
+                            Volume
+                        </th>
+                    </tr>
+                    <tr>
                         <td>
+                            Kick</br>
                             <input type="range" name="kickVol" class="volVertical" rel="kick" min="0" max="1.2" step="0.01" value="1"><br/>
                             <span id="kickVolMonitor" class="Monitor">1.0</span>
                         </td>
                         <td>
+                            Snare</br>
                             <input type="range" name="snareVol" class="volVertical" rel="snare"  min="0" max="1.2" step="0.01" value="1"><br/>
                             <span id="snareVolMonitor" class="Monitor">1.0</span>
                         </td>
                         <td>
+                            Hihat</br>
                             <input type="range" name="hihatVol" class="volVertical" rel="hihat"  min="0" max="1.2" step="0.01" value="1"><br/>
                             <span id="hihatVolMonitor" class="Monitor">1.0</span>
                         </td>
