@@ -95,5 +95,4 @@ $(document).ready(function() {
             $('#rhythmViewPort').css('display', turningOff ? 'none' : 'block')
          }
     })
-
 });
