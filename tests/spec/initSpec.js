@@ -1,3 +1,11 @@
+describe("initial state", function(){
+    it("should be set up correctly", function(){
+        expect(state.pauseD).toBe(true) // user starts manually
+        expect(state.speed.bpm).toBe(120)
+        expect(state.displayRhythM).toBe(true)
+    });
+});
+
 describe("speed", function(){
     it("should set unit speed correctly", function(){
         speed.newSpeedBpm(120);
@@ -10,5 +18,5 @@ describe("speed", function(){
         expect(speed.bpm).toEqual(240)
         speed.newSpeedMsec(1000);
         expect(speed.bpm).toEqual(30)
-    })
-})
+    });
+});
