@@ -29,35 +29,40 @@ rhythm.analyzeMeter = function(){
     counter = 0;
     $.each(rhythm.meter, function(idx, sym){
         var weight = rhythm.weightNames[sym];
-        var last = idx == rhythm.meter.length - 1
+        var last = idx == rhythm.meter.length - 1;
         if (counter != 0 &&
            (weight == "heavy" || weight == "light" ||
             last)) {
             if (last){
-               counter += 1
+                if (weight == "heavy"){
+                    rhythm._addCounterToAnalysedRhythm(counter);
+                    counter = 1;
+                } else {
+                   counter += 1;
+                }
             }
-            if (counter <= 5){
-                rhythm.analyzedMeter = rhythm.analyzedMeter.concat(counter)
-            } else if (counter == 6) {
-                rhythm.analyzedMeter = rhythm.analyzedMeter.concat([3,3])
-            } else if (counter == 7) {
-                rhythm.analyzedMeter = rhythm.analyzedMeter.concat([3,4])
-            } else if (counter == 8) {
-                rhythm.analyzedMeter = rhythm.analyzedMeter.concat([4,4,])
-            } else if (counter == 9) {
-                rhythm.analyzedMeter = rhythm.analyzedMeter.concat([3,3,3])
-            } else if (counter == 10) {
-                rhythm.analyzedMeter = rhythm.analyzedMeter.concat([4,4,2])
-            } else if (counter == 11) {
-                rhythm.analyzedMeter = rhythm.analyzedMeter.concat([3,3,3,2])
-            } else if (counter == 12) {
-                rhythm.analyzedMeter = rhythm.analyzedMeter.concat([4,4,4])
-            }
+            rhythm._addCounterToAnalysedRhythm(counter);
             counter = 0;
         }
         counter++
     });
     //console.log(rhythm.analyzedMeter)
+}
+
+rhythm._addCounterToAnalysedRhythm = function(counter){
+    var splitGroupings = {
+        6: [3,3],
+        7: [3,4],
+        8: [4,4,],
+        9: [3,3,3],
+        10: [4,4,2],
+        11: [3,3,3,2],
+    }
+    if (counter <= 5){
+        rhythm.analyzedMeter = rhythm.analyzedMeter.concat(counter)
+    } else {
+        rhythm.analyzedMeter = rhythm.analyzedMeter.concat(splitGroupings[counter])
+    }
 }
 
 rhythm.rhythmGroupingPics ={
@@ -83,7 +88,7 @@ rhythm.playMetro = function(){
         if (!state.pauseD) {
             if (!state.audioPauseD){
                 aGraph.playBeat(rhythm.meter[state.position]);
-            } 
+            }
             if (!state.visualPauseD){
                 viewPort.drawRhythm();
                 $('.meterItem').removeClass('highlight')
