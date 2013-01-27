@@ -10,6 +10,21 @@ describe("the metronome-object", function() {
         rhythm.analyzeMeter();
         expect(rhythm.analyzedMeter).toEqual([2,2,3]);
       });
+      it("should recognize a 1-2-2-2 from *_*-*_*", function() {
+        rhythm.meter = "*_*-*_*".split("");
+        rhythm.analyzeMeter();
+        expect(rhythm.analyzedMeter).toEqual([1,2,2,2]);
+      });
+      it("should recognize a 1-2-2-2 from _-*_*_*", function() {
+        rhythm.meter = "_-*_*_*".split("");
+        rhythm.analyzeMeter();
+        expect(rhythm.analyzedMeter).toEqual([1,2,2,2]);
+      });
+      it("should recognize a 2-2-2-1", function() {
+        rhythm.meter = "_*-*_*_".split("");
+        rhythm.analyzeMeter();
+        expect(rhythm.analyzedMeter).toEqual([2,2,2,1]);
+      });
       it("should split up a lengthy meter (6-group in two 3-groups)", function() {
         rhythm.meter = "_*****".split("");
         rhythm.analyzeMeter();
