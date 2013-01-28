@@ -32,3 +32,15 @@ viewPort.getOrCreate = function(idx, weight){
     eles.addClass("meterItem");
     return eles
 }
+
+viewPort.drawFullscreenAtPos = function(pos){
+    viewPort.resetFullscreen();
+    var body = $('body');
+    var klass = rhythm.weightNames[rhythm.meter[pos]];
+    body.addClass(klass);
+}
+
+viewPort.resetFullscreen = function(){
+    var body = $('body');
+    $.each(rhythm.weightNames, function(idx, weight){body.removeClass(weight)});
+}

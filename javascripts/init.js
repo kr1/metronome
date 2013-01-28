@@ -17,6 +17,9 @@ state = {
     position:0,
     displayRhythM: true,
     pauseD: true,
+    visualFullscreenPauseD: true,
+    audioPauseD: false,
+    visualPauseD: false,
     speed: speed
 }
 

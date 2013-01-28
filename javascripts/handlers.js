@@ -8,6 +8,9 @@ $(document).ready(function() {
             case 65: //a
                 $('#audioOnOff').click();
                 break;
+            case 70: //f
+                $('#visualFullscreenOnOff').click();
+                break;
             case 32:
                 $('#playButton').click()
                 break;
@@ -44,6 +47,7 @@ $(document).ready(function() {
         function(e){
             state.pauseD = !state.pauseD
             if (state.pauseD) {
+                viewPort.resetFullscreen();
                 //stopNotes(1000)
             } else {
                 rhythm.playMetro();

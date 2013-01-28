@@ -20,6 +20,28 @@ rhythm.colors = {"_": "#FF4477",
                  "°": "#FEED33",
 }
 
+// main visualizing function, all top-level checks should happen here
+rhythm.playMetro = function(){
+    window.setTimeout(function(){
+        if (!state.pauseD) {
+            if (!state.audioPauseD){
+                aGraph.playBeat(rhythm.meter[state.position]);
+            }
+            if (!state.visualPauseD){
+                viewPort.drawRhythm();
+                if (!state.visualFullscreenPauseD){
+                    viewPort.drawFullscreenAtPos(state.position)
+                } else {
+                    viewPort.resetFullscreen();
+                }
+                $('.meterItem').removeClass('highlight')
+                $('#meterItem_' + state.position).addClass('highlight')
+            }
+            state.position = (state.position + 1) % rhythm.meter.length
+            rhythm.playMetro();
+        }
+    }, state.speed.unitLengthInMsecs)
+}
 // analyzeMeter should output rhythm groupings:
 // i.e. 2,2,2,2 for _*-*_*-* or
 // 3,2,2 for _**-*-*
@@ -83,19 +105,3 @@ rhythm.visualizeAnalyzedRhythm = function(){
     });
 }
 
-rhythm.playMetro = function(){
-    window.setTimeout(function(){
-        if (!state.pauseD) {
-            if (!state.audioPauseD){
-                aGraph.playBeat(rhythm.meter[state.position]);
-            }
-            if (!state.visualPauseD){
-                viewPort.drawRhythm();
-                $('.meterItem').removeClass('highlight')
-                $('#meterItem_' + state.position).addClass('highlight')
-            }
-            state.position = (state.position + 1) % rhythm.meter.length
-            rhythm.playMetro();
-        }
-    }, state.speed.unitLengthInMsecs)
-}

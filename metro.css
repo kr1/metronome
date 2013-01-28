@@ -31,10 +31,19 @@ li.broad{width:20%}
                  margin-right: auto;
                  width: 80%;
                  text-align:center}
-.meterItem.light, .rhythmEditorItem.light {background-Color:#FF4477;}
-.meterItem.heavy, .rhythmEditorItem.heavy {background-Color:#44DDAA;}
-.meterItem.fill, .rhythmEditorItem.fill {background-Color:#9944FF;}
-.meterItem.highlight {background-Color: #002200;}
+.light, .rhythmEditorItem.light {
+    background-Color:#FF4477;
+}
+.heavy, .rhythmEditorItem.heavy {
+    background-Color:#44DDAA;
+}
+.fill, .rhythmEditorItem.fill {
+    background-Color:#9944FF;
+}
+.highlight {
+    background-Color: #002200;
+    opacity: 0.6;
+}
 #newRhythm {
     height:50%;
 }
