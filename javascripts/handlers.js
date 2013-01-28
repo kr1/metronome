@@ -88,7 +88,7 @@ $(document).ready(function() {
         $("#"+ which + "VolMonitor").text(val)
     })
 
-    $('.onOffPic').bind("click",function(e){
+    $('.onOffPic').live("click",function(e){
          var data = $(this).data();
          var turningOff = data['onsrc'] == $(this).attr('src');
          if (turningOff) {
