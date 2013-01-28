@@ -11,6 +11,9 @@ $(document).ready(function() {
             case 70: //f
                 $('#visualFullscreenOnOff').click();
                 break;
+            case 83: //s
+                $('#visualSequenceOnOff').click();
+                break;
             case 32:
                 $('#playButton').click()
                 break;
@@ -96,7 +99,8 @@ $(document).ready(function() {
             state[data['name'] + "PauseD"] = false;
          }
          if (data['name'] == 'visual'){
-            $('#rhythmViewPort').css('display', turningOff ? 'none' : 'block')
+            $('#rhythmViewPort').css('display', turningOff ? 'none' : 'block');
+            viewPort.resetFullscreen();
          }
     })
 });

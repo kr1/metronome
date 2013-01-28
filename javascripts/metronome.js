@@ -28,14 +28,16 @@ rhythm.playMetro = function(){
                 aGraph.playBeat(rhythm.meter[state.position]);
             }
             if (!state.visualPauseD){
-                viewPort.drawRhythm();
+                if (!state.visualSequencePauseD){
+                    viewPort.drawRhythm();
+                    $('.meterItem').removeClass('highlight')
+                    $('#meterItem_' + state.position).addClass('highlight')
+                }
                 if (!state.visualFullscreenPauseD){
                     viewPort.drawFullscreenAtPos(state.position)
                 } else {
                     viewPort.resetFullscreen();
                 }
-                $('.meterItem').removeClass('highlight')
-                $('#meterItem_' + state.position).addClass('highlight')
             }
             state.position = (state.position + 1) % rhythm.meter.length
             rhythm.playMetro();
