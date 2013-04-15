@@ -1,20 +1,44 @@
-body{
+/*body{
     background-Color:#DDEEDD;
     font-family:sans-serif;
 }
 ul {
-    list-style: none;}
+    list-style: none;}*/
+.nav{
+  width:85%;
+}
+.navbar-inner, #main_nav {
+  background-color: #f3f3f3; /* background color will be black for all browsers */
+  background-image: none;
+  background-repeat: no-repeat;
+  filter: none;
+}
+button{
+  font-size:12;
+  font-weight:bold;
+}
 li{
     display: inline-block;
     width:10%;
-    padding: 0.1em 1em 0.1em 0.1em;
+    padding: 3 3 0 6;
  }
-li.broad{width:20%}
-.hidden{display:none;}
-.broad{width:100%}
-.modalPanelContainer{
-    position: relative;
-    z-index:2;
+
+.hero-unit{
+  height:50%;
+}
+li.broad{
+  width:22%
+}
+.hidden{
+  display:none;
+}
+.broad{
+  width:100%
+}
+
+#controlsContainer{
+  width:700px;
+  left:40%;
 }
 .modalPanel{
     position:relative;
@@ -49,9 +73,10 @@ li.broad{width:20%}
 }
 #rhythmEditor {
     position:relative;
+    min-height:400px;
 }
 .rhythmGrouping {
     padding: 2;
     height: 23px;
 }
-.onOffPic {height:35px}
+.onOffPic {height:30px}
