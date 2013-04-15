@@ -1,131 +1,172 @@
-<html>
-    <head>
-        <title>METRONOME</title>
-        <meta name="keywords" content="metronome, online, browser, web audio api, multirhythm, rhythmic metronome" />
-        <meta name="description" content="an audio-visual metronome supporting various rhythms and patterns" />
-        <meta name="author" content="christian wörner, ernst modersohn" />
-        <script type="text/javascript" src="/javascripts/jquery-1.7.2.min.js"></script>
-        <script type="text/javascript" src="/javascripts/handlers.js"></script>
-        <script type="text/javascript" src="/javascripts/rhythmViewPort.js"></script>
-        <script type="text/javascript" src="/javascripts/audio_graph.js"></script>
-        <script type="text/javascript" src="/javascripts/drums.js"></script>
-        <script type="text/javascript" src="/javascripts/metronome.js"></script>
-        <script type="text/javascript" src="/javascripts/audio.js"></script>
-        <script type="text/javascript" src="/javascripts/rhythmEditor.js"></script>
-        <link id="favicon" rel="shortcut icon" href="/favicon.ico">
-        <script type="text/javascript" src="/javascripts/init.js"></script>
-        <link rel="stylesheet" href="/metro.css" type="text/css">
-    </head>
-    <body id="body">
-        <h2>Metronome</h2>
-        <ul>
-            <li>
-                <button id="playButton" title="keyboard: [space]">Play/Pause</button>
-            </li>
-            <li class="broad">
-                <img id="audioOnOff" class="onOffPic"
-                     title="switch audio metronome on and off: keyboard: 'a'"
-                     data-onSrc="pics/ear_strong_green.png"
-                     data-offSrc="pics/ear_strong_grey.png"
-                     data-name="audio"
-                     src="pics/ear_strong_green.png"/>
-                 <img id="visualOnOff" class="onOffPic"
-                     title="switch visual metronome on and off: keyboard 'v'"
-                     data-onSrc="pics/auge_green.png"
-                     data-offSrc="pics/auge_grey.png"
-                     data-name="visual"
-                     src="pics/auge_green.png"/>
-                 <img id="visualSequenceOnOff" class="onOffPic"
-                     title="switch visual sequence on and off: keyboard 's'"
-                     data-onSrc="pics/auge_sequence_green.png"
-                     data-offSrc="pics/auge_sequence_grey.png"
-                     data-name="visualSequence"
-                     src="pics/auge_sequence_green.png"/>
-                 <img id="visualFullscreenOnOff" class="onOffPic"
-                     title="switch background visual on and off: keyboard: 'f' (fullscreen)"
-                     data-onSrc="pics/auge_frame_green.png"
-                     data-offSrc="pics/auge_frame_grey.png"
-                     data-name="visualFullscreen"
-                     src="pics/auge_frame_grey.png"/>
-            </li>
-            <li>
-                <span id="speedMonitor" class="Monitor" title="keyboard: left/right arrow">120.0</span>
-                <span id="speedMonitorUnit" class="Monitor">BPM</span>
-            </li>
-            <li class="broad">
-                <span id="analyzedRhythmMonitor" class="Monitor"></span>
-            </li>
-            <li>
-                <button id="unhideControlsButton">Show Controls</button>
-            </li>
-            <li>
-                <button id="unhideNewRhythmButton">Modify Rhythm</button>
-            </li>
-        </ul>
-        <div id="newRhythmContainer" class="hidden modalPanelContainer">
-            <div id="newRhythm" class="modalPanel">
-                <input id="newRhythmLengthSlider" min="2" max="27" step="1" value="4" type="range"/>
-                <span id="newRhythmLengthMonitor" class="Monitor">4</span>
-                <button id="saveNewRhythmButton">Save New Rhythm</button>
-                <button id="hideNewRhythmButton">hide rhythm editor</button>
-                <div id="rhythmEditor">
-                    <!-- filled by JavaScript -->
+<html lang='en'>
+  <head>
+    <title>METRONOME</title>
+    <meta charset='utf-8'>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <meta content='metronome, online, browser, web audio api, multirhythm, rhythmic metronome' name='keywords'>
+    <meta content='an audio-visual metronome supporting various rhythms and patterns' name='description'>
+    <meta content='christian wörner, ernst modersohn' name='author'>
+    <script src='/javascripts/jquery-1.7.2.min.js' type='text/javascript'></script>
+    <script src='/javascripts/bootstrap-modal.js' type='text/javascript'></script>
+    <script src='/javascripts/handlers.js' type='text/javascript'></script>
+    <script src='/javascripts/rhythmViewPort.js' type='text/javascript'></script>
+    <script src='/javascripts/audio_graph.js' type='text/javascript'></script>
+    <script src='/javascripts/drums.js' type='text/javascript'></script>
+    <script src='/javascripts/metronome.js' type='text/javascript'></script>
+    <script src='/javascripts/audio.js' type='text/javascript'></script>
+    <script src='/javascripts/rhythmEditor.js' type='text/javascript'></script>
+    <script src='/javascripts/init.js' type='text/javascript'></script>
+    <link href='/favicon.ico' id='favicon' rel='shortcut icon'>
+    <style>
+      /*<![CDATA[*/
+        body {
+          padding-top: 60px;
+          padding-bottom: 40px;
+        }
+        .sidebar-nav {
+          padding: 9px 0;
+        }
+      /*]]>*/
+    </style>
+    <link href='/stylesheets/bootstrap-responsive.css' rel='stylesheet'>
+    <link href='/stylesheets/bootstrap.css' rel='stylesheet'>
+    <link href='/stylesheets/metro.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body id='body'>
+    <div class='navbar navbar-inverse navbar-fixed-top'>
+      <div class='navbar-inner' id='main_nav'>
+        <div class='container' id='main_nav_container'>
+          <button class='btn btn-navbar' data-target='.nav-collapse' data-toggle='collapse' type='button'>
+            <span class='icon-bar'></span>
+          </button>
+          <a class='brand' href='#'>Metronome</a>
+          <div class='nav-collapse collapse'>
+            <ul class='nav'>
+              <li class='' style='width:12%;'>
+                <button class='btn btn-small' id='playButton' title='keyboard: [space]'>Play/Pause</button>
+              </li>
+              <li class='' style='width:20%;'>
+                <img class='onOffPic' data-name='audio' data-offSrc='pics/ear_strong_grey.png' data-onSrc='pics/ear_strong_green.png' id='audioOnOff' src='pics/ear_strong_green.png' title="switch audio metronome on and off: keyboard: 'a'">
+                <img class='onOffPic' data-name='visual' data-offSrc='pics/auge_grey.png' data-onSrc='pics/auge_green.png' id='visualOnOff' src='pics/auge_green.png' title="switch visual metronome on and off: keyboard 'v'">
+                <img class='onOffPic' data-name='visualSequence' data-offSrc='pics/auge_sequence_grey.png' data-onSrc='pics/auge_sequence_green.png' id='visualSequenceOnOff' src='pics/auge_sequence_green.png' title="switch visual sequence on and off: keyboard 's'">
+                <img class='onOffPic' data-name='visualFullscreen' data-offSrc='pics/auge_frame_grey.png' data-onSrc='pics/auge_frame_green.png' id='visualFullscreenOnOff' src='pics/auge_frame_grey.png' title="switch background visual on and off: keyboard: 'f' (fullscreen)">
+              </li>
+              <li class='' style='width:9%;'>
+                <span class='speedMonitor Monitor' title='keyboard: left/right arrow'>120.0</span>
+                <span class='Monitor' id='speedMonitorUnit'>BPM</span>
+              </li>
+              <li class='' style='width:17%;'>
+                <span class='Monitor' id='analyzedRhythmMonitor'></span>
+              </li>
+              <li class='' style='width:15%;'>
+                <button class='btn btn-small' data-toggle='modal' href='#controlsContainer'>Show control</button>
+              </li>
+              <li class='' style='width:17%;'>
+                <button class='btn btn-small' data-toggle='modal' href='#rhythmEditorContainer'>Modify Rhythm</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='container'>
+      <div class='hero-unit'>
+        <div id='rhythmViewPort' style='position:relative;min-height:100px'>
+          <!-- /%span{:id=>"meter", :style=>'background-color:#888888;position:absolute;'} -->
+          <span id='one' style='background-color:#BB9999;position:absolute;'></span>
+          <span id='two' style='background-color:#8888BB;position:absolute;'></span>
+          <span id='three' style='background-color:#AAAA11;position:absolute;'></span>
+          <span id='four' style='background-color:#7788FF;position:absolute;'></span>
+        </div>
+        <div class='modal hide fade in modalPanelContainer' id='rhythmEditorContainer' stule='display:none;'>
+          <div class='modalPanel' id='newRhythm'>
+            <input id='newRhythmLengthSlider' max='27' min='2' step='1' type='range' value='4'>
+              <span class='Monitor' id='newRhythmLengthMonitor'>
+                <button id='saveNewRhythmButton'>Save New Rhythm</button>
+                <button id='hideNewRhythmButton'>hide rhythm editor</button>
+                <div id='rhythmEditor'>
+                  <!-- / filled by JavaScript -->
                 </div>
+              </span>
+            </input>
+          </div>
+        </div>
+        <div class='modal hide fade in modalPanelContainer' id='controlsContainer' stule='display:none;'>
+          <div class='modalPanel' id='controls'>
+            <div class='modal-header'>
+              Controls
             </div>
-        </div>
-        <div id="controlsContainer" class="hidden modalPanelContainer">
-            <div id="controls" class="modalPanel">
-                <table class="broad">
+            <div class='modal-body'>
+              <table class='broad'><tr>
+                  <td>
+                    <input id='speedSlider' max='333' min='5' step='0.1' title='keyboard: left/right arrow' type='range' value='120'>
+                  </td>
+                  <td>
+                    <span class='speedMonitor Monitor'>120.0</span>
+                  </td>
+                  <td>
+                    <span class='Monitor' id='speedMonitorUnit'>BPM</span>
+                  </td>
+                  <table class='broad'>
                     <tr>
-                        <td>
-                            <input id="speedSlider" min="5" max="333" step="0.1" value="120" type="range" title="keyboard: left/right arrow"/>
-                        </td>
-                        <td>
-                            <span id="speedMonitor" class="Monitor">120.0</span>
-                        </td>
-                        <td>
-                            <span id="speedMonitorUnit" class="Monitor">BPM</span>
-                        </td>
-                    </tr>
-                </table>
-                <table class="broad">
-                    <tr>
-                        <th>
-                            Volume
-                        </th>
+                      <th>
+                        Volume
+                      </th>
                     </tr>
                     <tr>
-                        <td>
-                            Kick</br>
-                            <input type="range" name="kickVol" class="volVertical" rel="kick" min="0" max="1.2" step="0.01" value="1"><br/>
-                            <span id="kickVolMonitor" class="Monitor">1.0</span>
-                        </td>
-                        <td>
-                            Snare</br>
-                            <input type="range" name="snareVol" class="volVertical" rel="snare"  min="0" max="1.2" step="0.01" value="1"><br/>
-                            <span id="snareVolMonitor" class="Monitor">1.0</span>
-                        </td>
-                        <td>
-                            Hihat</br>
-                            <input type="range" name="hihatVol" class="volVertical" rel="hihat"  min="0" max="1.2" step="0.01" value="1"><br/>
-                            <span id="hihatVolMonitor" class="Monitor">1.0</span>
-                        </td>
+                      <td>
+                        Kick
+                        <input class='volVertical' max='1.2' min='0' name='kickVol' rel='kick' step='0.01' type='range' value='1'>
+                        <br>
+                        <span class='Monitor' id='kickVolMonitor'>1.0</span>
+                      </td>
+                      <td>
+                        Snare
+                        <input class='volVertical' max='1.2' min='0' name='snareVol' rel='snare' step='0.01' type='range' value='1'>
+                        <br>
+                        <span class='Monitor' id='snareVolMonitor'>1.0</span>
+                      </td>
+                      <td>
+                        Hihat
+                        <input class='volVertical' max='1.2' min='0' name='hihatVol' rel='hihat' step='0.01' type='range' value='1'>
+                        <br>
+                        <span class='Monitor' id='hihatVolMonitor'>1.0</span>
+                      </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <button id="hideControls">hide controls</button>
-                        </td>
-                    </tr>
-                </table>
+                  </table>
+                </tr></table>
             </div>
+            <div class='modal-footer'>
+              <a class='btn' data-dismiss='modal' href='#'>Close</a>
+            </div>
+          </div>
         </div>
-        <div id="rhythmViewPort" style="position:relative">
-            <span id="meter" style="background-color:#888888;position:absolute;"></span>
-            <span id="one" style="background-color:#BB9999;position:absolute;"></span>
-            <span id="two" style="background-color:#8888BB;position:absolute;"></span>
-            <span id="three" style="background-color:#AAAA11;position:absolute;"></span>
-            <span id="four" style="background-color:#7788FF;position:absolute;"></span>
+      </div>
+      <div class='modal hide fade in' id='a666' style='display: none; '>
+        <div class='modal-header'>
+          <a class='close' data-dismiss='modal'>×</a>
+          <h3>This is a Modal Heading</h3>
         </div>
-    </body>
+        <div class='modal-body'>
+          <div class='row'>
+            <div class='span4'>aslkhlkajfh</div>
+            <div class='span4'>aslkhlkajfh</div>
+          </div>
+          <h4>
+            Text in a modal
+          </h4>
+          <p>You can add some text here.</p>
+        </div>
+        <div class='modal-footer'>
+          <a class='btn btn-success' href='#'>Call to action</a>
+        </div>
+      </div>
+      <hr>
+      <footer>
+        <p>
+          &copy; Zanstaën 2013
+        </p>
+      </footer>
+    </div>
+  </body>
 </html>
-
