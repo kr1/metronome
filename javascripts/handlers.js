@@ -64,7 +64,7 @@ $(document).ready(function() {
     $('#speedSlider').bind("change",function(e){
         var newSpeed =$(this).val()
         state.speed.newSpeedBpm(newSpeed)
-        $("#speedMonitor").text(newSpeed)
+        $(".speedMonitor").text(newSpeed)
     });
 
     $('#newRhythmLengthSlider').bind("change",function(e){
