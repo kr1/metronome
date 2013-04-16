@@ -37,9 +37,9 @@
           %a{:class=>"brand", :href=>"#"} Metronome
           %div{:class=>"nav-collapse collapse"}
             %ul{:class=>"nav"}
-              %li{:class=>"", :style => "width:12%;"}
-                %button{:id=>"playButton", :class=>"btn btn-small", :title=>"keyboard: [space]"} Play/Pause
-              %li{:class=>"", :style => "width:20%;"}
+              %li{:class=>"", :style => "width:7%;"}
+                %button{:id=>"playButton", :class=>"btn btn-small", :title=>"keyboard: [space]"} Play
+              %li{:class=>"", :style => "width:25%;"}
                 %img{:id=>"audioOnOff", :class=>"onOffPic",
                      :title=>"switch audio metronome on and off: keyboard: 'a'",
                      :"data-onSrc"=>"pics/ear_strong_green.png",
@@ -64,6 +64,10 @@
                        :"data-offSrc"=>"pics/auge_frame_grey.png",
                        :"data-name"=>"visualFullscreen",
                        :src=>"pics/auge_frame_grey.png"}
+                %img{:id=>"vis_switcher", :src=>"pics/metronome_circle_of_circles.png", :class=>"onOffPic",
+                       :title => "switch between circle and linear display mode: keyboard: 'c'"}
+                %img{:id=>"vis_prop_switcher", :src=>"pics/metronome_proportional.png", :class=>"onOffPic",
+                       :title => "switch between proportional and un-proportional display: keyboard: 'p'"}
               %li{:class=>"", :style => "width:9%;"}
                 %span{:class => "speedMonitor Monitor", :title=>"keyboard: left/right arrow"}120.0
                 %span{:id=>"speedMonitorUnit", :title=>"keyboard: left/right arrow", :class=>"Monitor"} BPM
@@ -73,8 +77,6 @@
                 %button{:"data-toggle"=>"modal", :href=>"#controlsContainer", :class=>"btn btn-small"} Show control
               %li{:class=>"", :style => "width:17%;"}
                 %button{:"data-toggle"=>"modal", :href=>"#rhythmEditorContainer", :class=>"btn btn-small"} Modify Rhythm
-              %li{:class=>"", :style => "width:4%;"}
-                %img{:id=>"vis_switcher", :src=>"pics/circle.png", :title => "switch between circle and linear display mode"}
     %div{:class=>"container"}
       %div{:class=>"hero-unit"}
         %div{:id=>"rhythmViewPort", :style=>"position:relative;min-height:100px"}

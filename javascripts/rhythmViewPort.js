@@ -1,14 +1,16 @@
 $(document).ready(function(){
-    viewPort = {}
+    viewPort = {proportional: true}
     viewPort.fullHeight= Number($('#rhythmViewPort').css('height').match(/[0-9]+/));
     viewPort.fullWidth= Number($('#rhythmViewPort').css('width').match(/[0-9]+/));
     viewPort.heightMult=  viewPort.fullHeight / 180,
     viewPort.slotWidth= viewPort.fullWidth * 0.05
 
-    viewPort.circle = {y_offset:  0.45 * viewPort.fullWidth,
-                       y_stretch: 0.17 *  viewPort.fullWidth,
-                       x_offset:  0.3 * viewPort.fullHeight,
-                       x_stretch: 1.3 * viewPort.fullHeight}
+    viewPort.circle = {x_offset:  0.45 * viewPort.fullWidth,
+                       x_stretch: 0.17 *  viewPort.fullWidth,
+                       y_offset:  -0.2 * viewPort.fullHeight,
+                       y_stretch: 1.3 * viewPort.fullHeight,
+                       radius:{'heavy': 1.8, 'light':1.6, 'fill':1.2}}
+    viewPort.linear = {fullSlotWidth: viewPort.slotWidth * 2}
     viewPort.drawRhythm = function(){
         if (!state.displayRhythM){
             $('#rhythmViewPort').hide();
@@ -18,19 +20,29 @@ $(document).ready(function(){
             var eles = viewPort.getOrCreate(idx, weight)
             $.each(rhythm.weightNames, function(iidx, weight){eles.removeClass(weight)});
             eles.addClass(rhythm.weightNames[weight])
+            if (viewPort.proportional){
+                var radius = viewPort.slotWidth * viewPort.circle.radius[rhythm.weightNames[weight]];
+            } else {
+                var radius = viewPort.slotWidth * 1.75
+            }
             if (viewPort.linear_draw){
-                eles.text(idx).css({"left": idx * viewPort.slotWidth,
+                eles.text(idx).css({"left": idx * viewPort.linear.fullSlotWidth,
                                     "top": viewPort.fullHeight - (rhythm.weightToPosition[weight] * 60 * viewPort.heightMult),
-                                    "width": viewPort.slotWidth,
+                                    "width": radius,
+                                    "height": radius,
+                                    "border-radius": radius * 0.5,
+                                    "text-align":"center"
                                   });
             } else {
-                eles.text(idx).css({"left": viewPort.circle.y_offset +
-                                            Math.sin((2 * Math.PI / rhythm.meter.length) * idx) * viewPort.circle.y_stretch,
-                                    "top":  viewPort.fullHeight - (viewPort.circle.x_offset +
-                                            Math.cos((2 * Math.PI / rhythm.meter.length) * idx) * viewPort.circle.x_stretch),
-                                    "width": viewPort.slotWidth * 1.8,
-                                    "height": "4.1em",
-                                    "border-radius":60,
+                eles.text(idx).css({"left": viewPort.circle.x_offset +
+                                            Math.sin((2 * Math.PI / rhythm.meter.length) * idx) *
+                                                      viewPort.circle.x_stretch - radius * 0.5,
+                                    "top":  viewPort.fullHeight - (viewPort.circle.y_offset +
+                                            Math.cos((2 * Math.PI / rhythm.meter.length) * idx) * 
+                                                      viewPort.circle.y_stretch) - radius * 0.5,
+                                    "width": radius,
+                                    "height": radius,
+                                    "border-radius":radius* 0.5,
                                     "text-align":"center"
                                   });
             }

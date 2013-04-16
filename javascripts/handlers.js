@@ -2,30 +2,36 @@ $(document).ready(function() {
     $('body').bind("keydown", function(e){
         //console.log(e.which);
         switch (e.which){
-            case 86: //v
-                $('#visualOnOff').click();
-                break;
-            case 65: //a
-                $('#audioOnOff').click();
-                break;
-            case 70: //f
-                $('#visualFullscreenOnOff').click();
-                break;
-            case 83: //s
-                $('#visualSequenceOnOff').click();
-                break;
             case 32:
                 $('#playButton').click()
+                break;
+            case 37:
+                var val = Number($('#speedSlider').val())
+                $('#speedSlider').val(val-1)
+                $('#speedSlider').change()
                 break;
             case 39:
                 var val = Number($('#speedSlider').val())
                 $('#speedSlider').val(val+1)
                 $('#speedSlider').change()
                 break;
-            case 37:
-                var val = Number($('#speedSlider').val())
-                $('#speedSlider').val(val-1)
-                $('#speedSlider').change()
+            case 65: //a
+                $('#audioOnOff').click();
+                break;
+            case 67: //c
+                $('#vis_switcher').click();
+                break;
+            case 70: //f
+                $('#visualFullscreenOnOff').click();
+                break;
+            case 80: //p
+                $('#vis_prop_switcher').click();
+                break;
+            case 83: //s
+                $('#visualSequenceOnOff').click();
+                break;
+            case 86: //v
+                $('#visualOnOff').click();
                 break;
         }
     });
@@ -106,12 +112,21 @@ $(document).ready(function() {
          }
     })
     $('#vis_switcher').click(function(e){
-      if (Math.round($(this).css('opacity') * 100) ==  30){
-        $(this).css('opacity', 1.0)
+      if (viewPort.linear_draw){
+        $(this).attr('src','/pics/metronome_circle_of_circles.png');
         viewPort.linear_draw = false;
       } else {
-        $(this).css('opacity', 0.3)
+        $(this).attr('src','/pics/metronome_linear.png');
         viewPort.linear_draw = true;
+      }
+    })
+    $('#vis_prop_switcher').click(function(e){
+      if (viewPort.proportional){
+        $(this).attr('src','/pics/metronome_unproportional.png');
+        viewPort.proportional = false;
+      } else {
+        $(this).attr('src','/pics/metronome_proportional.png');
+        viewPort.proportional = true;
       }
     })
 });
