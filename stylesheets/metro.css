@@ -62,6 +62,7 @@ img#vis_switcher:hover {
                  text-align:center}
 
 #newRhythmLengthMonitor{
+  float:left;
   min-width:2em;
 }
 .light, .rhythmEditorItem.light {

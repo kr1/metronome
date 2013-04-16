@@ -82,14 +82,18 @@
         </div>
         <div class='modal hide fade in modalPanelContainer' id='rhythmEditorContainer' stule='display:none;'>
           <div class='modalPanel' id='newRhythm'>
-            <input id='newRhythmLengthSlider' max='27' min='2' step='1' type='range' value='4'>
-              <span class='Monitor' id='newRhythmLengthMonitor'></span>
-              <button data-dismiss='modal' id='saveNewRhythmButton'>Save New Rhythm</button>
-              <button data-dismiss='modal' id='hideNewRhythmButton'>hide rhythm editor</button>
+            <div class='modal-header'>
+              <input id='newRhythmLengthSlider' max='27' min='2' step='1' type='range' value='4'>
+                <span class='Monitor' id='newRhythmLengthMonitor'></span>
+                <button class='btn btn-small' data-dismiss='modal' id='saveNewRhythmButton'>Save New Rhythm</button>
+                <button class='btn btn-small' data-dismiss='modal' id='hideNewRhythmButton'>hide rhythm editor</button>
+              </input>
+            </div>
+            <div class='modal-body'>
               <div id='rhythmEditor'>
                 <!-- / filled by JavaScript -->
               </div>
-            </input>
+            </div>
           </div>
         </div>
         <div class='modal hide fade in modalPanelContainer' id='controlsContainer' stule='display:none;'>

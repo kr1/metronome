@@ -87,10 +87,12 @@
           %span{:id=>"four", :style=>'background-color:#7788FF;position:absolute;'}
         %div{:id=>"rhythmEditorContainer", :class=>"modal hide fade in modalPanelContainer", :stule=>"display:none;"}
           %div{:id=>"newRhythm", :class=>"modalPanel"}
-            %input{:id=>"newRhythmLengthSlider", :min=>"2", :max=>"27", :step=>"1", :value=>"4", :type=>"range"}
-              %span{:id=>"newRhythmLengthMonitor", :class=>"Monitor"}
-              %button{:id=>"saveNewRhythmButton", :"data-dismiss"=>"modal"} Save New Rhythm
-              %button{:id=>"hideNewRhythmButton", :"data-dismiss"=>"modal"} hide rhythm editor
+            %div.modal-header
+              %input{:id=>"newRhythmLengthSlider", :min=>"2", :max=>"27", :step=>"1", :value=>"4", :type=>"range"}
+                %span{:id=>"newRhythmLengthMonitor", :class=>"Monitor"}
+                %button{:id=>"saveNewRhythmButton", :class=>"btn btn-small", :"data-dismiss"=>"modal"} Save New Rhythm
+                %button{:id=>"hideNewRhythmButton", :class=>"btn btn-small", :"data-dismiss"=>"modal"} hide rhythm editor
+            %div.modal-body
               %div{:id=>"rhythmEditor"}
                 // filled by JavaScript
         %div{:id=>"controlsContainer", :class=>"modal hide fade in modalPanelContainer", :stule=>"display:none;"}

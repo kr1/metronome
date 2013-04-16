@@ -44,10 +44,10 @@ $(document).ready(function() {
         $("#controlsContainer").hide();
     })
     $('#unhideNewRhythmButton').bind("click",function(e){
-        //$('.modalPanelContainer').hide();
-        //$("#newRhythmContainer").show();
         rhythmEditor.takeMetroMeter();
         rhythmEditor.drawRhythm();
+        $('#newRhythmLengthMonitor').text(rhythmEditor.meter.length);
+        $('#newRhythmLengthSlider').val(rhythmEditor.meter.length);
     })
     $('#hideNewRhythmButton').bind("click",function(e){
         $("#newRhythmContainer").hide();

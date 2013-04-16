@@ -2,16 +2,16 @@ $(document).ready(function(){
     viewPort = {proportional: true}
     viewPort.fullHeight= Number($('#rhythmViewPort').css('height').match(/[0-9]+/));
     viewPort.fullWidth= Number($('#rhythmViewPort').css('width').match(/[0-9]+/));
-    viewPort.heightMult=  viewPort.fullHeight / 180,
-    viewPort.slotWidth= viewPort.fullWidth * 0.05
+    viewPort.heightMult=  viewPort.fullHeight / 180;
 
     viewPort.circle = {x_offset:  0.45 * viewPort.fullWidth,
                        x_stretch: 0.17 *  viewPort.fullWidth,
                        y_offset:  -0.2 * viewPort.fullHeight,
                        y_stretch: 1.3 * viewPort.fullHeight,
                        radius:{'heavy': 1.8, 'light':1.6, 'fill':1.2}}
-    viewPort.linear = {fullSlotWidth: viewPort.slotWidth * 2}
     viewPort.drawRhythm = function(){
+        viewPort.slotWidth= viewPort.fullWidth / rhythm.meter.length;
+        viewPort.linear = {fullSlotWidth: viewPort.slotWidth}
         if (!state.displayRhythM){
             $('#rhythmViewPort').hide();
             return false;
@@ -21,9 +21,9 @@ $(document).ready(function(){
             $.each(rhythm.weightNames, function(iidx, weight){eles.removeClass(weight)});
             eles.addClass(rhythm.weightNames[weight])
             if (viewPort.proportional){
-                var radius = viewPort.slotWidth * viewPort.circle.radius[rhythm.weightNames[weight]];
+                var radius = 0.55 * viewPort.slotWidth * viewPort.circle.radius[rhythm.weightNames[weight]];
             } else {
-                var radius = viewPort.slotWidth * 1.75
+                var radius = 0.55 * viewPort.slotWidth * 1.75
             }
             if (viewPort.linear_draw){
                 eles.text(idx).css({"left": idx * viewPort.linear.fullSlotWidth,

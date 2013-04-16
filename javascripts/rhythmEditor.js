@@ -5,7 +5,6 @@ $(document).ready(function(){
         meter: [],
         fullHeight: fullHeight,
         heightMult: fullHeight * 0.013,
-        slotWidth: (Number($('#rhythmEditor').css('width').match(/[0-9]+/)[0]) || 555)* 0.07,
         defaultRhythm: "***************************".split(""),
         weightSymbols: "_-*"
     }
@@ -22,14 +21,21 @@ $(document).ready(function(){
     }
 
     rhythmEditor.drawRhythm = function(){
+        rhythmEditor.slotWidth = ((Number($('#rhythmEditor').css('width').match(/[0-9]+/)[0]) || 500) /
+                                  (rhythmEditor.meter.length || rhythm.meter.length));
+        var radius = rhythmEditor.slotWidth * 0.9;
         $('.rhythmEditorItem').hide();
         $.each(this.meter, function(idx, weight){
             var eles = rhythmEditor.getOrCreate(idx, weight)
             $.each(rhythm.weightNames, function(idx, weight){eles.removeClass(weight)});
             $(eles).addClass(rhythm.weightNames[weight])
             $(eles).first().text(idx).css({"left": idx * rhythmEditor.slotWidth,
-                                           "top": rhythmEditor.fullHeight - (rhythm.weightToPosition[weight] * 15 * rhythmEditor.heightMult),
-                                           "width": rhythmEditor.slotWidth,
+                                           "top": (rhythmEditor.fullHeight -
+                                                  (rhythm.weightToPosition[weight] * 15 * rhythmEditor.heightMult)),
+                                           "width": radius,
+                                           "height": radius,
+                                           "border-radius": radius * 0.5,
+                                           "text-align":"center"
                                   }).show();
         })
     }
