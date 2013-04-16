@@ -66,13 +66,15 @@
                        :src=>"pics/auge_frame_grey.png"}
               %li{:class=>"", :style => "width:9%;"}
                 %span{:class => "speedMonitor Monitor", :title=>"keyboard: left/right arrow"}120.0
-                %span{:id=>"speedMonitorUnit", :class=>"Monitor"} BPM
-              %li{:class=>"", :style => "width:17%;"}
+                %span{:id=>"speedMonitorUnit", :title=>"keyboard: left/right arrow", :class=>"Monitor"} BPM
+              %li{:class=>"", :style => "width:16%;"}
                 %span{:id=>"analyzedRhythmMonitor", :class=>"Monitor"}
-              %li{:class=>"", :style => "width:15%;"}
+              %li{:class=>"", :style => "width:14%;"}
                 %button{:"data-toggle"=>"modal", :href=>"#controlsContainer", :class=>"btn btn-small"} Show control
               %li{:class=>"", :style => "width:17%;"}
                 %button{:"data-toggle"=>"modal", :href=>"#rhythmEditorContainer", :class=>"btn btn-small"} Modify Rhythm
+              %li{:class=>"", :style => "width:4%;"}
+                %img{:id=>"vis_switcher", :src=>"pics/circle.png", :title => "switch between circle and linear display mode"}
     %div{:class=>"container"}
       %div{:class=>"hero-unit"}
         %div{:id=>"rhythmViewPort", :style=>"position:relative;min-height:100px"}

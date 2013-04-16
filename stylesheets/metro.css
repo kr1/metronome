@@ -29,6 +29,11 @@ li{
 li.broad{
   width:22%
 }
+
+img#vis_switcher:hover {
+  opacity: 0.2;
+}
+
 .hidden{
   display:none;
 }

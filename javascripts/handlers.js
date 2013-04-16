@@ -105,4 +105,13 @@ $(document).ready(function() {
             viewPort.resetFullscreen();
          }
     })
+    $('#vis_switcher').click(function(e){
+      if (Math.round($(this).css('opacity') * 100) ==  30){
+        $(this).css('opacity', 1.0)
+        viewPort.linear_draw = false;
+      } else {
+        $(this).css('opacity', 0.3)
+        viewPort.linear_draw = true;
+      }
+    })
 });
