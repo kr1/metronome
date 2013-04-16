@@ -44,8 +44,8 @@ $(document).ready(function() {
         $("#controlsContainer").hide();
     })
     $('#unhideNewRhythmButton').bind("click",function(e){
-        $('.modalPanelContainer').hide();
-        $("#newRhythmContainer").show();
+        //$('.modalPanelContainer').hide();
+        //$("#newRhythmContainer").show();
         rhythmEditor.takeMetroMeter();
         rhythmEditor.drawRhythm();
     })

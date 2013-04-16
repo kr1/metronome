@@ -64,7 +64,7 @@
                 <button class='btn btn-small' data-toggle='modal' href='#controlsContainer'>Show control</button>
               </li>
               <li class='' style='width:17%;'>
-                <button class='btn btn-small' data-toggle='modal' href='#rhythmEditorContainer'>Modify Rhythm</button>
+                <button class='btn btn-small' data-toggle='modal' href='#rhythmEditorContainer' id='unhideNewRhythmButton'>Modify Rhythm</button>
               </li>
             </ul>
           </div>
@@ -83,13 +83,12 @@
         <div class='modal hide fade in modalPanelContainer' id='rhythmEditorContainer' stule='display:none;'>
           <div class='modalPanel' id='newRhythm'>
             <input id='newRhythmLengthSlider' max='27' min='2' step='1' type='range' value='4'>
-              <span class='Monitor' id='newRhythmLengthMonitor'>
-                <button id='saveNewRhythmButton'>Save New Rhythm</button>
-                <button id='hideNewRhythmButton'>hide rhythm editor</button>
-                <div id='rhythmEditor'>
-                  <!-- / filled by JavaScript -->
-                </div>
-              </span>
+              <span class='Monitor' id='newRhythmLengthMonitor'></span>
+              <button data-dismiss='modal' id='saveNewRhythmButton'>Save New Rhythm</button>
+              <button data-dismiss='modal' id='hideNewRhythmButton'>hide rhythm editor</button>
+              <div id='rhythmEditor'>
+                <!-- / filled by JavaScript -->
+              </div>
             </input>
           </div>
         </div>

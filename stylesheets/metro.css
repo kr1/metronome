@@ -60,6 +60,10 @@ img#vis_switcher:hover {
                  margin-right: auto;
                  width: 80%;
                  text-align:center}
+
+#newRhythmLengthMonitor{
+  min-width:2em;
+}
 .light, .rhythmEditorItem.light {
     background-Color:#FF4477;
 }
@@ -79,6 +83,7 @@ img#vis_switcher:hover {
 #rhythmEditor {
     position:relative;
     min-height:400px;
+    height:400px;
 }
 .rhythmGrouping {
     padding: 2;

@@ -76,7 +76,7 @@
               %li{:class=>"", :style => "width:14%;"}
                 %button{:"data-toggle"=>"modal", :href=>"#controlsContainer", :class=>"btn btn-small"} Show control
               %li{:class=>"", :style => "width:17%;"}
-                %button{:"data-toggle"=>"modal", :href=>"#rhythmEditorContainer", :class=>"btn btn-small"} Modify Rhythm
+                %button{:"data-toggle"=>"modal", :id=>"unhideNewRhythmButton", :href=>"#rhythmEditorContainer", :class=>"btn btn-small"} Modify Rhythm
     %div{:class=>"container"}
       %div{:class=>"hero-unit"}
         %div{:id=>"rhythmViewPort", :style=>"position:relative;min-height:100px"}
@@ -89,10 +89,10 @@
           %div{:id=>"newRhythm", :class=>"modalPanel"}
             %input{:id=>"newRhythmLengthSlider", :min=>"2", :max=>"27", :step=>"1", :value=>"4", :type=>"range"}
               %span{:id=>"newRhythmLengthMonitor", :class=>"Monitor"}
-                %button{:id=>"saveNewRhythmButton"} Save New Rhythm
-                %button{:id=>"hideNewRhythmButton"} hide rhythm editor
-                %div{:id=>"rhythmEditor"}
-                  // filled by JavaScript
+              %button{:id=>"saveNewRhythmButton", :"data-dismiss"=>"modal"} Save New Rhythm
+              %button{:id=>"hideNewRhythmButton", :"data-dismiss"=>"modal"} hide rhythm editor
+              %div{:id=>"rhythmEditor"}
+                // filled by JavaScript
         %div{:id=>"controlsContainer", :class=>"modal hide fade in modalPanelContainer", :stule=>"display:none;"}
           %div{:id=>"controls" , :class=>"modalPanel"}
             %div.modal-header
