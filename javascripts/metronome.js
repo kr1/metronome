@@ -21,6 +21,15 @@ $(document).ready(function(){
                      "°": "#FEED33",
     }
 
+    rhythm.saveNewMeter = function(meter){
+        rhythm.meter = meter
+        state.position = 0;
+        $('#hideNewRhythmButton').click()
+        rhythm.analyzeMeter();
+        rhythm.visualizeAnalyzedRhythm();
+        viewPort.drawRhythm();
+    }
+
     // main visualizing function, all top-level checks should happen here
     rhythm.playMetro = function(){
         window.setTimeout(function(){

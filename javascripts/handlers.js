@@ -81,11 +81,7 @@ $(document).ready(function() {
     })
 
     $('#saveNewRhythmButton').bind("click",function(e){
-        rhythm.meter = rhythmEditor.meter
-        $('#hideNewRhythmButton').click()
-        rhythm.analyzeMeter();
-        rhythm.visualizeAnalyzedRhythm();
-        viewPort.drawRhythm();
+        rhythm.saveNewMeter(rhythmEditor.meter);
     });
 
     $('.volVertical').bind("change", function(e){

@@ -11,7 +11,6 @@ aGraph.playAudioFile = function (bufferName, rate) {
     //buffer = buffer || audioBuffer
     //source = state[bufferName + "Source"]
     var source = context.createBufferSource();
-    //console.log(buffer)
     source.playbackRate.value = rate || aGraph.drums[bufferName + "Speed"]
     source.buffer = aGraph[bufferName];
     var gain = aGraph[bufferName + "GainNode"]

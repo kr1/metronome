@@ -9,6 +9,7 @@ $(document).ready(function(){
                        y_offset:  -0.2 * viewPort.fullHeight,
                        y_stretch: 1.3 * viewPort.fullHeight,
                        radius:{'heavy': 1.8, 'light':1.6, 'fill':1.2}}
+
     viewPort.drawRhythm = function(){
         viewPort.slotWidth= viewPort.fullWidth / rhythm.meter.length;
         viewPort.linear = {fullSlotWidth: viewPort.slotWidth}
