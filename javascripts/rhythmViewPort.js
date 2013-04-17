@@ -17,10 +17,12 @@ $(document).ready(function(){
             $('#rhythmViewPort').hide();
             return false;
         }
+        $('.meterItem').hide();
         $.each(rhythm.meter, function(idx, weight){
             var eles = viewPort.getOrCreate(idx, weight)
             $.each(rhythm.weightNames, function(iidx, weight){eles.removeClass(weight)});
             eles.addClass(rhythm.weightNames[weight])
+            eles.show();
             if (viewPort.proportional){
                 var radius = 0.55 * viewPort.slotWidth * viewPort.circle.radius[rhythm.weightNames[weight]];
             } else {
