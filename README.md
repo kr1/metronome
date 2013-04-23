@@ -12,6 +12,10 @@ _METRONOME_ is a online metronome with the following features:
 
 NB: _METRONOME_ uses the web audio API for the audio generation. audio will not work on browsers that do not implement the web audio api. We recommend the Chrome Browser.
 
+## DEMO
+
+see this periodically updated [online version](http://metronome.zanstaen.org)
+
 ## GETTING STARTED
 
 You will need a web-server to run _METRONOME_ locally. if you have python installed, you can `cd` to the project folder (where index.html) is and run:  
