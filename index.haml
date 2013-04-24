@@ -36,47 +36,62 @@
           %button{:type=>"button", :class=>"btn btn-navbar", :"data-toggle"=>"collapse", :"data-target"=>".nav-collapse"}
             %span{:class=>"icon-bar"}
           %a{:class=>"brand", :href=>"#"} Metronome
+          %span.claim
+            Find your rhythm
+          #nav2
+            %ul
+              %li
+                %a{:href=>"#"}
+                  About
           %div{:class=>"nav-collapse collapse"}
             %ul{:class=>"nav"}
-              %li{:class=>"", :style => "width:7%;"}
-                %button{:id=>"playButton", :class=>"btn btn-small", :title=>"keyboard: [space]"} Play
-              %li{:class=>"", :style => "width:25%;"}
+              %li{:class=>""}
+                %button{:id=>"playButton", :class=>"btn btn-danger play_btn", :title=>"keyboard: [space]"}
+                  Play
+                  %span.ff_btn
+                    [Press Spacebar]
+              %li
                 %img{:id=>"audioOnOff", :class=>"onOffPic",
                      :title=>"switch audio metronome on and off: keyboard: 'a'",
-                     :"data-onSrc"=>"pics/ear_strong_green.png",
+                     :"data-onSrc"=>"pics/ear_strong_black.png",
                      :"data-offSrc"=>"pics/ear_strong_grey.png",
                      :"data-name"=>"audio",
-                     :"src"=>"pics/ear_strong_green.png"}
+                     :"src"=>"pics/ear_strong_black.png"}
+              %li
                 %img{:id=>"visualOnOff", :class=>"onOffPic",
                        :title=>"switch visual metronome on and off: keyboard 'v'",
-                       :"data-onSrc"=>"pics/auge_green.png",
+                       :"data-onSrc"=>"pics/auge_black.png",
                        :"data-offSrc"=>"pics/auge_grey.png",
                        :"data-name"=>"visual",
-                       :src=>"pics/auge_green.png"}
+                       :src=>"pics/auge_black.png"}
+              %li
                 %img{:id=>"visualSequenceOnOff", :class=>"onOffPic",
                       :title=>"switch visual sequence on and off: keyboard 's'",
-                       :"data-onSrc"=>"pics/auge_sequence_green.png",
+                       :"data-onSrc"=>"pics/auge_sequence_black.png",
                        :"data-offSrc"=>"pics/auge_sequence_grey.png",
                        :"data-name"=>"visualSequence",
-                       :"src"=>"pics/auge_sequence_green.png"}
+                       :"src"=>"pics/auge_sequence_black.png"}
+              %li
                 %img{:id=>"visualFullscreenOnOff", :class=>"onOffPic",
                        :title=>"switch background visual on and off: keyboard: 'f' (fullscreen)",
-                       :"data-onSrc"=>"pics/auge_frame_green.png",
+                       :"data-onSrc"=>"pics/auge_frame_black.png",
                        :"data-offSrc"=>"pics/auge_frame_grey.png",
                        :"data-name"=>"visualFullscreen",
                        :src=>"pics/auge_frame_grey.png"}
-                %img{:id=>"vis_switcher", :src=>"pics/metronome_circle_of_circles.png", :class=>"onOffPic",
+              %li
+                %img{:id=>"vis_switcher", :src=>"pics/metronome_circle_of_circles_black.png", :class=>"onOffPic",
                        :title => "switch between circle and linear display mode: keyboard: 'c'"}
-                %img{:id=>"vis_prop_switcher", :src=>"pics/metronome_proportional.png", :class=>"onOffPic",
+              %li
+                %img{:id=>"vis_prop_switcher", :src=>"pics/metronome_proportional_black.png", :class=>"onOffPic",
                        :title => "switch between proportional and un-proportional display: keyboard: 'p'"}
-              %li{:class=>"", :style => "width:9%;"}
+              %li
                 %span{:class => "speedMonitor Monitor", :title=>"keyboard: left/right arrow"}120.0
                 %span{:id=>"speedMonitorUnit", :title=>"keyboard: left/right arrow", :class=>"Monitor"} BPM
-              %li{:class=>"", :style => "width:16%;"}
+              %li
                 %span{:id=>"analyzedRhythmMonitor", :class=>"Monitor"}
-              %li{:class=>"", :style => "width:14%;"}
+              %li{:class=>"fr"}
                 %button{:"data-toggle"=>"modal", :href=>"#controlsContainer", :class=>"btn btn-small"} Show control
-              %li{:class=>"", :style => "width:17%;"}
+              %li{:class=>"fr"}
                 %button{:"data-toggle"=>"modal", :id=>"unhideNewRhythmButton", :href=>"#rhythmEditorContainer", :class=>"btn btn-small"} Modify Rhythm
     %div{:class=>"container"}
       %div{:class=>"hero-unit"}
@@ -95,6 +110,8 @@
                 %button{:id=>"hideNewRhythmButton", :class=>"btn btn-small", :"data-dismiss"=>"modal"} hide rhythm editor
             %div.modal-body
               %div{:id=>"rhythmEditor"}
+                %p.tips
+                  TIP: click on the circles to change instrument
                 // filled by JavaScript
         %div{:id=>"controlsContainer", :class=>"modal hide fade in modalPanelContainer", :stule=>"display:none;"}
           %div{:id=>"controls" , :class=>"modalPanel"}
