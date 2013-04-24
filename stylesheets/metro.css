@@ -4,6 +4,7 @@
 }
 ul {
     list-style: none;}*/
+body{padding-top: 200px;}
 .nav{
   width:85%;
 }
@@ -17,14 +18,17 @@ button{
   font-size:12;
   font-weight:bold;
 }
+.navbar .nav > li{
+    display: inline-block;
+ 		margin: 0 12px 0 0;
+ }
 li{
     display: inline-block;
-    width:10%;
-    padding: 3 3 0 6;
  }
 
+.navbar .btn, .navbar .btn-group {margin:0;}
 .hero-unit{
-  height:50%;
+  height:60%;
 }
 li.broad{
   width:22%
@@ -41,14 +45,19 @@ img#vis_switcher:hover {
   width:100%
 }
 
+.play_btn{width:170px;text-transform:uppercase;}
+#main_nav_container{}
+.navbar .brand{margin:0 10px 0 0; border:dashed 1px; }
+.navbar-inverse .brand {color:#000;text-shadow:0 0 0;}
+
+.main_nav_container{line-height:32px;}
 #controlsContainer{
   width:700px;
-  left:40%;
+margin-left: -350px;
 }
 .modalPanel{
     position:relative;
-    background-Color: #CCCFCC;
-    width:99%;}
+    width:100%;}
 #speedSlider{width:70%;}
 #speedMonitor{width:15%;}
 #speedMonitorUnit{width:15%;}
@@ -66,17 +75,18 @@ img#vis_switcher:hover {
   min-width:2em;
 }
 .light, .rhythmEditorItem.light {
-    background-Color:#FF4477;
+    background-Color:#3A6CA5;
 }
 .heavy, .rhythmEditorItem.heavy {
-    background-Color:#44DDAA;
+    background-Color:#7FC159;
 }
 .fill, .rhythmEditorItem.fill {
-    background-Color:#9944FF;
+    background-Color:#FCC74B;
 }
 .highlight {
-    background-Color: #002200;
-    opacity: 0.6;
+    background-Color: #EE680E;
+		color:#fff;
+    opacity: 1;
 }
 #newRhythm {
     height:50%;
@@ -91,3 +101,31 @@ img#vis_switcher:hover {
     height: 23px;
 }
 .onOffPic {height:30px}
+
+.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {box-shadow:0 0 0 ;border-bottom: 1px solid #DDDDDD;}
+
+#analyzedRhythmMonitor{}
+.navbar .nav{width:100%;margin-top:26px}
+.navbar .nav > li.fr{float:right;}
+.fr{float:right;}
+.fl{float:left;}
+
+.hero-unit{background:transparent;}
+#main_nav{height:45px;padding:10px 0;}
+.ff_btn{
+	font-size: 10px;
+  font-weight: normal;
+  text-align: center;
+  text-transform: none;
+  vertical-align: top;
+}
+
+#nav2{float:right;margin:10px;}
+#nav2 a{color:#999;}
+p.tips{font-size: 12px;}
+.claim{
+  color: #999999;
+  display: inline-block;
+  font-size: 13px;
+  margin: 12px 9px 0;
+}
