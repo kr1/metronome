@@ -101,17 +101,21 @@
         <div class='modal hide fade in modalPanelContainer' id='rhythmEditorContainer' stule='display:none;'>
           <div class='modalPanel' id='newRhythm'>
             <div class='modal-header'>
+              <h4>Number of items</h4>
+              <span class='Monitor' id='newRhythmLengthMonitor'></span>
               <input id='newRhythmLengthSlider' max='27' min='2' step='1' type='range' value='4'>
-                <span class='Monitor' id='newRhythmLengthMonitor'></span>
-                <button class='btn btn-small' data-dismiss='modal' id='saveNewRhythmButton'>Save New Rhythm</button>
-                <button class='btn btn-small' data-dismiss='modal' id='hideNewRhythmButton'>hide rhythm editor</button>
               </input>
             </div>
             <div class='modal-body'>
+              <h4>Timeline</h4>
               <div id='rhythmEditor'>
                 <p class="tips">TIPS: Click on the circles to change instrument</p>
                 <!-- / filled by JavaScript -->
               </div>
+            </div>
+            <div class='modal-footer'>
+              <button class='btn btn-success' data-dismiss='modal' id='saveNewRhythmButton'>Save New Rhythm</button>
+              <a class='btn' data-dismiss='modal' href='#'>Close</a>
             </div>
           </div>
         </div>
