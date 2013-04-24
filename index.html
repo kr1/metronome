@@ -40,14 +40,19 @@
           <button class='btn btn-navbar' data-target='.nav-collapse' data-toggle='collapse' type='button'>
             <span class='icon-bar'></span>
           </button>
-          <a class='brand' href='#'>Metronome</a>
+          <a class='brand' href='/'>Metronome</a>
           <span class='claim'>
             Find your rhythm
           </span>
           <div id='nav2'>
             <ul>
               <li>
-                <a href='#'>
+                <a href='/'>
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href='about.html'>
                   About
                 </a>
               </li>
@@ -111,19 +116,24 @@
         <div class='modal hide fade in modalPanelContainer' id='rhythmEditorContainer' stule='display:none;'>
           <div class='modalPanel' id='newRhythm'>
             <div class='modal-header'>
+              <h4>Number of Items</h4>
+              <span class='Monitor' id='newRhythmLengthMonitor'></span>
               <input id='newRhythmLengthSlider' max='27' min='2' step='1' type='range' value='4'>
-                <span class='Monitor' id='newRhythmLengthMonitor'></span>
-                <button class='btn btn-small' data-dismiss='modal' id='saveNewRhythmButton'>Save New Rhythm</button>
-                <button class='btn btn-small' data-dismiss='modal' id='hideNewRhythmButton'>hide rhythm editor</button>
-              </input>
             </div>
             <div class='modal-body'>
+              <h4>
+                Timeline
+              </h4>
               <div id='rhythmEditor'>
                 <p class='tips'>
                   TIP: click on the circles to change instrument
                 </p>
                 <!-- / filled by JavaScript -->
               </div>
+            </div>
+            <div class='modal-footer'>
+              <button class='btn btn-small' data-dismiss='modal' id='saveNewRhythmButton'>Save New Rhythm</button>
+              <button class='btn btn-small' data-dismiss='modal' id='hideNewRhythmButton'>hide rhythm editor</button>
             </div>
           </div>
         </div>
@@ -133,6 +143,7 @@
               Controls
             </div>
             <div class='modal-body'>
+              <h4>Bpm</h4>
               <table class='broad'><tr>
                   <td>
                     <input id='speedSlider' max='333' min='5' step='0.1' title='keyboard: left/right arrow' type='range' value='120'>
@@ -140,37 +151,31 @@
                   <td>
                     <span class='speedMonitor Monitor'>120.0</span>
                   </td>
-                  <td>
-                    <span class='Monitor' id='speedMonitorUnit'>BPM</span>
-                  </td>
-                  <table class='broad'>
-                    <tr>
-                      <th>
-                        Volume
-                      </th>
-                    </tr>
-                    <tr>
-                      <td>
-                        Kick
-                        <input class='volVertical' max='1.2' min='0' name='kickVol' rel='kick' step='0.01' type='range' value='1'>
-                        <br>
-                        <span class='Monitor' id='kickVolMonitor'>1.0</span>
-                      </td>
-                      <td>
-                        Snare
-                        <input class='volVertical' max='1.2' min='0' name='snareVol' rel='snare' step='0.01' type='range' value='1'>
-                        <br>
-                        <span class='Monitor' id='snareVolMonitor'>1.0</span>
-                      </td>
-                      <td>
-                        Hihat
-                        <input class='volVertical' max='1.2' min='0' name='hihatVol' rel='hihat' step='0.01' type='range' value='1'>
-                        <br>
-                        <span class='Monitor' id='hihatVolMonitor'>1.0</span>
-                      </td>
-                    </tr>
-                  </table>
                 </tr></table>
+              <hr>
+              <h4>Volume</h4>
+              <table class='broad'>
+                <tr>
+                  <td>
+                    Kick
+                    <input class='volVertical' max='1.2' min='0' name='kickVol' rel='kick' step='0.01' type='range' value='1'>
+                    <br>
+                    <span class='Monitor' id='kickVolMonitor'>1.0</span>
+                  </td>
+                  <td>
+                    Snare
+                    <input class='volVertical' max='1.2' min='0' name='snareVol' rel='snare' step='0.01' type='range' value='1'>
+                    <br>
+                    <span class='Monitor' id='snareVolMonitor'>1.0</span>
+                  </td>
+                  <td>
+                    Hihat
+                    <input class='volVertical' max='1.2' min='0' name='hihatVol' rel='hihat' step='0.01' type='range' value='1'>
+                    <br>
+                    <span class='Monitor' id='hihatVolMonitor'>1.0</span>
+                  </td>
+                </tr>
+              </table>
             </div>
             <div class='modal-footer'>
               <a class='btn' data-dismiss='modal' href='#'>Close</a>

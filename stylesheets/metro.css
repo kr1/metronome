@@ -4,7 +4,7 @@
 }
 ul {
     list-style: none;}*/
-body{padding-top: 200px;}
+body{padding-top: 100px;}
 .nav{
   width:85%;
 }
@@ -23,7 +23,7 @@ button{
  		margin: 0 12px 0 0;
  }
 li{
-    display: inline-block;
+    /*display: inline-block;*/
  }
 
 .navbar .btn, .navbar .btn-group {margin:0;}
@@ -110,7 +110,7 @@ margin-left: -350px;
 .fr{float:right;}
 .fl{float:left;}
 
-.hero-unit{background:transparent;}
+.hero-unit{background:transparent;margin-top:130px}
 #main_nav{height:45px;padding:10px 0;}
 .ff_btn{
 	font-size: 10px;
@@ -121,7 +121,8 @@ margin-left: -350px;
 }
 
 #nav2{float:right;margin:10px;}
-#nav2 a{color:#999;}
+#nav2 li{display:inline-block;margin:0 0 0 20px;}
+#nav2 li a{color:#999;}
 p.tips{font-size: 12px;}
 .claim{
   color: #999999;
@@ -129,3 +130,8 @@ p.tips{font-size: 12px;}
   font-size: 13px;
   margin: 12px 9px 0;
 }
+ul.base{padding-left: 30px;}
+ul.base li{
+	}
+.navbar-inverse .brand:hover, .navbar-inverse .nav > li > a:hover, .navbar-inverse .brand:focus, .navbar-inverse .nav > li > a:focus{color:#999;}
+#newRhythmLengthMonitor{float:none;}
