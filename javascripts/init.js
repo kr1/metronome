@@ -26,7 +26,7 @@ state = {
 
 $(document).ready(function(){
     var in_meter = MetroURL.getHashParameterByName('meter');
-    var in_speed = MetroURL.getHashParameterByName('speed');
+    var in_speed = Number(MetroURL.getHashParameterByName('speed'));
     if (in_meter){
         if (rhythmEditor.validateMeter(in_meter)){
           rhythm.meter = in_meter;
@@ -34,6 +34,13 @@ $(document).ready(function(){
           alert("the specified meter '" + in_meter + "' contains invalid characters (only _,- and * are allowed)")
         }
     }
+    if (in_speed){
+      if (in_speed && in_speed > 20 && in_speed < 334){
+        $('#speedSlider').val(in_speed);
+        $('#speedSlider').change()
+      }
+    }
     rhythm.analyzeMeter();
-    rhythm.visualizeAnalyzedRhythm()
+    rhythm.visualizeAnalyzedRhythm();
+    viewPort.drawRhythm();
 })
