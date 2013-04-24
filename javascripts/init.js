@@ -25,6 +25,15 @@ state = {
 }
 
 $(document).ready(function(){
+    var in_meter = MetroURL.getHashParameterByName('meter');
+    var in_speed = MetroURL.getHashParameterByName('speed');
+    if (in_meter){
+        if (rhythmEditor.validateMeter(in_meter)){
+          rhythm.meter = in_meter;
+        } else {
+          alert("the specified meter '" + in_meter + "' contains invalid characters (only _,- and * are allowed)")
+        }
+    }
     rhythm.analyzeMeter();
     rhythm.visualizeAnalyzedRhythm()
 })

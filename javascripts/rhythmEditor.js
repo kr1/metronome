@@ -65,4 +65,8 @@ $(document).ready(function(){
         var pos = syms.indexOf(sym);
         return syms[(pos + 1) % syms.length];
     }
+
+    rhythmEditor.validateMeter = function(meter_string){
+      return !!meter_string.match(/^[_*-]+$/)
+    }
 });
