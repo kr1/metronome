@@ -110,10 +110,14 @@ margin-left: -350px;
 .fr{float:right;}
 .fl{float:left;}
 
-.hero-unit{background:transparent;margin-top:130px}
+.hero-unit{
+    background:transparent;
+    margin: 20px;
+}
+
 #main_nav{height:45px;padding:10px 0;}
 .ff_btn{
-	font-size: 10px;
+  font-size: 10px;
   font-weight: normal;
   text-align: center;
   text-transform: none;
