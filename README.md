@@ -12,6 +12,16 @@ _METRONOME_ is a online metronome with the following features:
 
 NB: _METRONOME_ uses the web audio API for the audio generation. audio will not work on browsers that do not implement the web audio api. We recommend the Chrome Browser.
 
+## SCREENSHOTS
+
+### Linear Mode
+
+![linear mode](http://github.com/kr1/metronome/raw/master/pics/2013-04-24_screenshot_metronome_linear.png "screenshot linear mode")
+
+### Circular Mode
+
+![circular mode](http://github.com/kr1/metronome/raw/master/pics/2013-04-24_screenshot_metronome_circle.png "screenshot circular mode")
+
 ## DEMO
 
 see this periodically updated [online version](http://metronome.zanstaen.org)
