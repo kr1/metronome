@@ -82,6 +82,7 @@ $(document).ready(function() {
 
     $('#saveNewRhythmButton').bind("click",function(e){
         rhythm.saveNewMeter(rhythmEditor.meter);
+        MetroURL.set_hash(MetroURL.make_hash_representation());
     });
 
     $('.volVertical').bind("change", function(e){
@@ -124,5 +125,10 @@ $(document).ready(function() {
         $(this).attr('src','/pics/metronome_proportional.png');
         viewPort.proportional = true;
       }
+    })
+    $('#openSaveMeterModal').click(function(e){
+      MetroURL.set_hash(MetroURL.make_hash_representation());
+      $('#shareUrlInput').val(window.location);
+      $('#shareUrlInput').text(window.location);
     })
 });

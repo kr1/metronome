@@ -46,6 +46,9 @@
               %li
                 %a{:href=>"about.html"}
                   About
+              %li
+                %a{:"data-toggle"=>"modal", :href=>"#saveMeterContainer", :id=>"openSaveMeterModal"}
+                  Save Meter
           %div{:class=>"nav-collapse collapse"}
             %ul{:class=>"nav"}
               %li{:class=>""}
@@ -104,7 +107,7 @@
           %span{:id=>"two", :style=>"background-color:#8888BB;position:absolute;"}
           %span{:id=>"three", :style=>"background-color:#AAAA11;position:absolute;"}
           %span{:id=>"four", :style=>'background-color:#7788FF;position:absolute;'}
-        %div{:id=>"rhythmEditorContainer", :class=>"modal hide fade in modalPanelContainer", :stule=>"display:none;"}
+        %div{:id=>"rhythmEditorContainer", :class=>"modal hide fade in modalPanelContainer", :style=>"display:none;"}
           %div{:id=>"newRhythm", :class=>"modalPanel"}
             %div.modal-header
               %h4 Number of Items
@@ -120,7 +123,7 @@
             %div.modal-footer
               %button{:id=>"saveNewRhythmButton", :class=>"btn btn-small", :"data-dismiss"=>"modal"} Save New Rhythm
               %button{:id=>"hideNewRhythmButton", :class=>"btn btn-small", :"data-dismiss"=>"modal"} hide rhythm editor
-        %div{:id=>"controlsContainer", :class=>"modal hide fade in modalPanelContainer", :stule=>"display:none;"}
+        %div{:id=>"controlsContainer", :class=>"modal hide fade in modalPanelContainer", :style=>"display:none;"}
           %div{:id=>"controls" , :class=>"modalPanel"}
             %div.modal-header
               Controls
@@ -157,19 +160,16 @@
                     %span{:id=>"hihatVolMonitor" , :class=>"Monitor"} 1.0
             %div.modal-footer
               %a{:href=>"#", :class=>"btn", :"data-dismiss"=>"modal"} Close
-      %div{:class=>"modal hide fade in", :id=>"a666", :style=>"display: none; "}
-        %div.modal-header
-          %a{:class=>"close", :"data-dismiss"=>"modal"} ×
-          %h3 This is a Modal Heading
-        %div.modal-body
-          %div.row
-            %div.span4 aslkhlkajfh
-            %div.span4 aslkhlkajfh
-          %h4
-            Text in a modal
-          %p You can add some text here.
-        %div.modal-footer
-          %a{:href=>"#", :class=>"btn btn-success"} Call to action
+        %div{:id=>"saveMeterContainer", :class=>"modal hide fade in modalPanelContainer", :style=>"display:none;"}
+          %div{:id=>"newRhythm", :class=>"modalPanel"}
+            %div.modal-header
+              %h4 Save the current Meter
+            %div.modal-body
+              bookmark the page or save this url:
+              %br
+              %input{:type=>"text", :id=>"shareUrlInput", :style=>"width: 100%;font-size:1.2em;height:2em;"}
+            %div.modal-footer
+              %a{:href=>"#", :class=>"btn", :"data-dismiss"=>"modal"} Ok
       -#      
         .row
           .span4

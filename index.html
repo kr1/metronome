@@ -56,6 +56,11 @@
                   About
                 </a>
               </li>
+              <li>
+                <a data-toggle='modal' href='#saveMeterContainer' id='openSaveMeterModal'>
+                  Save Meter
+                </a>
+              </li>
             </ul>
           </div>
           <div class='nav-collapse collapse'>
@@ -113,7 +118,7 @@
           <span id='three' style='background-color:#AAAA11;position:absolute;'></span>
           <span id='four' style='background-color:#7788FF;position:absolute;'></span>
         </div>
-        <div class='modal hide fade in modalPanelContainer' id='rhythmEditorContainer' stule='display:none;'>
+        <div class='modal hide fade in modalPanelContainer' id='rhythmEditorContainer' style='display:none;'>
           <div class='modalPanel' id='newRhythm'>
             <div class='modal-header'>
               <h4>Number of Items</h4>
@@ -137,7 +142,7 @@
             </div>
           </div>
         </div>
-        <div class='modal hide fade in modalPanelContainer' id='controlsContainer' stule='display:none;'>
+        <div class='modal hide fade in modalPanelContainer' id='controlsContainer' style='display:none;'>
           <div class='modalPanel' id='controls'>
             <div class='modal-header'>
               Controls
@@ -146,7 +151,7 @@
               <h4>Bpm</h4>
               <table class='broad'><tr>
                   <td>
-                    <input id='speedSlider' max='333' min='5' step='0.1' title='keyboard: left/right arrow' type='range' value='120'>
+                    <input id='speedSlider' max='333' min='20' step='0.1' title='keyboard: left/right arrow' type='range' value='120'>
                   </td>
                   <td>
                     <span class='speedMonitor Monitor'>120.0</span>
@@ -182,24 +187,20 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class='modal hide fade in' id='a666' style='display: none; '>
-        <div class='modal-header'>
-          <a class='close' data-dismiss='modal'>×</a>
-          <h3>This is a Modal Heading</h3>
-        </div>
-        <div class='modal-body'>
-          <div class='row'>
-            <div class='span4'>aslkhlkajfh</div>
-            <div class='span4'>aslkhlkajfh</div>
+        <div class='modal hide fade in modalPanelContainer' id='saveMeterContainer' style='display:none;'>
+          <div class='modalPanel' id='newRhythm'>
+            <div class='modal-header'>
+              <h4>Save the current Meter</h4>
+            </div>
+            <div class='modal-body'>
+              bookmark the page or save this url:
+              <br>
+              <input id='shareUrlInput' style='width: 100%;font-size:1.2em;height:2em;' type='text'>
+            </div>
+            <div class='modal-footer'>
+              <a class='btn' data-dismiss='modal' href='#'>Ok</a>
+            </div>
           </div>
-          <h4>
-            Text in a modal
-          </h4>
-          <p>You can add some text here.</p>
-        </div>
-        <div class='modal-footer'>
-          <a class='btn btn-success' href='#'>Call to action</a>
         </div>
       </div>
       <hr>

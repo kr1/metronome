@@ -29,7 +29,7 @@ $(document).ready(function(){
     var in_speed = Number(MetroURL.getHashParameterByName('speed'));
     if (in_meter){
         if (rhythmEditor.validateMeter(in_meter)){
-          rhythm.meter = in_meter;
+          rhythm.meter = in_meter.split("");
         } else {
           alert("the specified meter '" + in_meter + "' contains invalid characters (only _,- and * are allowed)")
         }
