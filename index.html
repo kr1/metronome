@@ -47,12 +47,7 @@
           <div id='nav2'>
             <ul>
               <li>
-                <a href='/'>
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href='about.html'>
+                <a data-toggle='modal' href='#aboutContainer' id='openSaveMeterModal'>
                   About
                 </a>
               </li>
@@ -199,6 +194,55 @@
             </div>
             <div class='modal-footer'>
               <a class='btn' data-dismiss='modal' href='#'>Ok</a>
+            </div>
+          </div>
+        </div>
+        <div class='modal hide fade in modalPanelContainer' id='aboutContainer' style='display:none;'>
+          <div class='modalPanel' id='newRhythm'>
+            <div class='modal-header'>
+              <h4>About</h4>
+            </div>
+            <div class='modal-body' id='about-body'>
+              <h4>What is it</h4>
+              <p>
+                <em>
+                  Metronome
+                </em>
+                is a online metronome with the following features:
+              </p>
+              <ul class='base'>
+                <li>
+                  speed control
+                </li>
+                <li>
+                  volume control
+                </li>
+                <li>
+                  free choice of rhythms
+                </li>
+                <li>
+                  acoustic, visual or audio-visual mode
+                </li>
+                <li>
+                  control the metronome with the keyboard
+                </li>
+              </ul>
+              <p>
+                NB:
+                <em>
+                  Metronome
+                </em>
+                uses the web audio API for the audio generation. audio will not work on browsers that do not implement the web audio api. We recommend the Chrome Browser.
+              </p>
+              <br>
+              <h4>Github repository</h4>
+              <p>
+                <em>Metronome</em>
+                is free and open source. Find the code on
+                <em>Github</em>
+                <br>
+                <a href='https://github.com/kr1/metronome'>Github public repo</a>
+              </p>
             </div>
           </div>
         </div>

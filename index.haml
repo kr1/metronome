@@ -41,10 +41,7 @@
           #nav2
             %ul
               %li
-                %a{:href=>"/"}
-                  Home
-              %li
-                %a{:href=>"about.html"}
+                %a{:"data-toggle"=>"modal", :href=>"#aboutContainer", :id=>"openSaveMeterModal"}
                   About
               %li
                 %a{:"data-toggle"=>"modal", :href=>"#saveMeterContainer", :id=>"openSaveMeterModal"}
@@ -170,6 +167,41 @@
               %input{:type=>"text", :id=>"shareUrlInput", :style=>"width: 100%;font-size:1.2em;height:2em;"}
             %div.modal-footer
               %a{:href=>"#", :class=>"btn", :"data-dismiss"=>"modal"} Ok
+        %div{:id=>"aboutContainer", :class=>"modal hide fade in modalPanelContainer", :style=>"display:none;"}
+          %div{:id=>"newRhythm", :class=>"modalPanel"}
+            %div.modal-header
+              %h4 About
+            %div{:class=>"modal-body", :id=>"about-body"}
+              %h4 What is it
+              %p
+                %em
+                  Metronome
+                is a online metronome with the following features:
+              %ul.base
+                %li
+                  speed control
+                %li
+                  volume control
+                %li
+                  free choice of rhythms
+                %li
+                  acoustic, visual or audio-visual mode
+                %li
+                  control the metronome with the keyboard
+              %p
+                NB:
+                %em
+                  Metronome
+                uses the web audio API for the audio generation. audio will not work on browsers that do not implement the web audio api. We recommend the Chrome Browser.
+              %br
+              %h4 Github repository
+              %p
+                %em Metronome 
+                is free and open source. Find the code on 
+                %em Github
+                %br
+                %a{:href=>"https://github.com/kr1/metronome"} Github public repo
+
       -#      
         .row
           .span4

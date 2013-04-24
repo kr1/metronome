@@ -55,9 +55,18 @@ img#vis_switcher:hover {
   width:700px;
 margin-left: -350px;
 }
+#aboutContainer{
+  width:900px;
+  margin-left: -450px;
+}
+#about-body{
+  height:480px;
+  max-height:480px;
+}
 .modalPanel{
     position:relative;
-    width:100%;}
+    width:100%;
+}
 #speedSlider{width:70%;}
 #speedMonitor{width:15%;}
 #speedMonitorUnit{width:15%;}
