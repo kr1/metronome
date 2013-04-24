@@ -40,30 +40,46 @@
             <span class='icon-bar'></span>
           </button>
           <a class='brand' href='#'>Metronome</a>
+          <span class="claim">Find your rhythm</span>
+          <div id="nav2">
+            <ul>
+              <li><a href="#">About</a></li>
+            </ul>
+          </div>  
           <div class='nav-collapse collapse'>
-            <ul class='nav'>
-              <li class='' style='width:7%;'>
-                <button class='btn btn-small' id='playButton' title='keyboard: [space]'>Play</button>
+            <ul class='nav'>              
+              <li class='' style=''>
+                <button class='btn btn-danger play_btn' id='playButton' title='keyboard: [space]'>Play <span class="ff_btn">[Press Spacebar]</button>
               </li>
-              <li class='' style='width:25%;'>
-                <img class='onOffPic' data-name='audio' data-offSrc='pics/ear_strong_grey.png' data-onSrc='pics/ear_strong_green.png' id='audioOnOff' src='pics/ear_strong_green.png' title="switch audio metronome on and off: keyboard: 'a'">
-                <img class='onOffPic' data-name='visual' data-offSrc='pics/auge_grey.png' data-onSrc='pics/auge_green.png' id='visualOnOff' src='pics/auge_green.png' title="switch visual metronome on and off: keyboard 'v'">
-                <img class='onOffPic' data-name='visualSequence' data-offSrc='pics/auge_sequence_grey.png' data-onSrc='pics/auge_sequence_green.png' id='visualSequenceOnOff' src='pics/auge_sequence_green.png' title="switch visual sequence on and off: keyboard 's'">
-                <img class='onOffPic' data-name='visualFullscreen' data-offSrc='pics/auge_frame_grey.png' data-onSrc='pics/auge_frame_green.png' id='visualFullscreenOnOff' src='pics/auge_frame_grey.png' title="switch background visual on and off: keyboard: 'f' (fullscreen)">
-                <img class='onOffPic' id='vis_switcher' src='pics/metronome_circle_of_circles.png' title="switch between circle and linear display mode: keyboard: 'c'">
-                <img class='onOffPic' id='vis_prop_switcher' src='pics/metronome_proportional.png' title="switch between proportional and un-proportional display: keyboard: 'p'">
+              <li class=''>
+                <img class='onOffPic' data-name='audio' data-offSrc='pics/ear_strong_grey.png' data-onSrc='pics/ear_strong_black.png' id='audioOnOff' src='pics/ear_strong_black.png' title="switch audio metronome on and off: keyboard: 'a'">
               </li>
-              <li class='' style='width:9%;'>
+              <li>
+                <img class='onOffPic' data-name='visual' data-offSrc='pics/auge_grey.png' data-onSrc='pics/auge_black.png' id='visualOnOff' src='pics/auge_black.png' title="switch visual metronome on and off: keyboard 'v'">
+              </li>
+              <li>
+                <img class='onOffPic' data-name='visualSequence' data-offSrc='pics/auge_sequence_grey.png' data-onSrc='pics/auge_sequence_black.png' id='visualSequenceOnOff' src='pics/auge_sequence_black.png' title="switch visual sequence on and off: keyboard 's'">
+              </li>
+              <li>  
+                <img class='onOffPic' data-name='visualFullscreen' data-offSrc='pics/auge_frame_grey.png' data-onSrc='pics/auge_frame_black.png' id='visualFullscreenOnOff' src='pics/auge_frame_grey.png' title="switch background visual on and off: keyboard: 'f' (fullscreen)">
+              </li>
+              <li>
+                <img class='onOffPic' id='vis_switcher' src='pics/metronome_circle_of_circles_black.png' title="switch between circle and linear display mode: keyboard: 'c'">
+              </li>  
+              <li>
+                <img class='onOffPic' id='vis_prop_switcher' src='pics/metronome_proportional_black.png' title="switch between proportional and un-proportional display: keyboard: 'p'">
+              </li>
+              <li class='' style=''>
                 <span class='speedMonitor Monitor' title='keyboard: left/right arrow'>120.0</span>
                 <span class='Monitor' id='speedMonitorUnit' title='keyboard: left/right arrow'>BPM</span>
               </li>
-              <li class='' style='width:16%;'>
+              <li class='' style=''>
                 <span class='Monitor' id='analyzedRhythmMonitor'></span>
               </li>
-              <li class='' style='width:14%;'>
+              <li class='fr' >
                 <button class='btn btn-small' data-toggle='modal' href='#controlsContainer'>Show control</button>
               </li>
-              <li class='' style='width:17%;'>
+              <li class='fr'>
                 <button class='btn btn-small' data-toggle='modal' href='#rhythmEditorContainer' id='unhideNewRhythmButton'>Modify Rhythm</button>
               </li>
             </ul>
@@ -71,6 +87,7 @@
         </div>
       </div>
     </div>
+    
     <div class='container'>
       <div class='hero-unit'>
         <div id='rhythmViewPort' style='position:relative;min-height:100px'>
@@ -91,6 +108,7 @@
             </div>
             <div class='modal-body'>
               <div id='rhythmEditor'>
+                <p class="tips">TIPS: Click on the circles to change instrument</p>
                 <!-- / filled by JavaScript -->
               </div>
             </div>
