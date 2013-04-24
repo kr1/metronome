@@ -35,13 +35,16 @@
         %div{:class=>"container", :id=>"main_nav_container"}
           %button{:type=>"button", :class=>"btn btn-navbar", :"data-toggle"=>"collapse", :"data-target"=>".nav-collapse"}
             %span{:class=>"icon-bar"}
-          %a{:class=>"brand", :href=>"#"} Metronome
+          %a{:class=>"brand", :href=>"/"} Metronome
           %span.claim
             Find your rhythm
           #nav2
             %ul
               %li
-                %a{:href=>"#"}
+                %a{:href=>"/"}
+                  Home
+              %li
+                %a{:href=>"about.html"}
                   About
           %div{:class=>"nav-collapse collapse"}
             %ul{:class=>"nav"}
@@ -104,20 +107,25 @@
         %div{:id=>"rhythmEditorContainer", :class=>"modal hide fade in modalPanelContainer", :stule=>"display:none;"}
           %div{:id=>"newRhythm", :class=>"modalPanel"}
             %div.modal-header
+              %h4 Number of Items
+              %span{:id=>"newRhythmLengthMonitor", :class=>"Monitor"}
               %input{:id=>"newRhythmLengthSlider", :min=>"2", :max=>"27", :step=>"1", :value=>"4", :type=>"range"}
-                %span{:id=>"newRhythmLengthMonitor", :class=>"Monitor"}
-                %button{:id=>"saveNewRhythmButton", :class=>"btn btn-small", :"data-dismiss"=>"modal"} Save New Rhythm
-                %button{:id=>"hideNewRhythmButton", :class=>"btn btn-small", :"data-dismiss"=>"modal"} hide rhythm editor
             %div.modal-body
+              %h4
+                Timeline
               %div{:id=>"rhythmEditor"}
                 %p.tips
                   TIP: click on the circles to change instrument
                 // filled by JavaScript
+            %div.modal-footer
+              %button{:id=>"saveNewRhythmButton", :class=>"btn btn-small", :"data-dismiss"=>"modal"} Save New Rhythm
+              %button{:id=>"hideNewRhythmButton", :class=>"btn btn-small", :"data-dismiss"=>"modal"} hide rhythm editor
         %div{:id=>"controlsContainer", :class=>"modal hide fade in modalPanelContainer", :stule=>"display:none;"}
           %div{:id=>"controls" , :class=>"modalPanel"}
             %div.modal-header
               Controls
             %div.modal-body
+              %h4 Bpm
               %table{:class=>"broad"}
                 %tr>
                   %td
@@ -125,31 +133,28 @@
                            :value=>"120", :type=>"range", :title=>"keyboard: left/right arrow"}
                   %td
                     %span{:class => "speedMonitor Monitor"} 120.0
+              %hr
+              %h4 Volume
+              %table{:class=>"broad"}
+                %tr
                   %td
-                    %span{:id=>"speedMonitorUnit" , :class=>"Monitor"} BPM
-                  %table{:class=>"broad"}
-                    %tr
-                      %th
-                        Volume
-                    %tr
-                      %td
-                        Kick
-                        %input{:type=>"range", :name=>"kickVol" , :class=>"volVertical", :rel=>"kick", 
-                               :min=>"0", :max=>"1.2", :step=>"0.01", :value=>"1"}
-                        %br
-                        %span{:id=>"kickVolMonitor" , :class=>"Monitor"} 1.0
-                      %td
-                        Snare
-                        %input{:type=>"range", :name=>"snareVol", :class=>"volVertical", :rel=>"snare",
-                          :min=>"0", :max=>"1.2", :step=>"0.01", :value=>"1"}
-                        %br
-                        %span{:id=>"snareVolMonitor" , :class=>"Monitor"}1.0
-                      %td
-                        Hihat
-                        %input{:type=>"range", :name=>"hihatVol", :class=>"volVertical", :rel=>"hihat",  
-                          :min=>"0", :max=>"1.2", :step=>"0.01", :value=>"1"}
-                        %br
-                        %span{:id=>"hihatVolMonitor" , :class=>"Monitor"} 1.0
+                    Kick
+                    %input{:type=>"range", :name=>"kickVol" , :class=>"volVertical", :rel=>"kick", 
+                           :min=>"0", :max=>"1.2", :step=>"0.01", :value=>"1"}
+                    %br
+                    %span{:id=>"kickVolMonitor" , :class=>"Monitor"} 1.0
+                  %td
+                    Snare
+                    %input{:type=>"range", :name=>"snareVol", :class=>"volVertical", :rel=>"snare",
+                      :min=>"0", :max=>"1.2", :step=>"0.01", :value=>"1"}
+                    %br
+                    %span{:id=>"snareVolMonitor" , :class=>"Monitor"}1.0
+                  %td
+                    Hihat
+                    %input{:type=>"range", :name=>"hihatVol", :class=>"volVertical", :rel=>"hihat",  
+                      :min=>"0", :max=>"1.2", :step=>"0.01", :value=>"1"}
+                    %br
+                    %span{:id=>"hihatVolMonitor" , :class=>"Monitor"} 1.0
             %div.modal-footer
               %a{:href=>"#", :class=>"btn", :"data-dismiss"=>"modal"} Close
       %div{:class=>"modal hide fade in", :id=>"a666", :style=>"display: none; "}
