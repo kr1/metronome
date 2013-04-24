@@ -134,4 +134,4 @@ ul.base{padding-left: 30px;}
 ul.base li{
 	}
 .navbar-inverse .brand:hover, .navbar-inverse .nav > li > a:hover, .navbar-inverse .brand:focus, .navbar-inverse .nav > li > a:focus{color:#999;}
-	
+#newRhythmLengthMonitor{float:none;}
