@@ -1,5 +1,8 @@
-var context = new webkitAudioContext(),
-        buffer;
+try {
+  var context = new webkitAudioContext()
+} catch(ReferenceError) {
+  alert("metronome works only on webkit browsers: e.g.: chrome and safari")
+}
 aGraph.setUpAudioGraph(context)
 
 aGraph.playBeat = function(weight){
@@ -8,7 +11,6 @@ aGraph.playBeat = function(weight){
 
 
 aGraph.playAudioFile = function (bufferName, rate) {
-    //buffer = buffer || audioBuffer
     //source = state[bufferName + "Source"]
     var source = context.createBufferSource();
     source.playbackRate.value = rate || aGraph.drums[bufferName + "Speed"]
@@ -20,7 +22,6 @@ aGraph.playAudioFile = function (bufferName, rate) {
 
 aGraph.loadAudioFile = (function (which, bufferName) {
     var request = new XMLHttpRequest();
-    //buffer = eval(buffername)
     request.open('get', '/sounds/' + which, true);
     request.responseType = 'arraybuffer';
 
