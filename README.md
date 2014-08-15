@@ -10,7 +10,7 @@ _METRONOME_ is a online metronome with the following features:
   - acoustic, visual or audio-visual mode
   - control the metronome with the keyboard
 
-NB: _METRONOME_ uses the web audio API for the audio generation. audio will not work on browsers that do not implement the web audio api. We recommend the Chrome Browser.
+NB: _METRONOME_ uses the Web Audio API for audio generation. Audio will not work on browsers that do not implement the Web Audio API.
 
 ## SCREENSHOTS
 
@@ -25,6 +25,8 @@ NB: _METRONOME_ uses the web audio API for the audio generation. audio will not 
 ## DEMO
 
 see this periodically updated [online version](http://metronome.zanstaen.org)
+
+It is possible to specify a rhythm with an URL parameter, like [_**-**_**-**-_)](http://metronome.zanstaen.org/#speed=132/meter=_**-**_**-**-_)
 
 ## GETTING STARTED
 
