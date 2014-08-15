@@ -11,13 +11,12 @@ aGraph.playBeat = function(weight){
 
 
 aGraph.playAudioFile = function (bufferName, rate) {
-    //source = state[bufferName + "Source"]
     var source = context.createBufferSource();
     source.playbackRate.value = rate || aGraph.drums[bufferName + "Speed"]
     source.buffer = aGraph[bufferName];
     var gain = aGraph[bufferName + "GainNode"]
     source.connect(gain);
-    source.noteOn(0); // Play sound immediately
+    source.start(0); // Play sound immediately
 };
 
 aGraph.loadAudioFile = (function (which, bufferName) {
