@@ -9,7 +9,6 @@ aGraph.playBeat = function(weight){
     aGraph.playAudioFile(rhythm.weightToBuffer[weight])
 }
 
-
 aGraph.playAudioFile = function (bufferName, rate) {
     var source = context.createBufferSource();
     source.playbackRate.value = rate || aGraph.drums[bufferName + "Speed"]
