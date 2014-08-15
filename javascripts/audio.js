@@ -1,7 +1,7 @@
 try {
-  var context = new webkitAudioContext()
+  var context = new AudioContext()
 } catch(ReferenceError) {
-  alert("metronome works only on webkit browsers: e.g.: chrome and safari")
+  alert("metronome works only on browsers that implement the Web Audio API: e.g.: Firefox & Chrome")
 }
 aGraph.setUpAudioGraph(context)
 
@@ -26,9 +26,7 @@ aGraph.loadAudioFile = (function (which, bufferName) {
     request.onload = function () {
             context.decodeAudioData(request.response,
                  function(incomingBuffer) {
-                     //console.log(state)
                      aGraph[bufferName] = incomingBuffer;
-                     //playAudioFile(incomingBuffer);
                  }
             );
     };
@@ -39,4 +37,3 @@ aGraph.loadAudioFile("kick.wav", "kickBuffer");
 aGraph.loadAudioFile("snare.wav", "snareBuffer");
 aGraph.loadAudioFile("hihat.wav", "hihatBuffer");
 aGraph.loadAudioFile("hihat2.wav", "hihat2Buffer");
-

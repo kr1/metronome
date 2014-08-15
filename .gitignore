@@ -3,4 +3,5 @@ tests/jasmin_lib
 pics/*
 stylesheets/bootstrap-responsive.css
 stylesheets/bootstrap.css
+*.swp
 
