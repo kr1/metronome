@@ -1,7 +1,10 @@
 try {
-  var context = new AudioContext()
+    var context = new AudioContext(),
+        listener = context.listener;
+        //listener.setOrientation(1,1,-1,0,1,0);
+        listener.setPosition(1,1,1);
 } catch(ReferenceError) {
-  alert("metronome works only on browsers that implement the Web Audio API: e.g.: Firefox & Chrome")
+    alert("metronome works only on browsers that implement the Web Audio API: e.g.: Firefox & Chrome")
 }
 aGraph.setUpAudioGraph(context)
 

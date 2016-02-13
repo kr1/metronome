@@ -9,10 +9,10 @@ aGraph.setUpDrumGraph = function(){
     aGraph.gainNodeDrums.connect(aGraph.gainNodeAll)
     for (bufferNameIdx in aGraph.DRUM_BUFFER_NAMES){
         bufferName = aGraph.DRUM_BUFFER_NAMES[bufferNameIdx]
-        //console.log("setting up: ", bufferName)
-        var panner = context.createPanner();
-        var gain = context.createGain();
-        aGraph[bufferName + "Panner"] = panner
+        var panner = context.createPanner(),
+            gain = context.createGain();
+        panner.setPosition(0, 0, 0);
+        aGraph[bufferName + "Panner"] = panner;
         aGraph[bufferName + "GainNode"] = gain;
         gain.connect(panner)
         panner.connect(aGraph.gainNodeDrums);
