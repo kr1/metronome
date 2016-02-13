@@ -40,18 +40,22 @@ $(document).ready(function() {
         $('.modalPanelContainer').hide();
         $("#controlsContainer").show();
     })
+
     $('#hideControls').bind("click",function(e){
         $("#controlsContainer").hide();
     })
+
     $('#unhideNewRhythmButton').bind("click",function(e){
         rhythmEditor.takeMetroMeter();
         rhythmEditor.drawRhythm();
         $('#newRhythmLengthMonitor').text(rhythmEditor.meter.length);
         $('#newRhythmLengthSlider').val(rhythmEditor.meter.length);
     })
+
     $('#hideNewRhythmButton').bind("click",function(e){
         $("#newRhythmContainer").hide();
     })
+
     $('#playButton').bind("click",
         function(e){
             state.pauseD = !state.pauseD
