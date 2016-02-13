@@ -68,7 +68,9 @@ margin-left: -350px;
     width:100%;
 }
 #speedSlider{width:70%;}
+#speedslider_cell{width:70%;}
 #speedMonitor{width:15%;}
+#speedmonitor_cell{width:20%;}
 #speedMonitorUnit{width:15%;}
 .volVertical {width: 20px;
               height: 120px;
@@ -80,8 +82,9 @@ margin-left: -350px;
                  text-align:center}
 
 #newRhythmLengthMonitor{
-  float:left;
-  min-width:2em;
+  float: left;
+  display: inline-block;
+  min-width: 3em;
 }
 .light, .rhythmEditorItem.light {
     background-Color:#3A6CA5;

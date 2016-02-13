@@ -128,10 +128,10 @@
               %h4 Bpm
               %table{:class=>"broad"}
                 %tr>
-                  %td
+                  %td{:id=>"speedslider_cell"}
                     %input{:id=>"speedSlider", :min=>"20", :max=>"333", :step=>"0.1",
                            :value=>"120", :type=>"range", :title=>"keyboard: left/right arrow"}
-                  %td
+                  %td{:id=>"speedmonitor_cell"}
                     %span{:class => "speedMonitor Monitor"} 120.0
               %hr
               %h4 Volume
