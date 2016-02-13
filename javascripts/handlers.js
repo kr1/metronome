@@ -71,7 +71,7 @@ $(document).ready(function() {
         }
     );
 
-    $('#speedSlider').bind("input", function(e){
+    $('#speedSlider').bind("input change", function(e){
         var newSpeed =$(this).val()
         state.speed.newSpeedBpm(newSpeed)
         $(".speedMonitor").text(newSpeed)
@@ -130,10 +130,8 @@ $(document).ready(function() {
         viewPort.proportional = true;
       }
     })
-    $('#openSaveMeterModal').click(function(e) {
-        MetroURL.set_hash(MetroURL.make_hash_representation());
-    })
     $('#saveMeterContainer').on('shown', function(e) {
+        MetroURL.set_hash(MetroURL.make_hash_representation());
         $('#shareUrlInput').val(window.location).select();
     })
 });

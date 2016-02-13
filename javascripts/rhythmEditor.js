@@ -2,7 +2,7 @@
 $(document).ready(function(){
     var fullHeight = Number($('#rhythmEditor').css('height').match(/[0-9]+/)[0]);
     rhythmEditor = {
-        meter: [],
+        meter: rhythm.meter,
         fullHeight: fullHeight,
         heightMult: fullHeight * 0.013,
         defaultRhythm: "***************************".split(""),

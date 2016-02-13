@@ -17,5 +17,5 @@ MetroURL.make_hash_representation = function() {
 }
 
 MetroURL.set_hash = function (string) {
-    window.location.hash = "#" + string
+    window.location.hash = "#" + string;
 }
