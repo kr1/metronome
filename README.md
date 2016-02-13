@@ -16,17 +16,17 @@ NB: _METRONOME_ uses the Web Audio API for audio generation. Audio will not work
 
 ### Linear Mode
 
-![linear mode](http://raw.githubusercontent.com/kr1/metronome/master/pics/2013-04-24_screenshot_metronome_linear.png "screenshot linear mode")
+![linear mode](https://raw.githubusercontent.com/kr1/metronome/master/pics/2013-04-24_screenshot_metronome_linear.png "screenshot linear mode")
 
 ### Circular Mode
 
-![circular mode](http://raw.githubusercontent.com/kr1/metronome/master/pics/2013-04-24_screenshot_metronome_circle.png "screenshot circular mode")
+![circular mode](https://raw.githubusercontent.com/kr1/metronome/master/pics/2013-04-24_screenshot_metronome_circle.png "screenshot circular mode")
 
 ## DEMO
 
 see this periodically updated [online version](http://metronome.zanstaen.org)
 
-It is possible to specify a rhythm with an URL parameter, like [\_\*\*-\*\*\_\*\*-\*\*-\_\](http://metronome.zanstaen.org/#speed=132/meter=_**-**_**-**-_)
+It is possible to specify a rhythm with an URL parameter, like \_\*\*-\*\*\_\*\*-\*\*-\_\, try [here](http://metronome.zanstaen.org/#speed=132/meter=_**-**_**-**-_)
 
 ## GETTING STARTED
 
