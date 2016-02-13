@@ -26,7 +26,7 @@ NB: _METRONOME_ uses the Web Audio API for audio generation. Audio will not work
 
 see this periodically updated [online version](http://metronome.zanstaen.org)
 
-It is possible to specify a rhythm with an URL parameter, like \_\*\*-\*\*\_\*\*-\*\*-\_\, try [here](http://metronome.zanstaen.org/#speed=132/meter=_**-**_**-**-_)
+It is possible to specify a rhythm with an URL parameter, like `_**-**_**-**-_`  try [here](http://metronome.zanstaen.org/#speed=132/meter=_**-**_**-**-_)
 
 ## GETTING STARTED
 
