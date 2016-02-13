@@ -130,9 +130,10 @@ $(document).ready(function() {
         viewPort.proportional = true;
       }
     })
-    $('#openSaveMeterModal').click(function(e){
-      MetroURL.set_hash(MetroURL.make_hash_representation());
-      $('#shareUrlInput').val(window.location);
-      $('#shareUrlInput').text(window.location);
+    $('#openSaveMeterModal').click(function(e) {
+        MetroURL.set_hash(MetroURL.make_hash_representation());
+    })
+    $('#saveMeterContainer').on('shown', function(e) {
+        $('#shareUrlInput').val(window.location).select();
     })
 });
