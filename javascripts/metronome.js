@@ -41,7 +41,7 @@ $(document).ready(function(){
     rhythm.playMetro = function() {
         window.setTimeout(function() {
             if (!state.pauseD) {
-                if (!state.audioPauseD){
+                if (!state.audioPauseD) {
                     aGraph.playBeat(rhythm.meter[state.position]);
                 }
                 if (!state.visualPauseD) {

@@ -6,9 +6,10 @@ try {
 } catch(ReferenceError) {
     alert("metronome works only on browsers that implement the Web Audio API: e.g.: Firefox & Chrome")
 }
-aGraph.setUpAudioGraph(context)
 
-aGraph.playBeat = function(weight){
+aGraph.setUpAudioGraph(context);
+
+aGraph.playBeat = function(weight) {
     aGraph.playAudioFile(rhythm.weightToBuffer[weight])
 }
 
