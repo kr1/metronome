@@ -71,13 +71,13 @@ $(document).ready(function() {
         }
     );
 
-    $('#speedSlider').bind("change",function(e){
+    $('#speedSlider').bind("input", function(e){
         var newSpeed =$(this).val()
         state.speed.newSpeedBpm(newSpeed)
         $(".speedMonitor").text(newSpeed)
     });
 
-    $('#newRhythmLengthSlider').bind("change",function(e){
+    $('#newRhythmLengthSlider').bind("input",function(e){
         var newRhythmLength = Number($(this).val());
         rhythmEditor.takeMetroMeter(newRhythmLength);
         rhythmEditor.drawRhythm();
