@@ -1,5 +1,6 @@
 
 $(document).ready(function(){
+    setUpRhythm();
     var fullHeight = Number($('#rhythmEditor').css('height').match(/[0-9]+/)[0]);
     rhythmEditor = {
         meter: rhythm.meter,

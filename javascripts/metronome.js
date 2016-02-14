@@ -1,4 +1,4 @@
-$(document).ready(function(){
+setUpRhythm = function() {
     rhythm = {};
 
     var meterStr = "_**-**_*-*",
@@ -128,4 +128,4 @@ $(document).ready(function(){
             }
         });
     }
-});
+}
