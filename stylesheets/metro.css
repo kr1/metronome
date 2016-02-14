@@ -1,12 +1,12 @@
-/*body{
-    background-Color:#DDEEDD;
-    font-family:sans-serif;
+body {
+    padding-top: 100px;
+    padding-bottom: 40px;
 }
-ul {
-    list-style: none;}*/
-body{padding-top: 100px;}
-.nav{
-  width:85%;
+.sidebar-nav {
+    padding: 9px 0;
+}
+.nav {
+    width:85%;
 }
 .navbar-inner, #main_nav {
   background-color: #f3f3f3; /* background color will be black for all browsers */
@@ -14,39 +14,39 @@ body{padding-top: 100px;}
   background-repeat: no-repeat;
   filter: none;
 }
-button{
+button {
   font-size:12;
   font-weight:bold;
 }
-.navbar .nav > li{
+.navbar .nav > li {
     display: inline-block;
- 		margin: 0 12px 0 0;
- }
-li{
-    /*display: inline-block;*/
+    margin: 0 12px 0 0;
  }
 
 .navbar .btn, .navbar .btn-group {margin:0;}
-.hero-unit{
-  height:60%;
+.hero-unit {
+    height:60%;
 }
-li.broad{
-  width:22%
+li.broad {
+    width:22%
 }
 
 img#vis_switcher:hover {
-  opacity: 0.2;
+      opacity: 0.2;
 }
 
-.hidden{
-  display:none;
+.hidden {
+    display:none;
 }
-.broad{
-  width:100%
+.broad {
+    width:100%
 }
 
-.play_btn{width:170px;text-transform:uppercase;}
-#main_nav_container{}
+.play_btn {
+    width:170px;
+    text-transform:uppercase;
+}
+
 .navbar .brand{margin:0 10px 0 0; border:dashed 1px; }
 .navbar-inverse .brand {color:#000;text-shadow:0 0 0;}
 
@@ -60,28 +60,29 @@ margin-left: -350px;
   margin-left: -450px;
 }
 #about-body{
-  height:480px;
-  max-height:480px;
+    height:480px;
+    max-height:480px;
 }
 .modalPanel{
     position:relative;
     width:100%;
 }
-#speedSlider{width:70%;}
-#speedslider_cell{width:70%;}
-#speedMonitor{width:15%;}
-#speedmonitor_cell{width:20%;}
-#speedMonitorUnit{width:15%;}
-.volVertical {width: 20px;
+#speedSlider {width:70%;}
+#speedslider_cell {width:70%;}
+#speedMonitor {width:15%;}
+#speedmonitor_cell {width:20%;}
+#speedMonitorUnit {width:15%;}
+.volVertical {width: 10px;
               height: 120px;
-              -webkit-appearance: slider-vertical;}
+              -webkit-appearance: slider-vertical;
+}
 #rhythmViewPort #rhythmEditor {
                  margin-left: auto;
                  margin-right: auto;
                  width: 80%;
                  text-align:center}
 
-#newRhythmLengthMonitor{
+#newRhythmLengthMonitor {
     float: left;
     display: inline-block;
     min-width: 3em;
@@ -115,10 +116,15 @@ margin-left: -350px;
 }
 .onOffPic {height:30px}
 
-.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {box-shadow:0 0 0 ;border-bottom: 1px solid #DDDDDD;}
+.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
+    box-shadow:0 0 0 ;
+    border-bottom: 1px solid #DDDDDD;
+}
 
 #analyzedRhythmMonitor{}
-.navbar .nav{width:100%;margin-top:26px}
+.navbar .nav{
+    width:100%;
+    margin-top:26px}
 .navbar .nav > li.fr{float:right;}
 .fr{float:right;}
 .fl{float:left;}
@@ -137,17 +143,21 @@ margin-left: -350px;
     vertical-align: top;
 }
 
-#nav2{float:right;margin:10px;}
-#nav2 li{display:inline-block;margin:0 0 0 20px;}
-#nav2 li a{color:#999;}
-p.tips{font-size: 12px;}
-.claim{
+#nav2 {float:right;margin:10px;}
+#nav2 li {display:inline-block;margin:0 0 0 20px;}
+#nav2 li a {color:#999;}
+p.tips {font-size: 12px;}
+.claim {
     color: #999999;
     display: inline-block;
     font-size: 13px;
     margin: 12px 9px 0;
 }
-ul.base{padding-left: 30px;}
-ul.base li{}
-.navbar-inverse .brand:hover, .navbar-inverse .nav > li > a:hover, .navbar-inverse .brand:focus, .navbar-inverse .nav > li > a:focus{color:#999;}
+ul.base {padding-left: 30px;}
+.navbar-inverse .brand:hover,
+.navbar-inverse .nav > li > a:hover,
+.navbar-inverse .brand:focus,
+.navbar-inverse .nav > li > a:focus {
+    color:#999;
+}
 #newRhythmLengthMonitor{float:none;}
