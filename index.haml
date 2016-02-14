@@ -3,9 +3,11 @@
     %title METRONOME
     %meta{:charset=>"utf-8"}
     %meta{ :name=>"viewport", :content=>"width=device-width, initial-scale=1.0"}
-    %meta{ :name=>"keywords", :content=>"metronome, online, browser, web audio api, multirhythm, rhythmic metronome" }
-    %meta{:name=>"description", :content=>"an audio-visual metronome supporting various rhythms and patterns" }
-    %meta{:name=>"author", :content=>"christian wörner, ernst modersohn" }
+    %meta{ :name=>"keywords", :content=>"metronome, online, browser, web audio api, odd rhythms, polyrhythm, multirhythm, rhythmic metronome, odd meters" }
+    %meta{:name=>"description", :content=>"an audio-visual metronome for normal and odd meters"}
+    %meta{:name=>"author", :content=>"christian woerner"}
+    %meta{:name=>"author", :content=>"christian wörner" }
+    %meta{:name=>"author", :content=>"ernst modersohn" }
     %script{:type=>"text/javascript", :src=>"/javascripts/vendor/jquery-1.7.2.min.js"}
     %script{:type=>"text/javascript", :src=>"/javascripts/vendor/bootstrap-modal.js"}
     %script{:type=>"text/javascript", :src=>"/javascripts/handlers.js"}
@@ -18,14 +20,6 @@
     %script{:type=>"text/javascript", :src=>"/javascripts/utils.js"}
     %script{:type=>"text/javascript", :src=>"/javascripts/init.js"}
     %link{:id=>"favicon", :rel=>"shortcut icon", :href=>"/favicon.ico"}
-    :css
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
     %link{:href=>"/stylesheets/bootstrap-responsive.min.css", :rel=>"stylesheet"}
     %link{:href=>"/stylesheets/bootstrap.min.css", :rel=>"stylesheet"}
     %link{:rel=>"stylesheet", :href=>"/stylesheets/metro.css", :type=>"text/css"}
@@ -125,7 +119,7 @@
             %div.modal-header
               Controls
             %div.modal-body
-              %h4 Bpm
+              %h4 bpm
               %table{:class=>"broad"}
                 %tr>
                   %td{:id=>"speedslider_cell"}
