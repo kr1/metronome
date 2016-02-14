@@ -1,3 +1,4 @@
+setUpRhythm();
 describe("the metronome-object", function() {
     describe("analyzing meter:", function() {
       it("should recognize a simple 4/4", function() {

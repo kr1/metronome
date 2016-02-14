@@ -1,3 +1,4 @@
+setUpRhythmEditor();
 describe("rhythmEditor", function(){
     describe("takeMetroMeter", function(){
         beforeEach(function(){
