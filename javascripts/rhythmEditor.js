@@ -1,6 +1,4 @@
-
-$(document).ready(function(){
-    setUpRhythm();
+setUpRhythmEditor = function() {
     var fullHeight = Number($('#rhythmEditor').css('height').match(/[0-9]+/)[0]);
     rhythmEditor = {
         meter: rhythm.meter,
@@ -70,4 +68,4 @@ $(document).ready(function(){
     rhythmEditor.validateMeter = function(meter_string){
       return !!meter_string.match(/^[_*-]+$/)
     }
-});
+}

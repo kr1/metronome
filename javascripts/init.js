@@ -27,6 +27,8 @@ state = {
 }
 
 $(document).ready(function(){
+    setUpRhythm();
+    setUpRhythmEditor();
     var in_meter = MetroURL.getHashParameterByName('meter');
     var in_speed = Number(MetroURL.getHashParameterByName('speed'));
     if (in_meter){
