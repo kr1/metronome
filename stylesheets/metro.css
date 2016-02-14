@@ -43,38 +43,57 @@ img#vis_switcher:hover {
 }
 
 .play_btn {
-    width:170px;
-    text-transform:uppercase;
+    width: 170px;
+    text-transform: uppercase;
 }
 
-.navbar .brand{margin:0 10px 0 0; border:dashed 1px; }
-.navbar-inverse .brand {color:#000;text-shadow:0 0 0;}
+.navbar .brand {
+    margin: 0 10px 0 0;
+    border: dashed 1px;
+}
+.navbar-inverse .brand {
+    color: #000;
+    text-shadow: 0 0 0;
+}
 
-.main_nav_container{line-height:32px;}
-#controlsContainer{
-    width:60%;
+.main_nav_container {
+    line-height: 32px;
+}
+#controlsContainer {
+    width: 60%;
     margin-left: -30%;
 }
-#aboutContainer{
-    width:60%;
+#aboutContainer {
+    width: 60%;
     margin-left: -30%;
 }
-#about-body{
-    height:480px;
-    max-height:480px;
+#about-body {
+    height: 480px;
+    max-height: 480px;
 }
 .modalPanel{
     position:relative;
     width:100%;
 }
-#speedSlider {width:70%;}
-#speedslider_cell {width:70%;}
-#speedMonitor {width:15%;}
-#speedmonitor_cell {width:20%;}
-#speedMonitorUnit {width:15%;}
-.volVertical {width: 10px;
-              height: 120px;
-              -webkit-appearance: slider-vertical;
+#speedSlider {
+    width: 70%;
+}
+#speedslider_cell {
+    width: 70%;
+}
+#speedMonitor {
+    width: 15%;
+}
+#speedmonitor_cell {
+    width: 20%;
+}
+#speedMonitorUnit {
+    width: 15%;
+}
+.volVertical {
+    width: 10px;
+    height: 120px;
+    -webkit-appearance: slider-vertical;
 }
 #rhythmViewPort #rhythmEditor {
                  margin-left: auto;
@@ -88,7 +107,7 @@ img#vis_switcher:hover {
     min-width: 3em;
 }
 .light, .rhythmEditorItem.light {
-    background-Color:#466340;
+    background-Color: #466340;
 }
 .heavy, .rhythmEditorItem.heavy {
     background-Color:#183E31;
@@ -114,7 +133,9 @@ img#vis_switcher:hover {
     padding: 2;
     height: 23px;
 }
-.onOffPic {height:30px}
+.onOffPic {
+    height: 30px
+}
 
 .navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
     box-shadow:0 0 0 ;
@@ -122,20 +143,29 @@ img#vis_switcher:hover {
 }
 
 #analyzedRhythmMonitor{}
-.navbar .nav{
-    width:100%;
-    margin-top:26px}
-.navbar .nav > li.fr{float:right;}
-.fr{float:right;}
-.fl{float:left;}
-
-.hero-unit{
-    background:transparent;
+.navbar .nav {
+    width: 100%;
+    margin-top: 26px
+}
+.navbar .nav > li.fr {
+    float: right;
+}
+.fr {
+    float: right;
+}
+.fl {
+    float:left;
+}
+.hero-unit {
+    background: transparent;
     margin: 20px;
 }
 
-#main_nav{height:45px;padding:10px 0;}
-.ff_btn{
+#main_nav {
+    height:45px;
+    padding:10px 0;
+}
+.ff_btn {
     font-size: 10px;
     font-weight: normal;
     text-align: center;
@@ -143,21 +173,33 @@ img#vis_switcher:hover {
     vertical-align: top;
 }
 
-#nav2 {float:right;margin:10px;}
-#nav2 li {display:inline-block;margin:0 0 0 20px;}
-#nav2 li a {color:#999;}
-p.tips {font-size: 12px;}
+#nav2 {
+    float:right;margin:10px;
+}
+#nav2 li {
+    display:inline-block;margin:0 0 0 20px;
+}
+#nav2 li a {
+    color:#999;
+}
+p.tips {
+    font-size: 12px;
+}
 .claim {
     color: #999999;
     display: inline-block;
     font-size: 13px;
     margin: 12px 9px 0;
 }
-ul.base {padding-left: 30px;}
+ul.base {
+    padding-left: 30px;
+}
 .navbar-inverse .brand:hover,
 .navbar-inverse .nav > li > a:hover,
 .navbar-inverse .brand:focus,
 .navbar-inverse .nav > li > a:focus {
-    color:#999;
+    color: #999;
 }
-#newRhythmLengthMonitor{float:none;}
+#newRhythmLengthMonitor{
+    float: none;
+}
