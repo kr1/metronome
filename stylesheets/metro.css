@@ -52,12 +52,12 @@ img#vis_switcher:hover {
 
 .main_nav_container{line-height:32px;}
 #controlsContainer{
-  width:700px;
-margin-left: -350px;
+    width:60%;
+    margin-left: -30%;
 }
 #aboutContainer{
-  width:900px;
-  margin-left: -450px;
+    width:60%;
+    margin-left: -30%;
 }
 #about-body{
     height:480px;
