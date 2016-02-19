@@ -57,7 +57,7 @@ $(document).ready(function() {
     })
 
     $('#playButton').bind("click",
-        function(e){
+        function(e) {
             state.pauseD = !state.pauseD
             if (state.pauseD) {
                 viewPort.resetFullscreen();
@@ -65,7 +65,7 @@ $(document).ready(function() {
                 //stopNotes(1000)
             } else {
                 $('#favicon').attr('href','faviconPlay.ico')
-                rhythm.playMetro();
+                rhythm.playMetro(true);
             }
             $(this).text(state.pauseD ? "Play" : "Pause")
         }

@@ -38,17 +38,18 @@ setUpRhythm = function() {
     }
 
     // main visualizing function, all top-level checks should happen here
-    rhythm.playMetro = function() {
+    rhythm.playMetro = function (reset_next_scheduled) {
+        if (reset_next_scheduled) {
+            state.next_scheduled_note_at = context.currentTime;
+        }
         var currentTime = context.currentTime;
-        state.next_scheduled_note_at = currentTime;
 
         window.setTimeout(function() {
             if (!state.pauseD) {
-                currentTime = context.currentTime;
+                //console.log(13, currentTime, state.next_scheduled_note_at)
                 if (currentTime > state.next_scheduled_note_at) {
                     if (!state.audioPauseD) {
                         state.next_scheduled_note_at  = state.next_scheduled_note_at + state.speed.unitLengthInMsecs / 1000;
-                        console.log(state.next_scheduled_note_at, currentTime)
                         aGraph.playBeat(rhythm.meter[state.position], state.next_scheduled_note_at);
                     }
                     if (!state.visualPauseD) {

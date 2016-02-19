@@ -19,7 +19,6 @@ aGraph.playAudioFile = function (bufferName, rate, when) {
     source.buffer = aGraph[bufferName];
     var gain = aGraph[bufferName + "GainNode"]
     source.connect(gain);
-    console.log(when, bufferName, "scheduled")
     source.start(when);
 };
 
