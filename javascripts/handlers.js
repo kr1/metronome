@@ -1,17 +1,17 @@
 $(document).ready(function() {
-    $('body').bind("keydown", function(e){
-        //console.log(e.which);
-        switch (e.which){
+    $('body').bind("keydown", function(evt) {
+        var val;
+        switch (evt.which){
             case 32:
                 $('#playButton').click()
                 break;
             case 37:
-                var val = Number($('#speedSlider').val())
+                val = Number($('#speedSlider').val())
                 $('#speedSlider').val(val-1)
                 $('#speedSlider').change()
                 break;
             case 39:
-                var val = Number($('#speedSlider').val())
+                val = Number($('#speedSlider').val())
                 $('#speedSlider').val(val+1)
                 $('#speedSlider').change()
                 break;
@@ -57,7 +57,7 @@ $(document).ready(function() {
     })
 
     $('#playButton').bind("click",
-        function(e) {
+        function (evt) {
             state.pauseD = !state.pauseD
             if (state.pauseD) {
                 viewPort.resetFullscreen();
@@ -72,9 +72,9 @@ $(document).ready(function() {
     );
 
     $('#speedSlider').bind("input change", function(e){
-        var newSpeed =$(this).val()
-        state.speed.newSpeedBpm(newSpeed)
-        $(".speedMonitor").text(newSpeed)
+        var newSpeed = $(this).val();
+        state.speed.newSpeedBpm(newSpeed);
+        $(".speedMonitor").text(newSpeed);
     });
 
     $('#newRhythmLengthSlider').bind("input",function(e){
@@ -90,29 +90,30 @@ $(document).ready(function() {
     });
 
     $('.volVertical').bind("change", function(e){
-        var val =$(this).val()
-        var which = $(this).attr('rel')
-        var gainNodeName = which + "BufferGainNode"
+        var val = $(this).val(),
+            which = $(this).attr('rel'),
+            gainNodeName = which + "BufferGainNode";
         aGraph[gainNodeName].gain.value = val
         $("#"+ which + "VolMonitor").text(val)
     })
 
     $('.onOffPic').live("click",function(e){
-         var data = $(this).data();
-         var turningOff = data['onsrc'] == $(this).attr('src');
+         var $this = $(this),
+             data = $this.data(),
+             turningOff = data['onsrc'] == $this.attr('src');
          if (turningOff) {
-            $(this).attr('src', data['offsrc'])
+            $this.attr('src', data['offsrc'])
             state[data['name'] + "PauseD"] = true;
          } else {
-            $(this).attr('src', data['onsrc'])
+            $this.attr('src', data['onsrc'])
             state[data['name'] + "PauseD"] = false;
          }
-         if (data['name'] == 'visual'){
+         if (data['name'] == 'visual') {
             $('#rhythmViewPort').css('display', turningOff ? 'none' : 'block');
             viewPort.resetFullscreen();
          }
     })
-    $('#vis_switcher').click(function(e){
+    $('#vis_switcher').click(function (evt) {
       if (viewPort.linear_draw){
         $(this).attr('src','/pics/metronome_circle_of_circles.png');
         viewPort.linear_draw = false;

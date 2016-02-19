@@ -39,53 +39,55 @@ setUpRhythm = function() {
 
     // main visualizing function, all top-level checks should happen here
     rhythm.playMetro = function (reset_next_scheduled) {
+        var currentTime = context.currentTime;
         if (reset_next_scheduled) {
             state.next_scheduled_note_at = context.currentTime;
         }
-        var currentTime = context.currentTime;
 
         window.setTimeout(function() {
-            if (!state.pauseD) {
-                //console.log(13, currentTime, state.next_scheduled_note_at)
-                if (currentTime > state.next_scheduled_note_at) {
-                    if (!state.audioPauseD) {
-                        state.next_scheduled_note_at  = state.next_scheduled_note_at + state.speed.unitLengthInMsecs / 1000;
-                        aGraph.playBeat(rhythm.meter[state.position], state.next_scheduled_note_at);
-                    }
-                    if (!state.visualPauseD) {
-                        if (!state.visualSequencePauseD) {
-                            viewPort.drawRhythm();
-                            $('.meterItem').removeClass('highlight');
-                            $('#meterItem_' + state.position).addClass('highlight');
-                        }
-                        if (!state.visualFullscreenPauseD) {
-                            viewPort.drawFullscreenAtPos(state.position)
-                        } else {
-                            viewPort.resetFullscreen();
-                        }
-                    }
-                    state.position = (state.position + 1) % rhythm.meter.length;
-                }
-                // schedule next tick
-                rhythm.playMetro();
+            if (state.pauseD) {
+                return;
             }
+            if (currentTime > state.next_scheduled_note_at) {
+                if (!state.audioPauseD) {
+                    state.next_scheduled_note_at = (state.next_scheduled_note_at +
+                                                    state.speed.unitLengthInMsecs / 1000);
+                    aGraph.playBeat(rhythm.meter[state.position],
+                                    state.next_scheduled_note_at);
+                }
+                if (!state.visualPauseD) {
+                    if (!state.visualSequencePauseD) {
+                        viewPort.drawRhythm();
+                        $('.meterItem').removeClass('highlight');
+                        $('#meterItem_' + state.position).addClass('highlight');
+                    }
+                    if (!state.visualFullscreenPauseD) {
+                        viewPort.drawFullscreenAtPos(state.position)
+                    } else {
+                        viewPort.resetFullscreen();
+                    }
+                }
+                state.position = (state.position + 1) % rhythm.meter.length;
+            }
+            // schedule next tick
+            rhythm.playMetro();
         }, state.scheduler_tick_offset_in_msecs);
     }
 
     // analyzeMeter should output rhythm groupings:
     // i.e. 2,2,2,2 for _*-*_*-* or
     // 3,2,2 for _**-*-*
-    rhythm.analyzeMeter = function(){
-        //console.log(rhythm.meter)
+    rhythm.analyzeMeter = function () {
+        var weight, last, counter;
         rhythm.analyzedMeter = [];
         counter = 0;
         $.each(rhythm.meter, function(idx, sym) {
-            var weight = rhythm.weightNames[sym];
-            var last = idx == rhythm.meter.length - 1;
+            weight = rhythm.weightNames[sym];
+            last = idx == rhythm.meter.length - 1;
             if (counter != 0 &&
                (weight == "heavy" || weight == "light" ||
                 last)) {
-                if (last){
+                if (last) {
                     if (weight == "heavy") {
                         rhythm._addCounterToAnalysedRhythm(counter);
                         counter = 1;
@@ -98,10 +100,9 @@ setUpRhythm = function() {
             }
             counter++
         });
-        //console.log(rhythm.analyzedMeter)
     }
 
-    rhythm._addCounterToAnalysedRhythm = function(counter){
+    rhythm._addCounterToAnalysedRhythm = function (counter) {
         var splitGroupings = {
             6: [3,3],
             7: [3,4],
@@ -125,12 +126,13 @@ setUpRhythm = function() {
         5: "/pics/fuenferGruppe.png",
     };
 
-    rhythm.visualizeAnalyzedRhythm = function() {
+    rhythm.visualizeAnalyzedRhythm = function () {
         $('#analyzedRhythmMonitor').html("");
-        var len = rhythm.meter.length;
-        var stretchFactor = 10 / (len * 1.1);
+        var len = rhythm.meter.length,
+            stretchFactor = 10 / (len * 1.1),
+            img;
         $.each(rhythm.analyzedMeter, function(idx, group) {
-            var img = $("<img>");
+            img = $("<img>");
             img.addClass('rhythmGrouping');
             img.attr('src', rhythm.rhythmGroupingPics[group]);
             $('#analyzedRhythmMonitor').append(img);
