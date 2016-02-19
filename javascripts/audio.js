@@ -9,17 +9,18 @@ try {
 
 aGraph.setUpAudioGraph(context);
 
-aGraph.playBeat = function(weight) {
-    aGraph.playAudioFile(rhythm.weightToBuffer[weight])
+aGraph.playBeat = function(weight, when) {
+    aGraph.playAudioFile(rhythm.weightToBuffer[weight], 1.0, when)
 }
 
-aGraph.playAudioFile = function (bufferName, rate) {
+aGraph.playAudioFile = function (bufferName, rate, when) {
     var source = context.createBufferSource();
     source.playbackRate.value = rate || aGraph.drums[bufferName + "Speed"]
     source.buffer = aGraph[bufferName];
     var gain = aGraph[bufferName + "GainNode"]
     source.connect(gain);
-    source.start(0); // Play sound immediately
+    console.log(when, bufferName, "scheduled")
+    source.start(when);
 };
 
 aGraph.loadAudioFile = (function (which, bufferName) {
