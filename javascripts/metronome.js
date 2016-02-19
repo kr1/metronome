@@ -39,28 +39,38 @@ setUpRhythm = function() {
 
     // main visualizing function, all top-level checks should happen here
     rhythm.playMetro = function() {
+        var currentTime = context.currentTime;
+        state.next_scheduled_note_at = currentTime;
+
         window.setTimeout(function() {
             if (!state.pauseD) {
-                if (!state.audioPauseD) {
-                    aGraph.playBeat(rhythm.meter[state.position]);
-                }
-                if (!state.visualPauseD) {
-                    if (!state.visualSequencePauseD) {
-                        viewPort.drawRhythm();
-                        $('.meterItem').removeClass('highlight');
-                        $('#meterItem_' + state.position).addClass('highlight');
+                currentTime = context.currentTime;
+                if (currentTime > state.next_scheduled_note_at) {
+                    if (!state.audioPauseD) {
+                        state.next_scheduled_note_at  = state.next_scheduled_note_at + state.speed.unitLengthInMsecs / 1000;
+                        console.log(state.next_scheduled_note_at, currentTime)
+                        aGraph.playBeat(rhythm.meter[state.position], state.next_scheduled_note_at);
                     }
-                    if (!state.visualFullscreenPauseD) {
-                        viewPort.drawFullscreenAtPos(state.position)
-                    } else {
-                        viewPort.resetFullscreen();
+                    if (!state.visualPauseD) {
+                        if (!state.visualSequencePauseD) {
+                            viewPort.drawRhythm();
+                            $('.meterItem').removeClass('highlight');
+                            $('#meterItem_' + state.position).addClass('highlight');
+                        }
+                        if (!state.visualFullscreenPauseD) {
+                            viewPort.drawFullscreenAtPos(state.position)
+                        } else {
+                            viewPort.resetFullscreen();
+                        }
                     }
+                    state.position = (state.position + 1) % rhythm.meter.length;
                 }
-                state.position = (state.position + 1) % rhythm.meter.length;
+                // schedule next tick
                 rhythm.playMetro();
             }
-        }, state.speed.unitLengthInMsecs)
+        }, state.scheduler_tick_offset_in_msecs);
     }
+
     // analyzeMeter should output rhythm groupings:
     // i.e. 2,2,2,2 for _*-*_*-* or
     // 3,2,2 for _**-*-*
