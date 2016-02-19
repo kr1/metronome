@@ -40,9 +40,13 @@ setUpRhythm = function() {
     // main visualizing function, all top-level checks should happen here
     rhythm.playMetro = function (reset_next_scheduled) {
         var currentTime = context.currentTime;
-        if (reset_next_scheduled) {
+
+        if (reset_next_scheduled ||
+            currentTime - (state.last_current_time || 0) >
+                10 * (state.scheduler_tick_offset_in_msecs / 1000)) {
             state.next_scheduled_note_at = context.currentTime;
         }
+        state.last_current_time = currentTime;
 
         window.setTimeout(function() {
             if (state.pauseD) {
