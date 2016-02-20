@@ -1,7 +1,13 @@
 body {
     padding-top: 100px;
-    padding-bottom: 40px;
+    padding-bottom: 10px;
 }
+
+
+.container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+  width: 92%;
+}
+
 .sidebar-nav {
     padding: 9px 0;
 }
@@ -14,14 +20,35 @@ body {
   background-repeat: no-repeat;
   filter: none;
 }
+
 button {
-  font-size:12;
-  font-weight:bold;
+  font-size: 8px;
+  font-weight: bold;
 }
+
 .navbar .nav > li {
     display: inline-block;
-    margin: 0 12px 0 0;
- }
+    margin: 0 9px 0 0;
+}
+
+ul.left_nav  {
+    position: absolute;
+    margin: 25px 8px 0 0;
+    list-style: none;
+}
+
+ul.left_nav > li {
+}
+
+.onOffPic {
+    height: 40px;
+    padding: 5px 0px 0 10px;
+}
+
+li.speedMonitorCont {
+    vertical-align: center;
+    padding: 5px 0px 0px 0px;
+}
 
 .navbar .btn, .navbar .btn-group {margin:0;}
 .hero-unit {
@@ -32,7 +59,7 @@ li.broad {
 }
 
 img#vis_switcher:hover {
-      opacity: 0.2;
+    opacity: 0.2;
 }
 
 .hidden {
@@ -43,7 +70,7 @@ img#vis_switcher:hover {
 }
 
 .play_btn {
-    width: 170px;
+    width: 140px;
     text-transform: uppercase;
 }
 
@@ -133,19 +160,19 @@ img#vis_switcher:hover {
     padding: 2;
     height: 23px;
 }
-.onOffPic {
-    height: 30px
-}
 
 .navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
     box-shadow:0 0 0 ;
     border-bottom: 1px solid #DDDDDD;
 }
 
-#analyzedRhythmMonitor{}
+#analyzedRhythmMonitor{
+}
 .navbar .nav {
     width: 100%;
-    margin-top: 26px
+    margin-top: 26px;
+    height: 30px;
+    overflow: hidden;
 }
 .navbar .nav > li.fr {
     float: right;
@@ -203,3 +230,4 @@ ul.base {
 #newRhythmLengthMonitor{
     float: none;
 }
+
