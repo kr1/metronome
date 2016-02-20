@@ -55,40 +55,22 @@
                 <button class='btn btn-danger play_btn' id='playButton' title='keyboard: [space]'>
                   Play
                   <span class='ff_btn'>
-                    [Press Spacebar]
+                    [Spacebar]
                   </span>
                 </button>
               </li>
-              <li>
-                <img class='onOffPic' data-name='audio' data-offSrc='pics/ear_strong_grey.png' data-onSrc='pics/ear_strong_black.png' id='audioOnOff' src='pics/ear_strong_black.png' title="switch audio metronome on and off: keyboard: 'a'">
+              <li class=''>
+                <button class='btn btn-small' data-toggle='modal' href='#controlsContainer'>Show controls</button>
               </li>
-              <li>
-                <img class='onOffPic' data-name='visual' data-offSrc='pics/auge_grey.png' data-onSrc='pics/auge_black.png' id='visualOnOff' src='pics/auge_black.png' title="switch visual metronome on and off: keyboard 'v'">
+              <li class=''>
+                <button class='btn btn-small' data-toggle='modal' href='#rhythmEditorContainer' id='unhideNewRhythmButton'>Modify Rhythm</button>
               </li>
-              <li>
-                <img class='onOffPic' data-name='visualSequence' data-offSrc='pics/auge_sequence_grey.png' data-onSrc='pics/auge_sequence_black.png' id='visualSequenceOnOff' src='pics/auge_sequence_black.png' title="switch visual sequence on and off: keyboard 's'">
-              </li>
-              <li>
-                <img class='onOffPic' data-name='visualFullscreen' data-offSrc='pics/auge_frame_grey.png' data-onSrc='pics/auge_frame_black.png' id='visualFullscreenOnOff' src='pics/auge_frame_grey.png' title="switch background visual on and off: keyboard: 'f' (fullscreen)">
-              </li>
-              <li>
-                <img class='onOffPic' id='vis_switcher' src='pics/metronome_circle_of_circles_black.png' title="switch between circle and linear display mode: keyboard: 'c'">
-              </li>
-              <li>
-                <img class='onOffPic' id='vis_prop_switcher' src='pics/metronome_proportional_black.png' title="switch between proportional and un-proportional display: keyboard: 'p'">
-              </li>
-              <li>
+              <li class='speedMonitorCont'>
                 <span class='speedMonitor Monitor' title='keyboard: left/right arrow'>120.0</span>
                 <span class='Monitor' id='speedMonitorUnit' title='keyboard: left/right arrow'>BPM</span>
               </li>
               <li>
                 <span class='Monitor' id='analyzedRhythmMonitor'></span>
-              </li>
-              <li class='fr'>
-                <button class='btn btn-small' data-toggle='modal' href='#controlsContainer'>Show controls</button>
-              </li>
-              <li class='fr'>
-                <button class='btn btn-small' data-toggle='modal' href='#rhythmEditorContainer' id='unhideNewRhythmButton'>Modify Rhythm</button>
               </li>
             </ul>
           </div>
@@ -96,6 +78,28 @@
       </div>
     </div>
     <div class='container'>
+      <div class='nav-collapse collapse'>
+        <ul class='left_nav'>
+          <li>
+            <img class='onOffPic' data-name='audio' data-offSrc='pics/ear_strong_grey.png' data-onSrc='pics/ear_strong_black.png' id='audioOnOff' src='pics/ear_strong_black.png' title="switch audio metronome on and off: keyboard: 'a'">
+          </li>
+          <li>
+            <img class='onOffPic' data-name='visual' data-offSrc='pics/auge_grey.png' data-onSrc='pics/auge_black.png' id='visualOnOff' src='pics/auge_black.png' title="switch visual metronome on and off: keyboard 'v'">
+          </li>
+          <li>
+            <img class='onOffPic' data-name='visualSequence' data-offSrc='pics/auge_sequence_grey.png' data-onSrc='pics/auge_sequence_black.png' id='visualSequenceOnOff' src='pics/auge_sequence_black.png' title="switch visual sequence on and off: keyboard 's'">
+          </li>
+          <li>
+            <img class='onOffPic' data-name='visualFullscreen' data-offSrc='pics/auge_frame_grey.png' data-onSrc='pics/auge_frame_black.png' id='visualFullscreenOnOff' src='pics/auge_frame_grey.png' title="switch background visual on and off: keyboard: 'f' (fullscreen)">
+          </li>
+          <li>
+            <img class='onOffPic' id='vis_switcher' src='pics/metronome_circle_of_circles_black.png' title="switch between circle and linear display mode: keyboard: 'c'">
+          </li>
+          <li>
+            <img class='onOffPic' id='vis_prop_switcher' src='pics/metronome_proportional_black.png' title="switch between proportional and un-proportional display: keyboard: 'p'">
+          </li>
+        </ul>
+      </div>
       <div class='hero-unit'>
         <div id='rhythmViewPort' style='position:relative;min-height:100px'>
           <!-- /%span{:id=>"meter", :style=>'background-color:#888888;position:absolute;'} -->
@@ -244,11 +248,9 @@
       </div>
       <hr>
       <footer>
-        <p>
-          &copy; Zanstaën &
-          <a href='https://soundcloud.com/ernst-modersohn'>Ernst Modersohn</a>
-          2013-2016
-        </p>
+        &copy; Zanstaën &
+        <a href='https://soundcloud.com/ernst-modersohn'>Ernst Modersohn</a>
+        2013-2016
       </footer>
     </div>
   </body>

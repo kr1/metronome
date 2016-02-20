@@ -46,51 +46,53 @@
                 %button{:id=>"playButton", :class=>"btn btn-danger play_btn", :title=>"keyboard: [space]"}
                   Play
                   %span.ff_btn
-                    [Press Spacebar]
-              %li
-                %img{:id=>"audioOnOff", :class=>"onOffPic",
-                     :title=>"switch audio metronome on and off: keyboard: 'a'",
-                     :"data-onSrc"=>"pics/ear_strong_black.png",
-                     :"data-offSrc"=>"pics/ear_strong_grey.png",
-                     :"data-name"=>"audio",
-                     :"src"=>"pics/ear_strong_black.png"}
-              %li
-                %img{:id=>"visualOnOff", :class=>"onOffPic",
-                       :title=>"switch visual metronome on and off: keyboard 'v'",
-                       :"data-onSrc"=>"pics/auge_black.png",
-                       :"data-offSrc"=>"pics/auge_grey.png",
-                       :"data-name"=>"visual",
-                       :src=>"pics/auge_black.png"}
-              %li
-                %img{:id=>"visualSequenceOnOff", :class=>"onOffPic",
-                      :title=>"switch visual sequence on and off: keyboard 's'",
-                       :"data-onSrc"=>"pics/auge_sequence_black.png",
-                       :"data-offSrc"=>"pics/auge_sequence_grey.png",
-                       :"data-name"=>"visualSequence",
-                       :"src"=>"pics/auge_sequence_black.png"}
-              %li
-                %img{:id=>"visualFullscreenOnOff", :class=>"onOffPic",
-                       :title=>"switch background visual on and off: keyboard: 'f' (fullscreen)",
-                       :"data-onSrc"=>"pics/auge_frame_black.png",
-                       :"data-offSrc"=>"pics/auge_frame_grey.png",
-                       :"data-name"=>"visualFullscreen",
-                       :src=>"pics/auge_frame_grey.png"}
-              %li
-                %img{:id=>"vis_switcher", :src=>"pics/metronome_circle_of_circles_black.png", :class=>"onOffPic",
-                       :title => "switch between circle and linear display mode: keyboard: 'c'"}
-              %li
-                %img{:id=>"vis_prop_switcher", :src=>"pics/metronome_proportional_black.png", :class=>"onOffPic",
-                       :title => "switch between proportional and un-proportional display: keyboard: 'p'"}
-              %li
+                    [Spacebar]
+              %li{:class=>""}
+                %button{:"data-toggle"=>"modal", :href=>"#controlsContainer", :class=>"btn btn-small"} Show controls
+              %li{:class=>""}
+                %button{:"data-toggle"=>"modal", :id=>"unhideNewRhythmButton", :href=>"#rhythmEditorContainer", :class=>"btn btn-small"} Modify Rhythm
+              %li{:class => "speedMonitorCont"}
                 %span{:class => "speedMonitor Monitor", :title=>"keyboard: left/right arrow"}120.0
                 %span{:id=>"speedMonitorUnit", :title=>"keyboard: left/right arrow", :class=>"Monitor"} BPM
               %li
                 %span{:id=>"analyzedRhythmMonitor", :class=>"Monitor"}
-              %li{:class=>"fr"}
-                %button{:"data-toggle"=>"modal", :href=>"#controlsContainer", :class=>"btn btn-small"} Show controls
-              %li{:class=>"fr"}
-                %button{:"data-toggle"=>"modal", :id=>"unhideNewRhythmButton", :href=>"#rhythmEditorContainer", :class=>"btn btn-small"} Modify Rhythm
     %div{:class=>"container"}
+      %div{:class=>"nav-collapse collapse"}
+        %ul{:class=>"left_nav"}
+          %li
+            %img{:id=>"audioOnOff", :class=>"onOffPic",
+                 :title=>"switch audio metronome on and off: keyboard: 'a'",
+                 :"data-onSrc"=>"pics/ear_strong_black.png",
+                 :"data-offSrc"=>"pics/ear_strong_grey.png",
+                 :"data-name"=>"audio",
+                 :"src"=>"pics/ear_strong_black.png"}
+          %li
+            %img{:id=>"visualOnOff", :class=>"onOffPic",
+                   :title=>"switch visual metronome on and off: keyboard 'v'",
+                   :"data-onSrc"=>"pics/auge_black.png",
+                   :"data-offSrc"=>"pics/auge_grey.png",
+                   :"data-name"=>"visual",
+                   :src=>"pics/auge_black.png"}
+          %li
+            %img{:id=>"visualSequenceOnOff", :class=>"onOffPic",
+                  :title=>"switch visual sequence on and off: keyboard 's'",
+                   :"data-onSrc"=>"pics/auge_sequence_black.png",
+                   :"data-offSrc"=>"pics/auge_sequence_grey.png",
+                   :"data-name"=>"visualSequence",
+                   :"src"=>"pics/auge_sequence_black.png"}
+          %li
+            %img{:id=>"visualFullscreenOnOff", :class=>"onOffPic",
+                   :title=>"switch background visual on and off: keyboard: 'f' (fullscreen)",
+                   :"data-onSrc"=>"pics/auge_frame_black.png",
+                   :"data-offSrc"=>"pics/auge_frame_grey.png",
+                   :"data-name"=>"visualFullscreen",
+                   :src=>"pics/auge_frame_grey.png"}
+          %li
+            %img{:id=>"vis_switcher", :src=>"pics/metronome_circle_of_circles_black.png", :class=>"onOffPic",
+                   :title => "switch between circle and linear display mode: keyboard: 'c'"}
+          %li
+            %img{:id=>"vis_prop_switcher", :src=>"pics/metronome_proportional_black.png", :class=>"onOffPic",
+                   :title => "switch between proportional and un-proportional display: keyboard: 'p'"}
       %div{:class=>"hero-unit"}
         %div{:id=>"rhythmViewPort", :style=>"position:relative;min-height:100px"}
           //%span{:id=>"meter", :style=>'background-color:#888888;position:absolute;'}
@@ -200,8 +202,7 @@
 
       %hr
       %footer
-        %p
-          &copy; Zanstaën &
-          %a{:href=>"https://soundcloud.com/ernst-modersohn"} Ernst Modersohn
-          2013-2016
+        &copy; Zanstaën &
+        %a{:href=>"https://soundcloud.com/ernst-modersohn"} Ernst Modersohn
+        2013-2016
 
