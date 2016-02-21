@@ -53,9 +53,9 @@ setUpRhythm = function() {
                 return;
             }
             if (currentTime > state.next_scheduled_note_at) {
+                state.next_scheduled_note_at = (state.next_scheduled_note_at +
+                                                state.speed.unitLengthInMsecs / 1000);
                 if (!state.audioPauseD) {
-                    state.next_scheduled_note_at = (state.next_scheduled_note_at +
-                                                    state.speed.unitLengthInMsecs / 1000);
                     aGraph.playBeat(rhythm.meter[state.position],
                                     state.next_scheduled_note_at);
                 }
