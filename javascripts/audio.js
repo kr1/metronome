@@ -12,6 +12,9 @@ aGraph.setUpAudioGraph(context);
 aGraph.playBeat = function(weight, when) {
     //console.log(when)
     aGraph.playAudioFile(rhythm.weightToBuffer[weight], 1.0, when)
+    if (state.position == 0) {
+        aGraph.playAudioFile('bellBuffer', 1.0, when)
+    }
 }
 
 aGraph.playAudioFile = function (bufferName, rate, when) {
@@ -42,3 +45,4 @@ aGraph.loadAudioFile("kick.wav", "kickBuffer");
 aGraph.loadAudioFile("snare.wav", "snareBuffer");
 aGraph.loadAudioFile("hihat.wav", "hihatBuffer");
 aGraph.loadAudioFile("hihat2.wav", "hihat2Buffer");
+aGraph.loadAudioFile("bell.wav", "bellBuffer");

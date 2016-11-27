@@ -2,7 +2,8 @@ aGraph.DRUM_BUFFER_NAMES = [
     "kickBuffer",
     "snareBuffer",
     "hihatBuffer",
-    "hihat2Buffer"
+    "hihat2Buffer",
+    "bellBuffer"
 ]
 
 aGraph.setUpDrumGraph = function(){
