@@ -38,27 +38,27 @@ setUpRhythm = function() {
     }
 
     // main visualizing function, all top-level checks should happen here
-    rhythm.playMetro = function (reset_next_scheduled) {
-        var currentTime = context.currentTime;
-
-        if (reset_next_scheduled ||
-            currentTime - (state.last_current_time || 0) >
-                10 * (state.scheduler_tick_offset_in_msecs / 1000)) {
-            state.next_scheduled_note_at = context.currentTime;
-        }
-        state.last_current_time = currentTime;
+    rhythm.playMetro = function (reset_next_scheduled, start_from_zero) {
 
         window.setTimeout(function() {
+            var currentTime = context.currentTime;
+            if (start_from_zero) {
+                state.position = rhythm.meter.length - 1;
+            }
+
+            if (reset_next_scheduled ||
+                currentTime - (state.last_current_time || 0) >
+                    10 * (state.scheduler_tick_offset_in_msecs / 1000)) {
+                state.next_scheduled_note_at = context.currentTime;
+                state.position = rhythm.meter.length - 1;
+            }
+            state.last_current_time = currentTime;
             if (state.pauseD) {
                 return;
             }
             if (currentTime > state.next_scheduled_note_at) {
                 state.next_scheduled_note_at = (state.next_scheduled_note_at +
                                                 state.speed.unitLengthInMsecs / 1000);
-                if (!state.audioPauseD) {
-                    aGraph.playBeat(rhythm.meter[state.position],
-                                    state.next_scheduled_note_at);
-                }
                 if (!state.visualPauseD) {
                     if (!state.visualSequencePauseD) {
                         viewPort.drawRhythm();
@@ -72,6 +72,10 @@ setUpRhythm = function() {
                     }
                 }
                 state.position = (state.position + 1) % rhythm.meter.length;
+                if (!state.audioPauseD) {
+                    aGraph.playBeat(rhythm.meter[state.position],
+                                    state.next_scheduled_note_at);
+                }
             }
             // schedule next tick
             rhythm.playMetro();
