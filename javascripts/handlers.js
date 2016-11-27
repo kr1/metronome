@@ -1,9 +1,10 @@
 $(document).ready(function() {
     $('body').bind("keydown", function(evt) {
         var val;
+        //console.log(evt.which)
         switch (evt.which){
             case 32:
-                $('#playButton').click()
+                $('#playButton').click();
                 break;
             case 37:
                 val = Number($('#speedSlider').val())
@@ -32,6 +33,9 @@ $(document).ready(function() {
                 break;
             case 86: //v
                 $('#visualOnOff').click();
+                break;
+            case 90: //z
+                state.position = rhythm.meter.length - 1;
                 break;
         }
     });

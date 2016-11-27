@@ -10,6 +10,7 @@ try {
 aGraph.setUpAudioGraph(context);
 
 aGraph.playBeat = function(weight, when) {
+    //console.log(when)
     aGraph.playAudioFile(rhythm.weightToBuffer[weight], 1.0, when)
 }
 
