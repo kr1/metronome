@@ -27,7 +27,7 @@
     %div{:class=>"navbar navbar-inverse navbar-fixed-top"}
       %div{:class=>"navbar-inner", :id=>"main_nav"}
         %div{:class=>"container", :id=>"main_nav_container"}
-          %button{:type=>"button", :class=>"btn btn-navbar", :"data-toggle"=>"collapse", :"data-target"=>".nav-collapse"}
+          %button{:type=>"button", :class=>"btn btn-navbar", :data-toggle=>"collapse", :data-target=>".nav-collapse"}
             %span{:class=>"icon-bar"}
           %a{:class=>"brand", :href=>"/"} Metronome
           %span.claim
@@ -35,10 +35,10 @@
           #nav2
             %ul
               %li
-                %a{:"data-toggle"=>"modal", :href=>"#aboutContainer", :id=>"openSaveMeterModal"}
+                %a{:data-toggle=>"modal", :href=>"#aboutContainer", :id=>"openSaveMeterModal"}
                   About
               %li
-                %a{:"data-toggle"=>"modal", :href=>"#saveMeterContainer", :id=>"openSaveMeterModal"}
+                %a{:data-toggle=>"modal", :href=>"#saveMeterContainer", :id=>"openSaveMeterModal"}
                   Save Meter
           %div{:class=>"nav-collapse collapse"}
             %ul{:class=>"nav"}
@@ -48,9 +48,9 @@
                   %span.ff_btn
                     [Spacebar]
               %li{:class=>""}
-                %button{:"data-toggle"=>"modal", :href=>"#controlsContainer", :class=>"btn btn-small"} Show controls
+                %button{:data-toggle=>"modal", :href=>"#controlsContainer", :class=>"btn btn-small"} Show controls
               %li{:class=>""}
-                %button{:"data-toggle"=>"modal", :id=>"unhideNewRhythmButton", :href=>"#rhythmEditorContainer", :class=>"btn btn-small"} Modify Rhythm
+                %button{:data-toggle=>"modal", :id=>"unhideNewRhythmButton", :href=>"#rhythmEditorContainer", :class=>"btn btn-small"} Modify Rhythm
               %li{:class => "speedMonitorCont"}
                 %span{:class => "speedMonitor Monitor", :title=>"keyboard: left/right arrow"}120.0
                 %span{:id=>"speedMonitorUnit", :title=>"keyboard: left/right arrow", :class=>"Monitor"} BPM
@@ -62,37 +62,37 @@
           %li
             %img{:id=>"audioOnOff", :class=>"onOffPic",
                  :title=>"switch audio metronome on and off: keyboard: 'a'",
-                 :"data-onSrc"=>"pics/ear_strong_black.png",
-                 :"data-offSrc"=>"pics/ear_strong_grey.png",
-                 :"data-name"=>"audio",
-                 :"src"=>"pics/ear_strong_black.png"}
+                 :data-onSrc=>"pics/ear_strong_black.png",
+                 :data-offSrc=>"pics/ear_strong_grey.png",
+                 :data-name=>"audio",
+                 :src=>"pics/ear_strong_black.png"}
           %li
             %img{:id=>"visualOnOff", :class=>"onOffPic",
                    :title=>"switch visual metronome on and off: keyboard 'v'",
-                   :"data-onSrc"=>"pics/auge_black.png",
-                   :"data-offSrc"=>"pics/auge_grey.png",
-                   :"data-name"=>"visual",
+                   :data-onSrc=>"pics/auge_black.png",
+                   :data-offSrc=>"pics/auge_grey.png",
+                   :data-name=>"visual",
                    :src=>"pics/auge_black.png"}
           %li
             %img{:id=>"visualSequenceOnOff", :class=>"onOffPic",
-                  :title=>"switch visual sequence on and off: keyboard 's'",
-                   :"data-onSrc"=>"pics/auge_sequence_black.png",
-                   :"data-offSrc"=>"pics/auge_sequence_grey.png",
-                   :"data-name"=>"visualSequence",
-                   :"src"=>"pics/auge_sequence_black.png"}
+                 :title=>"switch visual sequence on and off: keyboard 's'",
+                 :data-onSrc=>"pics/auge_sequence_black.png",
+                 :data-offSrc=>"pics/auge_sequence_grey.png",
+                 :data-name=>"visualSequence",
+                 :src=>"pics/auge_sequence_black.png"}
           %li
             %img{:id=>"visualFullscreenOnOff", :class=>"onOffPic",
-                   :title=>"switch background visual on and off: keyboard: 'f' (fullscreen)",
-                   :"data-onSrc"=>"pics/auge_frame_black.png",
-                   :"data-offSrc"=>"pics/auge_frame_grey.png",
-                   :"data-name"=>"visualFullscreen",
-                   :src=>"pics/auge_frame_grey.png"}
+                 :title=>"switch background visual on and off: keyboard: 'f' (fullscreen)",
+                 :data-onSrc=>"pics/auge_frame_black.png",
+                 :data-offSrc=>"pics/auge_frame_grey.png",
+                 :data-name=>"visualFullscreen",
+                 :src=>"pics/auge_frame_grey.png"}
           %li
             %img{:id=>"vis_switcher", :src=>"pics/metronome_circle_of_circles_black.png", :class=>"onOffPic",
-                   :title => "switch between circle and linear display mode: keyboard: 'c'"}
+                 :title => "switch between circle and linear display mode: keyboard: 'c'"}
           %li
             %img{:id=>"vis_prop_switcher", :src=>"pics/metronome_proportional_black.png", :class=>"onOffPic",
-                   :title => "switch between proportional and un-proportional display: keyboard: 'p'"}
+                 :title => "switch between proportional and un-proportional display: keyboard: 'p'"}
       %div{:class=>"hero-unit"}
         %div{:id=>"rhythmViewPort", :style=>"position:relative;min-height:100px"}
           //%span{:id=>"meter", :style=>'background-color:#888888;position:absolute;'}
@@ -114,8 +114,8 @@
                   TIP: click on the circles to change instrument
                 // filled by JavaScript
             %div.modal-footer
-              %button{:id=>"saveNewRhythmButton", :class=>"btn btn-small", :"data-dismiss"=>"modal"} Save New Rhythm
-              %button{:id=>"hideNewRhythmButton", :class=>"btn btn-small", :"data-dismiss"=>"modal"} hide rhythm editor
+              %button{:id=>"saveNewRhythmButton", :class=>"btn btn-small", :data-dismiss=>"modal"} Save New Rhythm
+              %button{:id=>"hideNewRhythmButton", :class=>"btn btn-small", :data-dismiss=>"modal"} hide rhythm editor
         %div{:id=>"controlsContainer", :class=>"modal hide fade in modalPanelContainer", :style=>"display:none;"}
           %div{:id=>"controls" , :class=>"modalPanel"}
             %div.modal-header
@@ -152,7 +152,7 @@
                     %br
                     %span{:id=>"hihatVolMonitor" , :class=>"Monitor"} 1.0
             %div.modal-footer
-              %a{:href=>"#", :class=>"btn", :"data-dismiss"=>"modal"} Close
+              %a{:href=>"#", :class=>"btn", :data-dismiss=>"modal"} Close
         %div{:id=>"saveMeterContainer", :class=>"modal hide fade in modalPanelContainer", :style=>"display:none;"}
           %div{:id=>"newRhythm", :class=>"modalPanel"}
             %div.modal-header
@@ -162,7 +162,7 @@
               %br
               %input{:type=>"text", :id=>"shareUrlInput", :style=>"width: 100%;font-size:1.2em;height:2em;"}
             %div.modal-footer
-              %a{:href=>"#", :class=>"btn", :"data-dismiss"=>"modal"} Ok
+              %a{:href=>"#", :class=>"btn", :data-dismiss=>"modal"} Ok
         %div{:id=>"aboutContainer", :class=>"modal hide fade in modalPanelContainer", :style=>"display:none;"}
           %div{:id=>"newRhythm", :class=>"modalPanel"}
             %div.modal-header

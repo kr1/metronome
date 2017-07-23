@@ -2,36 +2,36 @@
   <head>
     <title>METRONOME</title>
     <meta charset='utf-8'>
-    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
-    <meta content='metronome, online, browser, web audio api, odd rhythms, polyrhythm, multirhythm, rhythmic metronome, odd meters' name='keywords'>
-    <meta content='an audio-visual metronome for normal and odd meters' name='description'>
-    <meta content='christian woerner' name='author'>
-    <meta content='christian wörner' name='author'>
-    <meta content='ernst modersohn' name='author'>
-    <script src='/javascripts/vendor/jquery-1.7.2.min.js' type='text/javascript'></script>
-    <script src='/javascripts/vendor/bootstrap-modal.js' type='text/javascript'></script>
-    <script src='/javascripts/handlers.js' type='text/javascript'></script>
-    <script src='/javascripts/rhythmViewPort.js' type='text/javascript'></script>
-    <script src='/javascripts/audio_graph.js' type='text/javascript'></script>
-    <script src='/javascripts/drums.js' type='text/javascript'></script>
-    <script src='/javascripts/metronome.js' type='text/javascript'></script>
-    <script src='/javascripts/audio.js' type='text/javascript'></script>
-    <script src='/javascripts/rhythmEditor.js' type='text/javascript'></script>
-    <script src='/javascripts/utils.js' type='text/javascript'></script>
-    <script src='/javascripts/init.js' type='text/javascript'></script>
-    <link href='/favicon.ico' id='favicon' rel='shortcut icon'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='keywords' content='metronome, online, browser, web audio api, odd rhythms, polyrhythm, multirhythm, rhythmic metronome, odd meters'>
+    <meta name='description' content='an audio-visual metronome for normal and odd meters'>
+    <meta name='author' content='christian woerner'>
+    <meta name='author' content='christian wörner'>
+    <meta name='author' content='ernst modersohn'>
+    <script type='text/javascript' src='/javascripts/vendor/jquery-1.7.2.min.js'></script>
+    <script type='text/javascript' src='/javascripts/vendor/bootstrap-modal.js'></script>
+    <script type='text/javascript' src='/javascripts/handlers.js'></script>
+    <script type='text/javascript' src='/javascripts/rhythmViewPort.js'></script>
+    <script type='text/javascript' src='/javascripts/audio_graph.js'></script>
+    <script type='text/javascript' src='/javascripts/drums.js'></script>
+    <script type='text/javascript' src='/javascripts/metronome.js'></script>
+    <script type='text/javascript' src='/javascripts/audio.js'></script>
+    <script type='text/javascript' src='/javascripts/rhythmEditor.js'></script>
+    <script type='text/javascript' src='/javascripts/utils.js'></script>
+    <script type='text/javascript' src='/javascripts/init.js'></script>
+    <link rel='shortcut icon' href='/favicon.ico' id='favicon'>
     <link href='/stylesheets/bootstrap-responsive.min.css' rel='stylesheet'>
     <link href='/stylesheets/bootstrap.min.css' rel='stylesheet'>
-    <link href='/stylesheets/metro.css' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='/stylesheets/metro.css' type='text/css'>
   </head>
   <body id='body'>
     <div class='navbar navbar-inverse navbar-fixed-top'>
       <div class='navbar-inner' id='main_nav'>
         <div class='container' id='main_nav_container'>
-          <button class='btn btn-navbar' data-target='.nav-collapse' data-toggle='collapse' type='button'>
+          <button type='button' data-toggle='collapse' data-target='.nav-collapse' class='btn btn-navbar'>
             <span class='icon-bar'></span>
           </button>
-          <a class='brand' href='/'>Metronome</a>
+          <a href='/' class='brand'>Metronome</a>
           <span class='claim'>
             Find your rhythm
           </span>
@@ -52,7 +52,7 @@
           <div class='nav-collapse collapse'>
             <ul class='nav'>
               <li class=''>
-                <button class='btn btn-danger play_btn' id='playButton' title='keyboard: [space]'>
+                <button title='keyboard: [space]' class='btn btn-danger play_btn' id='playButton'>
                   Play
                   <span class='ff_btn'>
                     [Spacebar]
@@ -60,14 +60,14 @@
                 </button>
               </li>
               <li class=''>
-                <button class='btn btn-small' data-toggle='modal' href='#controlsContainer'>Show controls</button>
+                <button data-toggle='modal' href='#controlsContainer' class='btn btn-small'>Show controls</button>
               </li>
               <li class=''>
-                <button class='btn btn-small' data-toggle='modal' href='#rhythmEditorContainer' id='unhideNewRhythmButton'>Modify Rhythm</button>
+                <button data-toggle='modal' href='#rhythmEditorContainer' class='btn btn-small' id='unhideNewRhythmButton'>Modify Rhythm</button>
               </li>
               <li class='speedMonitorCont'>
-                <span class='speedMonitor Monitor' title='keyboard: left/right arrow'>120.0</span>
-                <span class='Monitor' id='speedMonitorUnit' title='keyboard: left/right arrow'>BPM</span>
+                <span title='keyboard: left/right arrow' class='speedMonitor Monitor'>120.0</span>
+                <span title='keyboard: left/right arrow' class='Monitor' id='speedMonitorUnit'>BPM</span>
               </li>
               <li>
                 <span class='Monitor' id='analyzedRhythmMonitor'></span>
@@ -81,39 +81,39 @@
       <div class='nav-collapse collapse'>
         <ul class='left_nav'>
           <li>
-            <img class='onOffPic' data-name='audio' data-offSrc='pics/ear_strong_grey.png' data-onSrc='pics/ear_strong_black.png' id='audioOnOff' src='pics/ear_strong_black.png' title="switch audio metronome on and off: keyboard: 'a'">
+            <img title='switch audio metronome on and off: keyboard: \'a\'' data-onSrc='pics/ear_strong_black.png' data-offSrc='pics/ear_strong_grey.png' data-name='audio' src='pics/ear_strong_black.png' class='onOffPic' id='audioOnOff'>
           </li>
           <li>
-            <img class='onOffPic' data-name='visual' data-offSrc='pics/auge_grey.png' data-onSrc='pics/auge_black.png' id='visualOnOff' src='pics/auge_black.png' title="switch visual metronome on and off: keyboard 'v'">
+            <img title='switch visual metronome on and off: keyboard \'v\'' data-onSrc='pics/auge_black.png' data-offSrc='pics/auge_grey.png' data-name='visual' src='pics/auge_black.png' class='onOffPic' id='visualOnOff'>
           </li>
           <li>
-            <img class='onOffPic' data-name='visualSequence' data-offSrc='pics/auge_sequence_grey.png' data-onSrc='pics/auge_sequence_black.png' id='visualSequenceOnOff' src='pics/auge_sequence_black.png' title="switch visual sequence on and off: keyboard 's'">
+            <img title='switch visual sequence on and off: keyboard \'s\'' data-onSrc='pics/auge_sequence_black.png' data-offSrc='pics/auge_sequence_grey.png' data-name='visualSequence' src='pics/auge_sequence_black.png' class='onOffPic' id='visualSequenceOnOff'>
           </li>
           <li>
-            <img class='onOffPic' data-name='visualFullscreen' data-offSrc='pics/auge_frame_grey.png' data-onSrc='pics/auge_frame_black.png' id='visualFullscreenOnOff' src='pics/auge_frame_grey.png' title="switch background visual on and off: keyboard: 'f' (fullscreen)">
+            <img title='switch background visual on and off: keyboard: \'f\' (fullscreen)' data-onSrc='pics/auge_frame_black.png' data-offSrc='pics/auge_frame_grey.png' data-name='visualFullscreen' src='pics/auge_frame_grey.png' class='onOffPic' id='visualFullscreenOnOff'>
           </li>
           <li>
-            <img class='onOffPic' id='vis_switcher' src='pics/metronome_circle_of_circles_black.png' title="switch between circle and linear display mode: keyboard: 'c'">
+            <img src='pics/metronome_circle_of_circles_black.png' title='switch between circle and linear display mode: keyboard: \'c\'' class='onOffPic' id='vis_switcher'>
           </li>
           <li>
-            <img class='onOffPic' id='vis_prop_switcher' src='pics/metronome_proportional_black.png' title="switch between proportional and un-proportional display: keyboard: 'p'">
+            <img src='pics/metronome_proportional_black.png' title='switch between proportional and un-proportional display: keyboard: \'p\'' class='onOffPic' id='vis_prop_switcher'>
           </li>
         </ul>
       </div>
       <div class='hero-unit'>
-        <div id='rhythmViewPort' style='position:relative;min-height:100px'>
-          <!-- /%span{:id=>"meter", :style=>'background-color:#888888;position:absolute;'} -->
-          <span id='one' style='background-color:#BB9999;position:absolute;'></span>
-          <span id='two' style='background-color:#8888BB;position:absolute;'></span>
-          <span id='three' style='background-color:#AAAA11;position:absolute;'></span>
-          <span id='four' style='background-color:#7788FF;position:absolute;'></span>
+        <div style='position:relative;min-height:100px' id='rhythmViewPort'>
+<!-- %span{:id=>"meter", :style=>'background-color:#888888;position:absolute;'} -->
+          <span style='background-color:#BB9999;position:absolute;' id='one'></span>
+          <span style='background-color:#8888BB;position:absolute;' id='two'></span>
+          <span style='background-color:#AAAA11;position:absolute;' id='three'></span>
+          <span style='background-color:#7788FF;position:absolute;' id='four'></span>
         </div>
-        <div class='modal hide fade in modalPanelContainer' id='rhythmEditorContainer' style='display:none;'>
+        <div style='display:none;' class='modal hide fade in modalPanelContainer' id='rhythmEditorContainer'>
           <div class='modalPanel' id='newRhythm'>
             <div class='modal-header'>
               <h4>Number of Items</h4>
               <span class='Monitor' id='newRhythmLengthMonitor'></span>
-              <input id='newRhythmLengthSlider' max='30' min='2' step='1' type='range' value='4'>
+              <input min='2' max='30' step='1' value='4' type='range' id='newRhythmLengthSlider'>
             </div>
             <div class='modal-body'>
               <h4>
@@ -123,16 +123,16 @@
                 <p class='tips'>
                   TIP: click on the circles to change instrument
                 </p>
-                <!-- / filled by JavaScript -->
+<!-- filled by JavaScript -->
               </div>
             </div>
             <div class='modal-footer'>
-              <button class='btn btn-small' data-dismiss='modal' id='saveNewRhythmButton'>Save New Rhythm</button>
-              <button class='btn btn-small' data-dismiss='modal' id='hideNewRhythmButton'>hide rhythm editor</button>
+              <button data-dismiss='modal' class='btn btn-small' id='saveNewRhythmButton'>Save New Rhythm</button>
+              <button data-dismiss='modal' class='btn btn-small' id='hideNewRhythmButton'>hide rhythm editor</button>
             </div>
           </div>
         </div>
-        <div class='modal hide fade in modalPanelContainer' id='controlsContainer' style='display:none;'>
+        <div style='display:none;' class='modal hide fade in modalPanelContainer' id='controlsContainer'>
           <div class='modalPanel' id='controls'>
             <div class='modal-header'>
               Controls
@@ -141,7 +141,7 @@
               <h4>bpm</h4>
               <table class='broad'><tr>
                   <td id='speedslider_cell'>
-                    <input id='speedSlider' max='333' min='20' step='0.1' title='keyboard: left/right arrow' type='range' value='120'>
+                    <input min='20' max='333' step='0.1' value='120' type='range' title='keyboard: left/right arrow' id='speedSlider'>
                   </td>
                   <td id='speedmonitor_cell'>
                     <span class='speedMonitor Monitor'>120.0</span>
@@ -153,19 +153,19 @@
                 <tr>
                   <td>
                     Kick
-                    <input class='volVertical' max='1.2' min='0' name='kickVol' orient='vertical' rel='kick' step='0.01' type='range' value='1'>
+                    <input type='range' name='kickVol' rel='kick' min='0' max='1.2' step='0.01' value='1' orient='vertical' class='volVertical'>
                     <br>
                     <span class='Monitor' id='kickVolMonitor'>1.0</span>
                   </td>
                   <td>
                     Snare
-                    <input class='volVertical' max='1.2' min='0' name='snareVol' orient='vertical' rel='snare' step='0.01' type='range' value='1'>
+                    <input type='range' name='snareVol' rel='snare' min='0' max='1.2' step='0.01' value='1' orient='vertical' class='volVertical'>
                     <br>
                     <span class='Monitor' id='snareVolMonitor'>1.0</span>
                   </td>
                   <td>
                     Hihat
-                    <input class='volVertical' max='1.2' min='0' name='hihatVol' orient='vertical' rel='hihat' step='0.01' type='range' value='1'>
+                    <input type='range' name='hihatVol' rel='hihat' min='0' max='1.2' step='0.01' value='1' orient='vertical' class='volVertical'>
                     <br>
                     <span class='Monitor' id='hihatVolMonitor'>1.0</span>
                   </td>
@@ -173,11 +173,11 @@
               </table>
             </div>
             <div class='modal-footer'>
-              <a class='btn' data-dismiss='modal' href='#'>Close</a>
+              <a href='#' data-dismiss='modal' class='btn'>Close</a>
             </div>
           </div>
         </div>
-        <div class='modal hide fade in modalPanelContainer' id='saveMeterContainer' style='display:none;'>
+        <div style='display:none;' class='modal hide fade in modalPanelContainer' id='saveMeterContainer'>
           <div class='modalPanel' id='newRhythm'>
             <div class='modal-header'>
               <h4>Save the current Meter</h4>
@@ -185,14 +185,14 @@
             <div class='modal-body'>
               bookmark the page or save this url:
               <br>
-              <input id='shareUrlInput' style='width: 100%;font-size:1.2em;height:2em;' type='text'>
+              <input type='text' style='width: 100%;font-size:1.2em;height:2em;' id='shareUrlInput'>
             </div>
             <div class='modal-footer'>
-              <a class='btn' data-dismiss='modal' href='#'>Ok</a>
+              <a href='#' data-dismiss='modal' class='btn'>Ok</a>
             </div>
           </div>
         </div>
-        <div class='modal hide fade in modalPanelContainer' id='aboutContainer' style='display:none;'>
+        <div style='display:none;' class='modal hide fade in modalPanelContainer' id='aboutContainer'>
           <div class='modalPanel' id='newRhythm'>
             <div class='modal-header'>
               <h3>Metronome</h3>
@@ -240,6 +240,7 @@
                 is free and open source. The source code is available on
                 <a href='https://github.com/kr1/metronome'>
                   GitHub
+
                 </a>
               </p>
             </div>
@@ -251,6 +252,7 @@
         &copy; Zanstaën &
         <a href='https://soundcloud.com/ernst-modersohn'>Ernst Modersohn</a>
         2013-2016
+
       </footer>
     </div>
   </body>
