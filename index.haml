@@ -151,6 +151,12 @@
                       :min=>"0", :max=>"1.2", :step=>"0.01", :value=>"1", :orient=>"vertical"}
                     %br
                     %span{:id=>"hihatVolMonitor" , :class=>"Monitor"} 1.0
+                  %td
+                    Bell (cycle start)
+                    %input{:type=>"range", :name=>"hihatVol", :class=>"volVertical", :rel=>"bell",
+                      :min=>"0", :max=>"2.5", :step=>"0.01", :value=>"1", :orient=>"vertical"}
+                    %br
+                    %span{:id=>"bellVolMonitor" , :class=>"Monitor"} 1.0
             %div.modal-footer
               %a{:href=>"#", :class=>"btn", :data-dismiss=>"modal"} Close
         %div{:id=>"saveMeterContainer", :class=>"modal hide fade in modalPanelContainer", :style=>"display:none;"}
