@@ -30,10 +30,10 @@ setUpRhythmEditor = function() {
             $(eles).addClass(rhythm.weightNames[weight])
             $(eles).first().text(idx).css({"left": idx * rhythmEditor.slotWidth,
                                            "top": (rhythmEditor.fullHeight -
-                                                  (rhythm.weightToPosition[weight] * 15 * rhythmEditor.heightMult)),
+                                                  (rhythm.weightToPosition[weight] * 1 * rhythmEditor.heightMult)),
                                            "width": radius,
                                            "height": radius,
-                                           "border-radius": radius * 0.5,
+                                           "border-radius": radius * 0.2,
                                            "text-align":"center"
                                   }).show();
         })

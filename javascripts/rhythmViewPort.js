@@ -10,7 +10,7 @@ $(document).ready(function(){
         y_offset:  -0.2 * viewPort.fullHeight,
         y_stretch: 1.3 * viewPort.fullHeight,
         radius: {
-            'heavy': 1.8, 'light':1.6, 'fill':1.2
+            'heavy': 1.3, 'light':1.1, 'fill':1.0
         }
     }
 
