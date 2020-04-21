@@ -145,5 +145,6 @@ $(document).ready(function() {
     $('#featured_rhythm').click(function (evt) {
         var url = window.location.origin + $(evt.target).data('spec');
         location.assign(url);
+        location.reload();
     });
 });
