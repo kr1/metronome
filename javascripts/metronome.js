@@ -40,22 +40,22 @@ setUpRhythm = function() {
     // main visualizing function, all top-level checks should happen here
     rhythm.playMetro = function (reset_next_scheduled, start_from_zero) {
 
-        window.setTimeout(function() {
-            var currentTime = context.currentTime;
-            if (start_from_zero) {
-                state.position = rhythm.meter.length - 1;
-            }
+        var currentTime = context.currentTime;
+        if (start_from_zero) {
+            state.position = rhythm.meter.length - 1;
+        }
 
-            if (reset_next_scheduled ||
-                currentTime - (state.last_current_time || 0) >
-                    10 * (state.scheduler_tick_offset_in_msecs / 1000)) {
-                state.next_scheduled_note_at = context.currentTime;
-                state.position = rhythm.meter.length - 1;
-            }
-            state.last_current_time = currentTime;
-            if (state.pauseD) {
-                return;
-            }
+        if (reset_next_scheduled ||
+            currentTime - (state.last_current_time || 0) >
+                10 * (state.scheduler_tick_offset_in_msecs / 1000)) {
+            state.next_scheduled_note_at = context.currentTime;
+            state.position = rhythm.meter.length - 1;
+        }
+        state.last_current_time = currentTime;
+        if (state.pauseD) {
+            return;
+        }
+        window.setTimeout(function() {
             if (currentTime > state.next_scheduled_note_at) {
                 state.next_scheduled_note_at = (state.next_scheduled_note_at +
                                                 state.speed.unitLengthInMsecs / 1000);
