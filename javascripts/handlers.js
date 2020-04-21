@@ -137,9 +137,13 @@ $(document).ready(function() {
         $(this).attr('src','/pics/metronome_proportional.png');
         viewPort.proportional = true;
       }
-    })
+    });
     $('#saveMeterContainer').on('shown', function(e) {
         MetroURL.set_hash(MetroURL.make_hash_representation());
         $('#shareUrlInput').val(window.location).select();
-    })
+    });
+    $('#featured_rhythm').click(function (evt) {
+        var url = window.location.origin + $(evt.target).data('spec');
+        location.assign(url);
+    });
 });
