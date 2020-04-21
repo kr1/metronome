@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('body').bind("keydown", function(evt) {
+    $('body').bind("keyup", function(evt) {
         var val;
         //console.log(evt.which)
         switch (evt.which){
