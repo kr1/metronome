@@ -66,7 +66,7 @@ $(document).ready(function() {
                 createAudioContext();
             }
             state.pauseD = !state.pauseD
-            if (state.pauseD) {
+            if (state.pauseD == true) {
                 viewPort.resetFullscreen();
                 $('#favicon').attr('href','favicon.ico')
                 //stopNotes(1000)
