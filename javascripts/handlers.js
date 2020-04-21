@@ -62,6 +62,9 @@ $(document).ready(function() {
 
     $('#playButton').bind("click",
         function (evt) {
+            if (audioContextCreated == false) {
+                createAudioContext();
+            }
             state.pauseD = !state.pauseD
             if (state.pauseD) {
                 viewPort.resetFullscreen();
