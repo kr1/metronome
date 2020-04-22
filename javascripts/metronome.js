@@ -57,8 +57,11 @@ setUpRhythm = function() {
         }
         window.setTimeout(function() {
             if (currentTime > state.next_scheduled_note_at) {
-                state.next_scheduled_note_at = (state.next_scheduled_note_at +
-                                                state.speed.unitLengthInMsecs / 1000);
+                var next_scheduled = state.next_scheduled_note_at,
+                    increment = state.speed.unitLengthInMsecs / 1000;
+                state.next_scheduled_note_at = next_scheduled + increment;
+                state.next_scheduled_shuffle_note_at = next_scheduled + increment * state.shuffle_proportion;
+                //console.log(currentTime, state.next_scheduled_shuffle_note_at,  state.next_scheduled_note_at)
                 if (!state.visualPauseD) {
                     if (!state.visualSequencePauseD) {
                         viewPort.drawRhythm();
