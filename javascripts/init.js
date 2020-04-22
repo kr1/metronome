@@ -17,7 +17,7 @@ speed.newSpeedMsec = function(msec) {
 
 state = {
     position: 0,
-    scheduler_tick_offset_in_msecs: 30,
+    scheduler_tick_offset_in_msecs: 10,
     next_scheduled_note_at: 0,
     displayRhythM: true,
     pauseD: true,
