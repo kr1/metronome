@@ -1,16 +1,18 @@
 $(document).ready(function() {
     $('body').bind("keyup", function(evt) {
         var val;
-       console.log(evt.which)
+        //console.log(evt.which)
         switch (evt.which){
             case 32:
                 $('#playButton').click();
                 break;
             case 37:
-                // less shuffle
+                state.shuffle_proportion -= 0.01
+                console.log("shuffle_proportion: ", state.shuffle_proportion);
                 break;
-            case 38:
-                // more shuffle
+            case 39:
+                state.shuffle_proportion += 0.01
+                console.log("shuffle_proportion: ", state.shuffle_proportion);
                 break;
             case 40:
                 val = Number($('#speedSlider').val())
