@@ -1,17 +1,23 @@
 $(document).ready(function() {
     $('body').bind("keyup", function(evt) {
         var val;
-        //console.log(evt.which)
+       console.log(evt.which)
         switch (evt.which){
             case 32:
                 $('#playButton').click();
                 break;
             case 37:
+                // less shuffle
+                break;
+            case 38:
+                // more shuffle
+                break;
+            case 40:
                 val = Number($('#speedSlider').val())
                 $('#speedSlider').val(val-1)
                 $('#speedSlider').change()
                 break;
-            case 39:
+            case 38:
                 val = Number($('#speedSlider').val())
                 $('#speedSlider').val(val+1)
                 $('#speedSlider').change()
@@ -28,8 +34,11 @@ $(document).ready(function() {
             case 80: //p
                 $('#vis_prop_switcher').click();
                 break;
-            case 83: //s
+            case 77: //m
                 $('#visualSequenceOnOff').click();
+                break;
+            case 83: //s
+                $('#shuffleOnOff').click();
                 break;
             case 86: //v
                 $('#visualOnOff').click();
