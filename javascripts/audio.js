@@ -5,6 +5,7 @@ function createAudioContext () {
     aGraph.loadAudioFile("hihat.wav", "hihatBuffer");
     aGraph.loadAudioFile("hihat2.wav", "hihat2Buffer");
     aGraph.loadAudioFile("bell.wav", "bellBuffer");
+    aGraph.loadAudioFile("cowbell1.wav", "cowbellBuffer");
     audioContextCreated = true;
     try {
             context = new AudioContext();
