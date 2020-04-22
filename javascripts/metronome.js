@@ -56,6 +56,13 @@ setUpRhythm = function() {
             return;
         }
         window.setTimeout(function() {
+            if (state.shuffle_on == true && currentTime > state.next_scheduled_shuffle_note_at) {
+                state.next_scheduled_shuffle_note_at = Number.MAX_SAFE_INTEGER;
+                var last_note_index = state.position > 0 ? state.position - 1 : rhythm.meter.length - 1
+                if (rhythm.meter[last_note_index] == '*') {
+                    aGraph.playAudioFile('cowbellBuffer', 1, 0);
+                }
+            }
             if (currentTime > state.next_scheduled_note_at) {
                 var next_scheduled = state.next_scheduled_note_at,
                     increment = state.speed.unitLengthInMsecs / 1000;
