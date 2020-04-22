@@ -3,7 +3,8 @@ aGraph.DRUM_BUFFER_NAMES = [
     "snareBuffer",
     "hihatBuffer",
     "hihat2Buffer",
-    "bellBuffer"
+    "bellBuffer",
+    "cowbellBuffer"
 ]
 
 aGraph.setUpDrumGraph = function(){
@@ -21,4 +22,5 @@ aGraph.setUpDrumGraph = function(){
         panner.connect(aGraph.gainNodeDrums);
     }
     aGraph["kickBufferGainNode"].gain.value = 0.8;
+    aGraph["cowbellBufferGainNode"].gain.value = 0.66;
 }

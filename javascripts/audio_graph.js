@@ -5,7 +5,8 @@ aGraph.setUpAudioGraph = function() {
         kickBufferSpeed : 1.0,
         snareBufferSpeed : 1.0,
         hihatBufferSpeed : 1.0,
-        hihat2BufferSpeed : 1.0
+        hihat2BufferSpeed : 1.0,
+        cowbellBufferSpeed : 1.0
     }
     // Create Main Volume Node
     aGraph.gainNodeAll = context.createGain();
