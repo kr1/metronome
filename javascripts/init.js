@@ -25,7 +25,9 @@ state = {
     visualSequencePauseD: false,
     audioPauseD: false,
     visualPauseD: false,
-    speed: speed
+    speed: speed,
+    shuffle_on: false,
+    shuffle_proportion: 0.6
 }
 
 $(document).ready(function(){

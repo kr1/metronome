@@ -156,4 +156,7 @@ $(document).ready(function() {
         location.assign(url);
         location.reload();
     });
+    $('#shuffleOnOff').click(function (evt) {
+        state.shuffle_on = !state.shuffle_on;
+    })
 });
