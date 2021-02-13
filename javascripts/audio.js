@@ -1,10 +1,28 @@
 audioContextCreated = false;
 function createAudioContext () {
-    aGraph.loadAudioFile("kick.wav", "kickBuffer");
-    aGraph.loadAudioFile("snare.wav", "snareBuffer");
-    aGraph.loadAudioFile("hihat.wav", "hihatBuffer");
-    aGraph.loadAudioFile("hihat2.wav", "hihat2Buffer");
-    aGraph.loadAudioFile("bell.wav", "bellBuffer");
+    if (window.location.href.indexOf('wood') > 0) {
+        var buffernames = {
+            kick: 'low_block.wav',
+            snare: 'mid_block.wav',
+            hihat: 'claves.wav',
+            hihat2: 'claves2.wav',
+            bell: 'bell2.wav',
+        }
+    }  else {
+        var buffernames = {
+           kick: "kick.wav",
+           snare: "snare.wav",
+           hihat: "hihat.wav",
+           hihat2: "hihat2.wav",
+           bell: "bell.wav",
+        }
+    }
+
+    aGraph.loadAudioFile(buffernames.kick, "kickBuffer");
+    aGraph.loadAudioFile(buffernames.snare, "snareBuffer");
+    aGraph.loadAudioFile(buffernames.hihat, "hihatBuffer");
+    aGraph.loadAudioFile(buffernames.hihat2, "hihat2Buffer");
+    aGraph.loadAudioFile(buffernames.bell, "bellBuffer");
     audioContextCreated = true;
     try {
             context = new AudioContext();
