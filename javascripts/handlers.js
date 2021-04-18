@@ -45,18 +45,18 @@ $(document).ready(function() {
         $("#controlsContainer").show();
     })
 
-    $('#hideControls').bind("click",function(e){
+    $('#hideControls').bind("click", function(e){
         $("#controlsContainer").hide();
     })
 
-    $('#unhideNewRhythmButton').bind("click",function(e){
+    $('#unhideNewRhythmButton').bind("click", function(e){
         rhythmEditor.takeMetroMeter();
         rhythmEditor.drawRhythm();
         $('#newRhythmLengthMonitor').text(rhythmEditor.meter.length);
         $('#newRhythmLengthSlider').val(rhythmEditor.meter.length);
     })
 
-    $('#hideNewRhythmButton').bind("click",function(e){
+    $('#hideNewRhythmButton').bind("click", function(e){
         $("#newRhythmContainer").hide();
     })
 
@@ -68,13 +68,13 @@ $(document).ready(function() {
             state.pauseD = !state.pauseD
             if (state.pauseD == true) {
                 viewPort.resetFullscreen();
-                $('#favicon').attr('href','favicon.ico')
+                $('#favicon').attr('href','favicon.ico');
                 //stopNotes(1000)
             } else {
-                $('#favicon').attr('href','faviconPlay.ico')
+                $('#favicon').attr('href','faviconPlay.ico');
                 rhythm.playMetro(true);
             }
-            $(this).text(state.pauseD ? "Play" : "Pause")
+            $(this).text(state.pauseD ? "Play" : "Pause");
         }
     );
 
@@ -88,7 +88,7 @@ $(document).ready(function() {
         var newRhythmLength = Number($(this).val());
         rhythmEditor.takeMetroMeter(newRhythmLength);
         rhythmEditor.drawRhythm();
-        $("#newRhythmLengthMonitor").text(newRhythmLength)
+        $("#newRhythmLengthMonitor").text(newRhythmLength);
     })
 
     $('#saveNewRhythmButton').bind("click",function(e){

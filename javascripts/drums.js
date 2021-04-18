@@ -7,6 +7,7 @@ aGraph.DRUM_BUFFER_NAMES = [
 ]
 
 aGraph.setUpDrumGraph = function(){
+
     aGraph.gainNodeDrums = context.createGain();
     aGraph.gainNodeDrums.gain.value = 2;
     aGraph.gainNodeDrums.connect(aGraph.gainNodeAll);
