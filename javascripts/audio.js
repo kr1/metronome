@@ -1,6 +1,7 @@
 audioContextCreated = false;
 function createAudioContext () {
-    if (window.location.href.indexOf('wood') > 0) {
+    var in_wood = MetroURL.getHashParameterByName('wood');
+    if (in_wood != false) {
         var buffernames = {
             kick: 'low_block.wav',
             snare: 'mid_block.wav',
