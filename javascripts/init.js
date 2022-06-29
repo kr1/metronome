@@ -5,14 +5,8 @@ var speed = {
 
 speed.newSpeedBpm = function(bpm) {
     this.bpm = bpm;
-    this.unitLengthInMsecs = Math.round(60000/(bpm * 0.5))
+    this.unitLengthInMsecs = Math.round(60000/bpm)
     return this.unitLengthInMsecs
-}
-
-speed.newSpeedMsec = function(msec) {
-    this.bpm = Math.round((60000 / (msec * 1)));
-    this.unitLengthInMsecs = msec
-    return this.bpm
 }
 
 state = {
