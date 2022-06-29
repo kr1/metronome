@@ -40,9 +40,17 @@ $(document).ready(function() {
         }
     });
 
-    $('#unhideControlsButton').bind("click",function(e){
+    $('#unhideControlsButton').bind("click", function(e){
         $('.modalPanelContainer').hide();
         $("#controlsContainer").show();
+    })
+
+    $('#randomSpeedButton').bind("click", function(e){
+          var minRandomSpeed = 25;
+          var maxRandomSpeed = 250;
+          var newSpeed = minRandomSpeed + Math.floor(Math.random() * (maxRandomSpeed - minRandomSpeed));
+          $('#speedSlider').val(newSpeed);
+          $('#speedSlider').change()
     })
 
     $('#hideControls').bind("click", function(e){
