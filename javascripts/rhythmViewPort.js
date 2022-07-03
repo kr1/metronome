@@ -22,36 +22,40 @@ $(document).ready(function(){
             return false;
         }
         $('.meterItem').hide();
+
+        var radius = rhythm.meter.length > 4 ? 0.55 * viewPort.slotWidth : 0.25 * viewPort.slotWidth;
         $.each(rhythm.meter, function(idx, weight) {
             var eles = viewPort.getOrCreate(idx, weight)
             $.each(rhythm.weightNames, function(iidx, weight) {eles.removeClass(weight)});
             eles.addClass(rhythm.weightNames[weight]);
             eles.show();
             if (viewPort.proportional){
-                var radius = 0.55 * viewPort.slotWidth * viewPort.circle.radius[rhythm.weightNames[weight]];
+                var ele_radius = radius * viewPort.circle.radius[rhythm.weightNames[weight]];
             } else {
-                var radius = 0.55 * viewPort.slotWidth * 1.75;
+                var ele_radius = radius * 1.75;
             }
             if (viewPort.linear_draw) {
-                eles.text(idx).css({"left": idx * viewPort.linear.fullSlotWidth,
-                                    "top": viewPort.fullHeight - (rhythm.weightToPosition[weight] * 60 * viewPort.heightMult),
-                                    "width": radius,
-                                    "height": radius,
-                                    "border-radius": radius * 0.5,
-                                    "text-align":"center"
-                                  });
+                eles.text(idx).css({
+                    "left": idx * viewPort.linear.fullSlotWidth,
+                    "top": viewPort.fullHeight - (rhythm.weightToPosition[weight] * 60 * viewPort.heightMult),
+                    "width": ele_radius,
+                    "height": ele_radius,
+                    "border-radius": ele_radius * 0.5,
+                    "text-align":"center"
+                });
             } else {
-                eles.text(idx).css({"left": viewPort.circle.x_offset +
-                                            Math.sin((2 * Math.PI / rhythm.meter.length) * idx) *
-                                                      viewPort.circle.x_stretch - radius * 0.5,
-                                    "top":  viewPort.fullHeight - (viewPort.circle.y_offset +
-                                            Math.cos((2 * Math.PI / rhythm.meter.length) * idx) * 
-                                                      viewPort.circle.y_stretch) - radius * 0.5,
-                                    "width": radius,
-                                    "height": radius,
-                                    "border-radius":radius* 0.5,
-                                    "text-align":"center"
-                                  });
+                eles.text(idx).css({
+                    "left": viewPort.circle.x_offset +
+                            Math.sin((2 * Math.PI / rhythm.meter.length) * idx) *
+                                      viewPort.circle.x_stretch - ele_radius * 0.5,
+                    "top":  viewPort.fullHeight - (viewPort.circle.y_offset +
+                            Math.cos((2 * Math.PI / rhythm.meter.length) * idx) *
+                                      viewPort.circle.y_stretch) - ele_radius * 0.5,
+                    "width": ele_radius,
+                    "height": ele_radius,
+                    "border-radius": ele_radius* 0.5,
+                    "text-align":"center"
+                });
             }
         })
     }
