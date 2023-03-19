@@ -46,8 +46,7 @@ setUpRhythm = function() {
         }
 
         if (reset_next_scheduled ||
-            currentTime - (state.last_current_time || 0) >
-                10 * (state.scheduler_tick_offset_in_msecs / 1000)) {
+            currentTime - (state.last_current_time || 0) > state.scheduler_tick_offset_in_msecs * 1000) {
             state.next_scheduled_note_at = context.currentTime;
             state.position = rhythm.meter.length - 1;
         }
@@ -63,10 +62,10 @@ setUpRhythm = function() {
                     if (!state.visualSequencePauseD) {
                         viewPort.drawRhythm();
                         $('.meterItem').removeClass('highlight');
-                        $('#meterItem_' + state.position).addClass('highlight');
+                        $('#meterItem_' + (state.position - 1)).addClass('highlight');
                     }
                     if (!state.visualFullscreenPauseD) {
-                        viewPort.drawFullscreenAtPos(state.position)
+                        viewPort.drawFullscreenAtPos(state.position - 1)
                     } else {
                         viewPort.resetFullscreen();
                     }
