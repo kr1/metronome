@@ -62,7 +62,7 @@ setUpRhythm = function() {
                     if (!state.visualSequencePauseD) {
                         viewPort.drawRhythm();
                         $('.meterItem').removeClass('highlight');
-                        $('#meterItem_' + (state.position - 1)).addClass('highlight');
+                        $('#meterItem_' + state.position).addClass('highlight');
                     }
                     if (!state.visualFullscreenPauseD) {
                         viewPort.drawFullscreenAtPos(state.position - 1)
