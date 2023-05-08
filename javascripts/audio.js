@@ -113,10 +113,18 @@ aGraph.note_to_freq = function(note_name) {
 }
 
 aGraph.playBeat = function(weight, when) {
-    //console.log(when)
+    aGraph.new_filter_freqs_after_N_cycles = 4
+    if (state.filter_freq_counter === undefined) state.filter_freq_counter = 0;
     aGraph.playAudioFile(rhythm.weightToBuffer[weight], 1.0, when)
     if (state.position == 0) {
         aGraph.playAudioFile('bellBuffer', 1.0, when - 0.01)
+    }
+    if (state.position == 1) {
+       if (state.filter_freq_counter >= aGraph.new_filter_freqs_after_N_cycles) {
+           aGraph.apply_random_filter_freqs();
+           state.filter_freq_counter = 0
+       }
+      state.filter_freq_counter += 1;
     }
 }
 
