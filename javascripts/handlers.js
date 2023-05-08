@@ -68,19 +68,38 @@ $(document).ready(function() {
         $("#newRhythmContainer").hide();
     })
 
+    $("#drone_select").on("change", function (event) {
+        var selected_drone = $("#drone_select").val()
+        var target_freq = state.pauseD == false ? aGraph.note_to_freq(selected_drone) : 0
+        aGraph.oscillator.frequency.setValueAtTime(target_freq, context.currentTime);
+    });
+
     $('#playButton').bind("click",
         function (evt) {
+            var $drone_select = $("#drone_select");
+            $drone_select.removeAttr("disabled");
             if (audioContextCreated == false) {
                 createAudioContext();
+                aGraph.oscillator.start();
+                //aGraph.lfo_filter1.start();
+                //aGraph.lfo_filter2.start();
+                //aGraph.lfo_filter3.start();
+                var selected_drone = $("#drone_select").val();
+                aGraph.oscillator.frequency.setValueAtTime(aGraph.note_to_freq(selected_drone), context.currentTime);
             }
-            state.pauseD = !state.pauseD
+            state.pauseD = !state.pauseD;
             if (state.pauseD == true) {
                 viewPort.resetFullscreen();
                 $('#favicon').attr('href','favicon.ico');
                 //stopNotes(1000)
+                aGraph.oscillator.frequency.setValueAtTime(0, context.currentTime);
             } else {
                 $('#favicon').attr('href','faviconPlay.ico');
                 rhythm.playMetro(true);
+                var selected_drone = $("#drone_select").val()
+                if (selected_drone != "None") {
+                    aGraph.oscillator.frequency.setValueAtTime(aGraph.note_to_freq(selected_drone), context.currentTime);
+                }
             }
             $(this).text(state.pauseD ? "Play" : "Pause");
         }
