@@ -28,7 +28,7 @@ $(document).ready(function(){
     setUpRhythm();
     setUpRhythmEditor();
     var in_meter = MetroURL.getHashParameterByName('meter');
-    var in_drone = MetroURL.getHashParameterByName('drone').toUpperCase();
+    var in_drone = MetroURL.getHashParameterByName('drone');
     var in_drone_vol = MetroURL.getHashParameterByName('drone_vol');
     var in_low_drone = MetroURL.getHashParameterByName('low_drone');
     var in_speed = Number(MetroURL.getHashParameterByName('speed'));
@@ -54,7 +54,7 @@ $(document).ready(function(){
     }
     if (in_drone) {
         var $drone_select = $("#drone_select");
-        $drone_select.val(in_drone);
+        $drone_select.val(in_drone.toUpperCase());
     }
     if (in_drone_vol) {
         aGraph.gainNodeDrone_initial = Number(in_drone_vol);
