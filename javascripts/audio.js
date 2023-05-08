@@ -83,6 +83,35 @@ function createAudioContext () {
     aGraph.setUpAudioGraph(context);
 }
 
+aGraph.apply_random_filter_freqs = function(secs=1) {
+    $.each(aGraph.filter_nodes, function(idx, node){
+        var max_freq_of_range = state.max_drone_filter_freq / (idx + 1);
+        var duration = Math.random() * secs * aGraph.new_filter_freqs_after_N_cycles;
+        var new_freq = (Math.pow(Math.random(), 1.5) * max_freq_of_range) + 100;
+        node.frequency.setTargetAtTime(new_freq, context.currentTime, duration);
+    });
+}
+
+aGraph.note_to_freq = function(note_name) {
+    var value = {
+      "None": 0,
+      "C":  130.81,
+      "C#": 138.59 ,
+      "D":  146.83,
+      "D#": 155.56 ,
+      "E":  164.81,
+      "F":  174.61,
+      "F#": 185.00,
+      "G": 196.00,
+      "G#": 207.65,
+      "A":  220.00,
+      "Bb": 233.08,
+      "B":  246.94,
+    }[note_name];
+  return value;
+
+}
+
 aGraph.playBeat = function(weight, when) {
     //console.log(when)
     aGraph.playAudioFile(rhythm.weightToBuffer[weight], 1.0, when)
