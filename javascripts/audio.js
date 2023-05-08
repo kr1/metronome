@@ -35,22 +35,22 @@ function createAudioContext () {
     }
     aGraph.oscillator = context.createOscillator();
 
-    aGraph.oscillator.type = "square";
+    aGraph.oscillator.type = "sawtooth";
     aGraph.oscillator.frequency.setValueAtTime(440, context.currentTime); // value in hertz
 
     aGraph.osc_biquadFilter1 = context.createBiquadFilter();
     aGraph.osc_biquadFilter1.type = 'bandpass';
-    aGraph.osc_biquadFilter1.Q.value = 13;
+    aGraph.osc_biquadFilter1.Q.value = 10;
     aGraph.osc_biquadFilter1.gain.value = 4;
     aGraph.osc_biquadFilter1.frequency.value = 401;
     aGraph.osc_biquadFilter2 = context.createBiquadFilter();
     aGraph.osc_biquadFilter2.type = 'bandpass';
-    aGraph.osc_biquadFilter2.Q.value = 14;
+    aGraph.osc_biquadFilter2.Q.value = 10;
     aGraph.osc_biquadFilter2.gain.value = 4;
     aGraph.osc_biquadFilter2.frequency.value = 925;
     aGraph.osc_biquadFilter3 = context.createBiquadFilter();
     aGraph.osc_biquadFilter3.type = 'bandpass';
-    aGraph.osc_biquadFilter3.Q.value = 15;
+    aGraph.osc_biquadFilter3.Q.value = 1;
     aGraph.osc_biquadFilter3.gain.value = 40;
     aGraph.osc_biquadFilter3.frequency.value = 1440;
 
