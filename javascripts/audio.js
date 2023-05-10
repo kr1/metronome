@@ -1,15 +1,14 @@
 audioContextCreated = false;
 function createAudioContext () {
     var in_wood = MetroURL.getHashParameterByName('wood');
-    if (in_wood != false) {
-        var buffernames = {
-            kick: 'low_block.wav',
-            snare: 'mid_block.wav',
-            hihat: 'claves.wav',
-            hihat2: 'claves2.wav',
-            bell: 'bell2.wav',
-        }
-    }  else {
+    var buffernames = {
+        kick: 'low_block.wav',
+        snare: 'mid_block.wav',
+        hihat: 'claves.wav',
+        hihat2: 'claves2.wav',
+        bell: 'bell2.wav',
+    }
+    if (in_wood== "false") {
         var buffernames = {
            kick: "kick.wav",
            snare: "snare.wav",
