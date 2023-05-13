@@ -119,12 +119,38 @@ aGraph.playBeat = function(weight, when) {
         aGraph.playAudioFile('bellBuffer', 1.0, when - 0.01)
     }
     if (state.position == 1) {
-       if (state.filter_freq_counter >= aGraph.new_filter_freqs_after_N_cycles) {
-           aGraph.apply_random_filter_freqs();
-           state.filter_freq_counter = 0
-       }
-      state.filter_freq_counter += 1;
+        if (Behaviour.drone_seq) {
+            const [next_position, drone_note] = _determine_drone_from_seq(state.drone_seq_position);
+            state.drone_seq_position = next_position;
+            if (drone_note != state.drone) {
+                var target_freq = state.pauseD == false ? aGraph.note_to_freq(drone_note) : 0;
+                aGraph.oscillator.frequency.setValueAtTime(target_freq, context.currentTime);
+                state.drone = drone_note;
+            }
+        }
+        if (Behaviour.speed_prog_cycles) {
+             if (state.speed_prog_position >= Behaviour.speed_prog_cycles){
+                state.speed_prog_position = 0;
+                var newSpeed = state.speed.bpm * Behaviour.speed_prog_factor;
+                if (newSpeed > Behaviour.min_speed && newSpeed < Behaviour.max_speed) {
+                    state.speed.newSpeedBpm(newSpeed);
+                    $(".speedMonitor").text(newSpeed);
+                }
+            } else {
+                state.speed_prog_position += 1;
+            }
+        }
+        if (state.filter_freq_counter >= aGraph.new_filter_freqs_after_N_cycles) {
+            _apply_random_filter_freqs();
+            state.filter_freq_counter = 0
+        }
+        state.filter_freq_counter += 1;
     }
+}
+
+var _determine_drone_from_seq = function(position) {
+    var next_position = position == Behaviour.drone_seq.length - 1 ? 0 : position + 1
+    return [next_position, Behaviour.drone_seq[position]]
 }
 
 aGraph.playAudioFile = function (bufferName, rate, when) {
