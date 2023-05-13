@@ -82,7 +82,7 @@ function createAudioContext () {
     aGraph.setUpAudioGraph(context);
 }
 
-aGraph.apply_random_filter_freqs = function(secs=1) {
+var _apply_random_filter_freqs = function(secs=1) {
     $.each(aGraph.filter_nodes, function(idx, node){
         var max_freq_of_range = state.max_drone_filter_freq / (idx + 1);
         var duration = Math.random() * secs * aGraph.new_filter_freqs_after_N_cycles;

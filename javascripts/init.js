@@ -9,6 +9,11 @@ speed.newSpeedBpm = function(bpm) {
     return this.unitLengthInMsecs
 }
 
+Behaviour = {
+    max_speed: 700,
+    min_speed: 20
+}
+
 state = {
     position: 0,
     scheduler_tick_offset_in_msecs: 30,
@@ -40,7 +45,7 @@ $(document).ready(function(){
         }
     }
     if (in_speed) {
-        if (in_speed && in_speed > 20 && in_speed < 700){
+        if (in_speed && in_speed > Behaviour.min_speed && in_speed < Behaviour.max_speed) {
             $('#speedSlider').val(in_speed);
             $('#speedSlider').change()
         }

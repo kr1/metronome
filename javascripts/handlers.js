@@ -106,7 +106,7 @@ $(document).ready(function() {
     );
 
     $('#speedSlider').bind("input change", function(e){
-        var newSpeed = $(this).val();
+        var newSpeed = Number($(this).val());
         state.speed.newSpeedBpm(newSpeed);
         $(".speedMonitor").text(newSpeed);
     });
