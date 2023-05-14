@@ -135,13 +135,14 @@ aGraph.playBeat = function(weight, when) {
                 state.drone = drone_note;
             }
         }
-        if (Behaviour.speed_prog_cycles) {
+        if (Behaviour.speed_prog_cycles && !Behaviour.manual_tempo_selected) {
              if (state.speed_prog_position >= Behaviour.speed_prog_cycles - 1){
                 state.speed_prog_position = 0;
                 var newSpeed = state.speed.bpm * Behaviour.speed_prog_factor;
                 if (newSpeed > Behaviour.min_speed && newSpeed < Behaviour.max_speed) {
                     state.speed.newSpeedBpm(newSpeed);
-                    $(".speedMonitor").text(newSpeed);
+                    $('#speedSlider').val(newSpeed);
+                    $(".speedMonitor").text(newSpeed.toString().slice(0, 6));
                 }
             } else {
                 state.speed_prog_position += 1;

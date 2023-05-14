@@ -57,7 +57,8 @@ $(document).ready(function(){
     if (in_speed) {
         if (in_speed && in_speed > Behaviour.min_speed && in_speed < Behaviour.max_speed) {
             $('#speedSlider').val(in_speed);
-            $('#speedSlider').change()
+            state.speed.newSpeedBpm(in_speed);
+            $(".speedMonitor").text(in_speed);
         }
     }
     if (in_low_drone) {
@@ -76,7 +77,7 @@ $(document).ready(function(){
         Behaviour.drone_seq_orig = in_drone_seq;
         Behaviour.drone_seq = _fold_out_drone_seq(in_drone_seq);
         var $drone_select = $("#drone_select");
-        $drone_select.val(Behaviour.drone_seq[0].toUpperCase());
+        $drone_select.val(Behaviour.drone_seq[0]);
     }
     if (in_drone_vol) {
         Behaviour.drone_vol_orig = in_drone_vol;
