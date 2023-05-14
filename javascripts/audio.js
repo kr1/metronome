@@ -131,7 +131,7 @@ aGraph.playBeat = function(weight, when) {
                 var target_freq = state.pauseD == false ? aGraph.note_to_freq(drone_note) : 0;
                 aGraph.oscillator.frequency.setValueAtTime(target_freq, context.currentTime);
                 var $drone_select = $("#drone_select");
-                $drone_select.val(drone_note.toUpperCase());
+                $drone_select.val(drone_note);
                 state.drone = drone_note;
             }
         }

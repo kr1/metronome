@@ -70,7 +70,7 @@ $(document).ready(function(){
     if (in_drone) {
         Behaviour.drone_orig = in_drone;
         var $drone_select = $("#drone_select");
-        $drone_select.val(in_drone.toUpperCase());
+        $drone_select.val(in_drone);
     }
     if (in_drone_seq) {
         Behaviour.drone_seq_orig = in_drone_seq;
