@@ -136,7 +136,7 @@ aGraph.playBeat = function(weight, when) {
             }
         }
         if (Behaviour.speed_prog_cycles) {
-             if (state.speed_prog_position >= Behaviour.speed_prog_cycles){
+             if (state.speed_prog_position >= Behaviour.speed_prog_cycles - 1){
                 state.speed_prog_position = 0;
                 var newSpeed = state.speed.bpm * Behaviour.speed_prog_factor;
                 if (newSpeed > Behaviour.min_speed && newSpeed < Behaviour.max_speed) {

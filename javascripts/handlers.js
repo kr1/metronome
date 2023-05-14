@@ -109,6 +109,7 @@ $(document).ready(function() {
     $('#speedSlider').bind("input change", function(e){
         var newSpeed = Number($(this).val());
         state.speed.newSpeedBpm(newSpeed);
+        Behaviour.manual_tempo_selected = newSpeed;
         $(".speedMonitor").text(newSpeed);
     });
 

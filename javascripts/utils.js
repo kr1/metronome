@@ -17,7 +17,7 @@ MetroURL.make_hash_representation = function() {
     if (Behaviour.drone_orig) obj.drone = Behaviour.drone_orig;
     if (Behaviour.manual_drone_selected) obj.drone = Behaviour.manual_drone_selected;
     if (Behaviour.drone_vol_orig) obj.drone_vol = Behaviour.drone_vol_orig;
-    if (Behaviour.speed_prog_orig) obj.speed_prog = Behaviour.speed_prog_orig;
+    if (Behaviour.speed_prog_orig && !Behaviour.manual_tempo_selected) obj.speed_prog = Behaviour.speed_prog_orig;
     if (Behaviour.manual_bell_volume_set) {
         obj.bell = aGraph["bellBufferGainNode"].gain.value.toString().slice(0, 4);
     } else if (Behaviour.bell_orig) {

@@ -13,6 +13,7 @@ Behaviour = {
     max_speed: 700,
     min_speed: 20,
     manual_drone_selected: false,
+    manual_tempo_selected: false,
 }
 
 state = {
@@ -29,7 +30,7 @@ state = {
     max_drone_filter_freq: 3000,
     drone: null,
     drone_seq_position: 0,
-    speed_prog_position: 0
+    speed_prog_position: -1,  // this corrects the very first count
 }
 
 $(document).ready(function(){
