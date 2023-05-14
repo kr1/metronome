@@ -1,17 +1,18 @@
 $(document).ready(function() {
-    $('body').bind("keyup", function(evt) {
+    $('body').bind("keypress", function(evt) {
         var val;
-        //console.log(evt.which)
+        // console.log(evt.which)
         switch (evt.which){
             case 32:
                 $('#playButton').click();
+                evt.preventDefault();
                 break;
-            case 37:
+            case 45:
                 val = Number($('#speedSlider').val())
                 $('#speedSlider').val(val-1)
                 $('#speedSlider').change()
                 break;
-            case 39:
+            case 43:
                 val = Number($('#speedSlider').val())
                 $('#speedSlider').val(val+1)
                 $('#speedSlider').change()
