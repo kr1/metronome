@@ -94,6 +94,7 @@ var _apply_random_filter_freqs = function(secs=1) {
 aGraph.note_to_freq = function(note_name) {
     var value = {
       "None": 0,
+      "null": 0,
       "C":  130.81,
       "C#": 138.59 ,
       "Db": 138.59 ,
@@ -123,7 +124,7 @@ aGraph.playBeat = function(weight, when) {
         aGraph.playAudioFile('bellBuffer', 1.0, when - 0.01)
     }
     if (state.position == 1) {
-        if (Behaviour.drone_seq) {
+        if (Behaviour.drone_seq && !Behaviour.manual_drone_selected) {
             const [next_position, drone_note] = _determine_drone_from_seq(state.drone_seq_position);
             state.drone_seq_position = next_position;
             if (drone_note != state.drone) {

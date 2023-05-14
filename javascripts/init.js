@@ -11,7 +11,8 @@ speed.newSpeedBpm = function(bpm) {
 
 Behaviour = {
     max_speed: 700,
-    min_speed: 20
+    min_speed: 20,
+    manual_drone_selected: false,
 }
 
 state = {
@@ -34,6 +35,8 @@ state = {
 $(document).ready(function(){
     setUpRhythm();
     setUpRhythmEditor();
+    var in_bell = MetroURL.getHashParameterByName('bell');
+    var in_pulse = MetroURL.getHashParameterByName('pulse');
     var in_meter = MetroURL.getHashParameterByName('meter');
     var in_drone = MetroURL.getHashParameterByName('drone');
     var in_drone_vol = MetroURL.getHashParameterByName('drone_vol');
@@ -41,6 +44,8 @@ $(document).ready(function(){
     var in_low_drone = MetroURL.getHashParameterByName('low_drone');
     var in_speed_prog = MetroURL.getHashParameterByName('speed_prog');
     var in_speed = Number(MetroURL.getHashParameterByName('speed'));
+    if (in_bell) Behaviour.bell_orig = in_bell;
+    if (in_pulse) Behaviour.pulse_orig = in_pulse;
     if (in_meter){
         if (rhythmEditor.validateMeter(in_meter)){
           rhythm.meter = in_meter.split("");
@@ -62,18 +67,22 @@ $(document).ready(function(){
         }
     }
     if (in_drone) {
+        Behaviour.drone_orig = in_drone;
         var $drone_select = $("#drone_select");
         $drone_select.val(in_drone.toUpperCase());
     }
     if (in_drone_seq) {
+        Behaviour.drone_seq_orig = in_drone_seq;
         Behaviour.drone_seq = _fold_out_drone_seq(in_drone_seq);
         var $drone_select = $("#drone_select");
         $drone_select.val(Behaviour.drone_seq[0].toUpperCase());
     }
     if (in_drone_vol) {
+        Behaviour.drone_vol_orig = in_drone_vol;
         aGraph.gainNodeDrone_initial = Number(in_drone_vol);
     }
     if (in_speed_prog) {
+        Behaviour.speed_prog_orig = in_speed_prog;
         if (in_speed_prog.search('\\*') == -1) {
             console.log('invalid format for `speed_prog` param "' + in_speed_prog + '", please use: "<number_of_cycles>*<change-factor>"');
         }

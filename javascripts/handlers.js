@@ -72,6 +72,7 @@ $(document).ready(function() {
         var selected_drone = $("#drone_select").val()
         var target_freq = state.pauseD == false ? aGraph.note_to_freq(selected_drone) : 0
         aGraph.oscillator.frequency.setValueAtTime(target_freq, context.currentTime);
+        Behaviour.manual_drone_selected = selected_drone;
     });
 
     $('#playButton').bind("click",
@@ -127,6 +128,7 @@ $(document).ready(function() {
         var val = $(this).val(),
             which = $(this).attr('rel'),
             gainNodeName = which + "BufferGainNode";
+        Behaviour["manual_" + which + "_volume_set"] = true;
         aGraph[gainNodeName].gain.value = val
         $("#"+ which + "VolMonitor").text(val)
     })
