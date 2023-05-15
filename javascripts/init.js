@@ -33,6 +33,42 @@ state = {
     speed_prog_position: -1,  // this corrects the very first count
 }
 
+Behaviour._pick_random_note = function() {
+    var notes = ["C",  "C",  "C#", "Db",
+                 "D",  "D",  "D#", "Eb",
+                 "E",  "E",  "F",  "F",
+                 "F#", "Gb", "G",  "G",
+                 "G#", "Ab", "A",  "A",
+                 "Bb", "Bb", "B",  "B"]
+    var note = notes[Math.floor(Math.random() * notes.length)]
+    return note
+}
+
+
+Behaviour.note_to_freq = function(note_name) {
+    var value = {
+      "None": 0,
+      "null": 0,
+      "C":  130.81,
+      "C#": 138.59 ,
+      "Db": 138.59 ,
+      "D":  146.83,
+      "D#": 155.56 ,
+      "Eb": 155.56 ,
+      "E":  164.81,
+      "F":  174.61,
+      "F#": 185.00,
+      "Gb": 185.00,
+      "G": 196.00,
+      "G#": 207.65,
+      "Ab": 207.65,
+      "A":  220.00,
+      "Bb": 233.08,
+      "B":  246.94,
+    }[note_name];
+  return value;
+}
+
 $(document).ready(function(){
     setUpRhythm();
     setUpRhythmEditor();

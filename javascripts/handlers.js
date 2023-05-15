@@ -71,7 +71,7 @@ $(document).ready(function() {
 
     $("#drone_select").on("change", function (event) {
         var selected_drone = $("#drone_select").val()
-        var target_freq = state.pauseD == false ? aGraph.note_to_freq(selected_drone) : 0
+        var target_freq = state.pauseD == false ? Behaviour.note_to_freq(selected_drone) : 0
         aGraph.oscillator.frequency.setValueAtTime(target_freq, context.currentTime);
         Behaviour.manual_drone_selected = selected_drone;
     });
@@ -87,7 +87,7 @@ $(document).ready(function() {
                 //aGraph.lfo_filter2.start();
                 //aGraph.lfo_filter3.start();
                 var selected_drone = $("#drone_select").val();
-                aGraph.oscillator.frequency.setValueAtTime(aGraph.note_to_freq(selected_drone), context.currentTime);
+                aGraph.oscillator.frequency.setValueAtTime(Behaviour.note_to_freq(selected_drone), context.currentTime);
             }
             state.pauseD = !state.pauseD;
             if (state.pauseD == true) {
@@ -100,7 +100,7 @@ $(document).ready(function() {
                 rhythm.playMetro(true);
                 var selected_drone = $("#drone_select").val()
                 if (selected_drone != "None") {
-                    aGraph.oscillator.frequency.setValueAtTime(aGraph.note_to_freq(selected_drone), context.currentTime);
+                    aGraph.oscillator.frequency.setValueAtTime(Behaviour.note_to_freq(selected_drone), context.currentTime);
                 }
             }
             $(this).text(state.pauseD ? "Play" : "Pause");

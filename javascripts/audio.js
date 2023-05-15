@@ -91,32 +91,9 @@ var _apply_random_filter_freqs = function(secs=1) {
     });
 }
 
-aGraph.note_to_freq = function(note_name) {
-    var value = {
-      "None": 0,
-      "null": 0,
-      "C":  130.81,
-      "C#": 138.59 ,
-      "Db": 138.59 ,
-      "D":  146.83,
-      "D#": 155.56 ,
-      "Eb": 155.56 ,
-      "E":  164.81,
-      "F":  174.61,
-      "F#": 185.00,
-      "Gb": 185.00,
-      "G": 196.00,
-      "G#": 207.65,
-      "Ab": 207.65,
-      "A":  220.00,
-      "Bb": 233.08,
-      "B":  246.94,
-    }[note_name];
-  return value;
-
-}
 
 aGraph.playBeat = function(weight, when) {
+    var next_position, drone_note;
     aGraph.new_filter_freqs_after_N_cycles = 4
     if (state.filter_freq_counter === undefined) state.filter_freq_counter = 0;
     aGraph.playAudioFile(rhythm.weightToBuffer[weight], 1.0, when)
