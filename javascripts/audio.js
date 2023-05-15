@@ -101,11 +101,20 @@ aGraph.playBeat = function(weight, when) {
         aGraph.playAudioFile('bellBuffer', 1.0, when - 0.01)
     }
     if (state.position == 1) {
-        if (Behaviour.drone_seq && !Behaviour.manual_drone_selected) {
-            const [next_position, drone_note] = _determine_drone_from_seq(state.drone_seq_position);
+        if ((Behaviour.drone_seq || Behaviour.drone_seq_random_cycles) && !Behaviour.manual_drone_selected) {
+            if (Behaviour.drone_seq_random_cycles) {
+                next_position = (state.drone_seq_position + 1) % Behaviour.drone_seq_random_cycles
+                if (next_position == 0) {
+                    drone_note = Behaviour._pick_random_note();
+                } else {
+                    drone_note = state.drone;
+                }
+            } else {
+                const [next_position, drone_note] = _determine_drone_from_seq(state.drone_seq_position);
+            }
             state.drone_seq_position = next_position;
             if (drone_note != state.drone) {
-                var target_freq = state.pauseD == false ? aGraph.note_to_freq(drone_note) : 0;
+                var target_freq = state.pauseD == false ? Behaviour.note_to_freq(drone_note) : 0;
                 aGraph.oscillator.frequency.setValueAtTime(target_freq, context.currentTime);
                 var $drone_select = $("#drone_select");
                 $drone_select.val(drone_note);

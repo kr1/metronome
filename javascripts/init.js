@@ -14,6 +14,7 @@ Behaviour = {
     min_speed: 20,
     manual_drone_selected: false,
     manual_tempo_selected: false,
+    drone_seq_random_cycles: null,
 }
 
 state = {
@@ -77,7 +78,7 @@ $(document).ready(function(){
     var in_meter = MetroURL.getHashParameterByName('meter');
     var in_drone = MetroURL.getHashParameterByName('drone');
     var in_drone_vol = MetroURL.getHashParameterByName('drone_vol');
-    var in_drone_seq = MetroURL.getHashParameterByName('drone_seq'); // note-repetition pairs: example A_4_D_2_A_2_E_1_D_2_A_1_E_1
+    var in_drone_seq = MetroURL.getHashParameterByName('drone_seq'); // note-repetition pairs: example A_4_D_2_A_2_E_1_D_2_A_1_E_1 or random_<num-of-cycles>
     var in_low_drone = MetroURL.getHashParameterByName('low_drone');
     var in_speed_prog = MetroURL.getHashParameterByName('speed_prog');
     var in_speed = Number(MetroURL.getHashParameterByName('speed'));
@@ -111,9 +112,15 @@ $(document).ready(function(){
     }
     if (in_drone_seq) {
         Behaviour.drone_seq_orig = in_drone_seq;
-        Behaviour.drone_seq = _fold_out_drone_seq(in_drone_seq);
+        if (in_drone_seq.search("random_") == 0) {
+            Behaviour.drone_seq_random_cycles = parseInt(in_drone_seq.split("_")[1]);
+            var next_note = Behaviour._pick_random_note();
+        } else {
+            Behaviour.drone_seq = _fold_out_drone_seq(in_drone_seq);
+            var next_note = Behaviour.drone_seq[0];
+        }
         var $drone_select = $("#drone_select");
-        $drone_select.val(Behaviour.drone_seq[0]);
+        $drone_select.val(next_note);
     }
     if (in_drone_vol) {
         Behaviour.drone_vol_orig = in_drone_vol;
