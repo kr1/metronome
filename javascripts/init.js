@@ -95,15 +95,19 @@ $(document).ready(function(){
             Behaviour.bell_volume = parseFloat(in_bell) - 0.0000009 % 1.0;
         }
     }
+    $("#bellVolMonitor").text(Behaviour.bell_volume.toString().slice(0, 4));
+    $("#bell_slider").val(Behaviour.bell_volume);
     if (in_pulse) {
         Behaviour.pulse_orig = in_pulse;
         Behaviour.pulse_volume = parseFloat(in_pulse);
     }
+    $("#hihatVolMonitor").text(Behaviour.pulse_volume.toString().slice(0, 4));
+    $("#pulse_slider").val(Behaviour.pulse_volume);
     if (in_meter){
         if (rhythmEditor.validateMeter(in_meter)){
-          rhythm.meter = in_meter.split("");
+            rhythm.meter = in_meter.split("");
         } else {
-          alert("the specified meter '" + in_meter + "' contains invalid characters (only _,- and * are allowed)")
+            alert("the specified meter '" + in_meter + "' contains invalid characters (only _,- and * are allowed)")
         }
     }
     if (in_speed) {

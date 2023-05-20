@@ -201,14 +201,14 @@
                     %span{:id=>"snareVolMonitor" , :class=>"Monitor"}1.0
                   %td
                     Hihat/high woodblock
-                    %input{:type=>"range", :name=>"hihatVol", :class=>"volVertical", :rel=>"hihat",
+                    %input{:type=>"range", :id=>"pulse_slider", :name=>"hihatVol", :class=>"volVertical", :rel=>"hihat",
                       :min=>"0", :max=>"1.2", :step=>"0.01", :value=>"1", :orient=>"vertical"}
                     %br
                     %span{:id=>"hihatVolMonitor" , :class=>"Monitor"} 1.0
                   %td
                     Tambourine / bell (cycle start)
-                    %input{:type=>"range", :name=>"hihatVol", :class=>"volVertical", :rel=>"bell",
-                      :min=>"0", :max=>"2.5", :step=>"0.01", :value=>"1", :orient=>"vertical"}
+                    %input{:type=>"range", :id=>"bell_slider", :name=>"bellVol", :class=>"volVertical", :rel=>"bell",
+                      :min=>"0", :max=>"2.5", :step=>"0.01", :value=>"0.1", :orient=>"vertical"}
                     %br
                     %span{:id=>"bellVolMonitor" , :class=>"Monitor"} 1.0
             %div.modal-footer
