@@ -99,9 +99,16 @@ aGraph.playBeat = function(weight, when) {
     var next_position, drone_note;
     aGraph.new_filter_freqs_after_N_cycles = 4
     if (state.filter_freq_counter === undefined) state.filter_freq_counter = 0;
-    aGraph.playAudioFile(rhythm.weightToBuffer[weight], 1.0, when)
+    aGraph.playAudioFile(rhythm.weightToBuffer[weight], 1.0, when);
     if (state.position == 0) {
-        aGraph.playAudioFile('bellBuffer', 1.0, when - 0.01)
+        if (Behaviour.bell_num_cycles != null) {
+            if (state.bell_cycles_position % Behaviour.bell_num_cycles == 0) {
+                aGraph.playAudioFile('bellBuffer', 1.0, when - 0.01)
+            }
+            state.bell_cycles_position += 1;
+        } else {
+            aGraph.playAudioFile('bellBuffer', 1.0, when - 0.01)
+        }
     }
     if (state.position == 1) {
         if ((Behaviour.drone_seq || Behaviour.drone_seq_random_cycles) && !Behaviour.manual_drone_selected) {

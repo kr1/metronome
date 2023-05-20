@@ -15,6 +15,9 @@ Behaviour = {
     manual_drone_selected: false,
     manual_tempo_selected: false,
     drone_seq_random_cycles: null,
+    bell_num_cycles: null,
+    pulse_volume: 0.1,
+    bell_volume: 0.1,
 }
 
 state = {
@@ -30,8 +33,9 @@ state = {
     speed: speed,
     max_drone_filter_freq: 3000,
     drone: null,
-    drone_seq_position: 0,
-    speed_prog_position: -1,  // this corrects the very first count
+    drone_seq_position: -1, // -1 this corrects the first count
+    bell_cycles_position: 0,
+    speed_prog_position: -1,
 }
 
 Behaviour._pick_random_note = function() {
@@ -82,8 +86,19 @@ $(document).ready(function(){
     var in_low_drone = MetroURL.getHashParameterByName('low_drone');
     var in_speed_prog = MetroURL.getHashParameterByName('speed_prog');
     var in_speed = Number(MetroURL.getHashParameterByName('speed'));
-    if (in_bell) Behaviour.bell_orig = in_bell;
-    if (in_pulse) Behaviour.pulse_orig = in_pulse;
+    if (in_bell) {
+        Behaviour.bell_orig = in_bell;
+        if (in_bell.search("_") > 0) {
+            Behaviour.bell_num_cycles = parseInt(in_bell.split("_")[0]);
+            Behaviour.bell_volume = parseFloat(in_bell.split("_")[1]) - 0.0000009 % 1.0;
+        } else {
+            Behaviour.bell_volume = parseFloat(in_bell) - 0.0000009 % 1.0;
+        }
+    }
+    if (in_pulse) {
+        Behaviour.pulse_orig = in_pulse;
+        Behaviour.pulse_volume = parseFloat(in_pulse);
+    }
     if (in_meter){
         if (rhythmEditor.validateMeter(in_meter)){
           rhythm.meter = in_meter.split("");

@@ -22,8 +22,7 @@ aGraph.setUpDrumGraph = function(){
         panner.connect(aGraph.gainNodeDrums);
     }
     aGraph["kickBufferGainNode"].gain.value = 0.8;
-    var bellVolume = Number(MetroURL.getHashParameterByName('bell')) - 0.0000009 % 1.0;
-    aGraph["bellBufferGainNode"].gain.value = bellVolume;
+    aGraph["bellBufferGainNode"].gain.value = Behaviour.bell_volume
     var pulseVolume = Number(MetroURL.getHashParameterByName('pulse')) - 0.0000009 % 1.0;
     aGraph["hihatBufferGainNode"].gain.value = pulseVolume;
 }
