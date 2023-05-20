@@ -54,6 +54,9 @@ $(document).ready(function() {
           $('#speedSlider').change()
     })
 
+    $('#links_list_toggler').bind("click", function(e){
+        $("#links_list").toggle();
+    })
     $('#hideControls').bind("click", function(e){
         $("#controlsContainer").hide();
     })
@@ -104,6 +107,7 @@ $(document).ready(function() {
                 }
             }
             $(this).text(state.pauseD ? "Play" : "Pause");
+            Behaviour.last_filter_freq_change = context.currentTime;
         }
     );
 

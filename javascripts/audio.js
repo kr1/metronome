@@ -85,10 +85,13 @@ function createAudioContext () {
 var _apply_random_filter_freqs = function(secs=1) {
     $.each(aGraph.filter_nodes, function(idx, node){
         var max_freq_of_range = state.max_drone_filter_freq / (idx + 1);
+        var max_freq_of_range = state.max_drone_filter_freq
         var duration = Math.random() * secs * aGraph.new_filter_freqs_after_N_cycles;
+        var duration = context.currentTime - Behaviour.last_filter_freq_change;
         var new_freq = (Math.pow(Math.random(), 1.5) * max_freq_of_range) + 100;
         node.frequency.setTargetAtTime(new_freq, context.currentTime, duration);
     });
+    Behaviour.last_filter_freq_change = context.currentTime;
 }
 
 
@@ -110,7 +113,7 @@ aGraph.playBeat = function(weight, when) {
                     drone_note = state.drone;
                 }
             } else {
-                const [next_position, drone_note] = _determine_drone_from_seq(state.drone_seq_position);
+                var [next_position, drone_note] = _determine_drone_from_seq(state.drone_seq_position);
             }
             state.drone_seq_position = next_position;
             if (drone_note != state.drone) {
