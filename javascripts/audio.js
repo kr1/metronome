@@ -83,12 +83,18 @@ function createAudioContext () {
 }
 
 var _apply_random_filter_freqs = function(secs=1) {
+    var new_freqs = [];
+    var max_lower_freq = state.max_lower_freq / 5;
     $.each(aGraph.filter_nodes, function(idx, node){
-        var max_freq_of_range = state.max_drone_filter_freq / (idx + 1);
-        var max_freq_of_range = state.max_drone_filter_freq
+        if (new_freqs.length == 2 && Math.min(...new_freqs) > max_lower_freq) {
+            var max_freq_of_range = max_lower_freq;
+        } else {
+            var max_freq_of_range = state.max_drone_filter_freq;
+        }
         var duration = Math.random() * secs * aGraph.new_filter_freqs_after_N_cycles;
         var duration = context.currentTime - Behaviour.last_filter_freq_change;
         var new_freq = (Math.pow(Math.random(), 1.5) * max_freq_of_range) + 100;
+        new_freqs.push(new_freq);
         node.frequency.setTargetAtTime(new_freq, context.currentTime, duration);
     });
     Behaviour.last_filter_freq_change = context.currentTime;
