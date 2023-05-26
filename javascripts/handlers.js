@@ -135,7 +135,11 @@ $(document).ready(function() {
             which = $(this).attr('rel'),
             gainNodeName = which + "BufferGainNode";
         Behaviour["manual_" + which + "_volume_set"] = true;
-        aGraph[gainNodeName].gain.value = val
+        if (which == "master") {
+            aGraph['gainNodeAll'].gain.value = val;
+        } else {
+            aGraph[gainNodeName].gain.value = val;
+        }
         $("#"+ which + "VolMonitor").text(val)
     })
 
