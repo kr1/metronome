@@ -18,6 +18,12 @@ Behaviour = {
     bell_num_cycles: null,
     pulse_volume: 0.1,
     bell_volume: 0.1,
+    drone_notes: ["C",  "C",  "C#", "Db",
+                  "D",  "D",  "D#", "Eb",
+                  "E",  "E",  "F",  "F",
+                  "F#", "Gb", "G",  "G",
+                  "G#", "Ab", "A",  "A",
+                  "Bb", "Bb", "B",  "B"]
 }
 
 state = {
@@ -39,16 +45,10 @@ state = {
 }
 
 Behaviour._pick_random_note = function() {
-    var notes = ["C",  "C",  "C#", "Db",
-                 "D",  "D",  "D#", "Eb",
-                 "E",  "E",  "F",  "F",
-                 "F#", "Gb", "G",  "G",
-                 "G#", "Ab", "A",  "A",
-                 "Bb", "Bb", "B",  "B"]
+    var notes = Behaviour.drone_notes;
     var note = notes[Math.floor(Math.random() * notes.length)]
     return note
 }
-
 
 Behaviour.note_to_freq = function(note_name) {
     var value = {
@@ -82,7 +82,7 @@ $(document).ready(function(){
     var in_meter = MetroURL.getHashParameterByName('meter');
     var in_drone = MetroURL.getHashParameterByName('drone');
     var in_drone_vol = MetroURL.getHashParameterByName('drone_vol');
-    var in_drone_seq = MetroURL.getHashParameterByName('drone_seq'); // note-repetition pairs: example A_4_D_2_A_2_E_1_D_2_A_1_E_1 or random_<num-of-cycles>
+    var in_drone_seq = MetroURL.getHashParameterByName('drone_seq'); // note-repetition pairs: example A_4_D_2_A_2_E_1_D_2_A_1_E_1 or random_<num-of-cycles> or random_<num-of-cycles>_<note0>_<note1..10>
     var in_low_drone = MetroURL.getHashParameterByName('low_drone');
     var in_speed_prog = MetroURL.getHashParameterByName('speed_prog');
     var in_speed = Number(MetroURL.getHashParameterByName('speed'));
@@ -132,7 +132,14 @@ $(document).ready(function(){
     if (in_drone_seq) {
         Behaviour.drone_seq_orig = in_drone_seq;
         if (in_drone_seq.search("random_") == 0) {
-            Behaviour.drone_seq_random_cycles = parseInt(in_drone_seq.split("_")[1]);
+            var split = in_drone_seq.split("_");
+            Behaviour.drone_seq_random_cycles = parseInt(split[1]);
+            if (split.length > 2) {
+                var notes = split.slice(2);
+                // remove invalid notes
+                notes = notes.filter(note => Behaviour.drone_notes.includes(note));
+                Behaviour.drone_notes = notes;
+            }
             var next_note = Behaviour._pick_random_note();
         } else {
             Behaviour.drone_seq = _fold_out_drone_seq(in_drone_seq);
