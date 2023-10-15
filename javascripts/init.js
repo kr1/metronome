@@ -86,6 +86,7 @@ $(document).ready(function(){
     var in_low_drone = MetroURL.getHashParameterByName('low_drone');
     var in_speed_prog = MetroURL.getHashParameterByName('speed_prog');
     var in_speed = Number(MetroURL.getHashParameterByName('speed'));
+    var in_makams = MetroURL.getHashParameterByName('mak');
     if (in_bell) {
         Behaviour.bell_orig = in_bell;
         if (in_bell.search("_") > 0) {
@@ -164,6 +165,11 @@ $(document).ready(function(){
     rhythm.analyzeMeter();
     rhythm.visualizeAnalyzedRhythm();
     viewPort.drawRhythm();
+    if (in_makams == '1') {
+        setUpMakams();
+    } else {
+        $("#makams_list_toggler").hide();
+    }
 });
 
 var _fold_out_drone_seq = function (in_drone_seq) {

@@ -56,7 +56,10 @@ $(document).ready(function() {
 
     $('#links_list_toggler').bind("click", function(e){
         $("#links_list").toggle();
-    })
+    });
+    $('#makams_list_toggler').bind("click", function(e){
+        $("#makams_list").toggle();
+    });
     $('#hideControls').bind("click", function(e){
         $("#controlsContainer").hide();
     })

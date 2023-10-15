@@ -20,6 +20,7 @@
     %script{:type=>"text/javascript", :src=>"/javascripts/rhythmEditor.js"}
     %script{:type=>"text/javascript", :src=>"/javascripts/utils.js"}
     %script{:type=>"text/javascript", :src=>"/javascripts/init.js"}
+    %script{:type=>"text/javascript", :src=>"/javascripts/makams.js"}
     %link{:id=>"favicon", :rel=>"shortcut icon", :href=>"/favicon.ico"}
     %link{:href=>"/stylesheets/bootstrap-responsive.min.css", :rel=>"stylesheet"}
     %link{:href=>"/stylesheets/bootstrap.min.css", :rel=>"stylesheet"}
@@ -155,6 +156,10 @@
               <a href="https://metronome.zanstaen.org/#speed=140/meter=_**-*_*-**/pulse=0.1/bell=0.2/">Plain Aksak (https://metronome.zanstaen.org/#speed=140/meter=_**-*_*-**/pulse=0.1/bell=0.2/)</a><br/>
               <a href="https://metronome.zanstaen.org/#speed=140/meter=_**-*_*-**/pulse=0.1/bell=0.2/speed_prog=4*1.02/">Accellerating Aksak (https://metronome.zanstaen.org/#speed=140/meter=_**-*_*-**/pulse=0.1/bell=0.2/speed_prog=4*1.02/)</a><br/>
               <a href="https://metronome.zanstaen.org/#speed=140/meter=_**-*_*-**/pulse=0.1/bell=0.2/speed_prog=12*0.99/">Slowing Aksak (https://metronome.zanstaen.org/#speed=140/meter=_**-*_*-**/pulse=0.1/bell=0.2/speed_prog=12*0.99/)</a><br/>
+            %div{:class=>"container"}
+              %span{:id=>"makams_list_toggler"}
+                makams
+              %div{:id=>"makams_list", :style=>"display:none"}
       %div{:class=>"hero-unit"}
         %div{:id=>"rhythmViewPort", :style=>"position:relative;min-height:100px"}
           //%span{:id=>"meter", :style=>'background-color:#888888;position:absolute;'}
