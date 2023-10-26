@@ -184,6 +184,28 @@ $(document).ready(function() {
         MetroURL.set_hash(MetroURL.make_hash_representation());
         $('#shareUrlInput').val(window.location).select();
     });
+    $("body").on("click", '.link_to_makam', function (evt) {
+        var $target = $(evt.target);
+        var query = "#" + $target.data("makam");
+        $(query)[0].scrollIntoView();
+    });
+    $("body").on("click", '.makam_drone_button', function (evt) {
+        var $target = $(evt.target);
+        var note = $target.data("note");
+        var target_freq = state.pauseD == false ? Behaviour.note_to_freq(note) : 0;
+        if (typeof(aGraph.oscillator) == "undefined") {
+            $("#playButton").click();
+            window.setTimeout(function() {
+                $target.click();
+            }, 500)
+        }
+        aGraph.oscillator.frequency.setValueAtTime(target_freq, context.currentTime);
+        Behaviour.manual_drone_selected = note;
+        var $onOff = $('#audioOnOff');
+        $onOff.attr('src', $onOff.data('offsrc'));
+        state["audioPauseD"] = true;
+    });
+
     $('#featured_rhythm').click(function (evt) {
         var url = window.location.origin + $(evt.target).data('spec');
         location.assign(url);

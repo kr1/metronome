@@ -69,6 +69,7 @@ Behaviour.note_to_freq = function(note_name) {
       "Ab": 207.65,
       "A":  220.00,
       "Bb": 233.08,
+      "SEGAH": 242,
       "B":  246.94,
     }[note_name];
   return value;
@@ -167,6 +168,9 @@ $(document).ready(function(){
     viewPort.drawRhythm();
     if (in_makams == '1') {
         setUpMakams();
+    } else if (in_makams == '2') {
+        setUpMakams();
+        $('#makams_list_toggler').click();
     } else {
         $("#makams_list_toggler").hide();
     }
