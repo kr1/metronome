@@ -52,7 +52,7 @@ li.speedMonitorCont {
 
 .navbar .btn, .navbar .btn-group {margin:0;}
 .hero-unit {
-    height:60%;
+    height:80%!important;
 }
 li.broad {
     width:22%
@@ -122,11 +122,17 @@ img#vis_switcher:hover {
     height: 120px;
     -webkit-appearance: slider-vertical;
 }
-#rhythmViewPort #rhythmEditor {
-                 margin-left: auto;
-                 margin-right: auto;
-                 width: 80%;
-                 text-align:center}
+#makams_container {
+    display: block;
+}
+
+#rhythmViewPort, #rhythmEditor {
+     margin-left: auto;
+     margin-right: auto;
+     height: 300px;
+     width: 80%;
+     display:block;
+     text-align:center}
 
 #newRhythmLengthMonitor {
     float: left;

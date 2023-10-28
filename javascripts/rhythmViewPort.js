@@ -1,14 +1,14 @@
 $(document).ready(function(){
     viewPort = {proportional: true}
-    viewPort.fullHeight= Number($('#rhythmViewPort').css('height').match(/[0-9]+/));
-    viewPort.fullWidth= Number($('#rhythmViewPort').css('width').match(/[0-9]+/));
-    viewPort.heightMult=  viewPort.fullHeight / 180;
+    viewPort.fullHeight = Number($('#rhythmViewPort').css('height').match(/[0-9]+/));
+    viewPort.fullWidth = Number($('#rhythmViewPort').css('width').match(/[0-9]+/));
+    viewPort.heightMult = viewPort.fullHeight / 200;
 
     viewPort.circle = {
         x_offset:  0.45 * viewPort.fullWidth,
         x_stretch: 0.17 *  viewPort.fullWidth,
-        y_offset:  -0.2 * viewPort.fullHeight,
-        y_stretch: 1.3 * viewPort.fullHeight,
+        y_offset:  0.4 * viewPort.fullHeight,
+        y_stretch: 0.6 * viewPort.fullHeight,
         radius: {
             'heavy': 1.3, 'light':1.1, 'fill':1.0
         }
