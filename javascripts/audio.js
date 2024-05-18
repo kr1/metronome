@@ -140,7 +140,18 @@ aGraph.playBeat = function(weight, when) {
         if (Behaviour.speed_prog_cycles && !Behaviour.manual_tempo_selected) {
              if (state.speed_prog_position >= Behaviour.speed_prog_cycles - 1){
                 state.speed_prog_position = 0;
-                var newSpeed = state.speed.bpm * Behaviour.speed_prog_factor;
+                if (Behaviour.speed_prog_random == undefined) {
+                    var newSpeed = state.speed.bpm * Behaviour.speed_prog_factor;
+                } else {
+                    if (Behaviour.speed_prog_random == 'minmax') {
+                        var random_speed_range = Behaviour.maxRandomSpeed - Behaviour.minRandomSpeed;
+                        var newSpeed = Math.random() * random_speed_range + Behaviour.minRandomSpeed;
+                    }
+                    if (Behaviour.speed_prog_random == 'minmaxfactor') {
+                        var random_speed_range = Behaviour.maxRandomSpeedFactor - Behaviour.minRandomSpeedFactor;
+                        var newSpeed = state.speed.bpm * (Math.random() * random_speed_range + Behaviour.minRandomSpeedFactor);
+                    }
+                }
                 if (newSpeed > Behaviour.min_speed && newSpeed < Behaviour.max_speed) {
                     state.speed.newSpeedBpm(newSpeed);
                     $('#speedSlider').val(newSpeed);
