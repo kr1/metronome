@@ -32,7 +32,7 @@ It is possible to specify a rhythm with an URL parameter, like `_**-**_**-**-_` 
 
 You will need a web-server to run _METRONOME_ locally. if you have python installed, you can `cd` to the project folder (where index.html) is and run:  
 
-    python -m SimpleHTTPServer 8080
+    python -m http.server 8080
 
 which will run _METRONOME_ on a simple web-server, navigate to `http://localhost:8080` to use _METRONOME_ locally.
 
