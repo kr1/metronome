@@ -4,11 +4,14 @@
 
 _METRONOME_ is a online metronome with the following features:  
 
-  - speed control
-  - volume control
-  - free choice of rhythms
+  - voice volume control
+  - free choice of rhythms (up to 30 beat cycles)
   - acoustic, visual or audio-visual mode
-  - control the metronome with the keyboard
+  - keyboard control
+  - (multi-timbral) drone
+  - speed automation (automation examples can be found in the links)
+  - drone automation
+  - fully configurable from the URL
 
 NB: _METRONOME_ uses the Web Audio API for audio generation. Audio will not work on browsers that do not implement the Web Audio API.
 
