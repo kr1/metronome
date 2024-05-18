@@ -161,7 +161,23 @@ $(document).ready(function(){
         }
         var split = in_speed_prog.split("*");
         Behaviour.speed_prog_cycles = parseInt(split[0]);
-        Behaviour.speed_prog_factor = parseFloat(split[1]);
+        if (split[1].search('rand') == 0) {
+            var rand_split = split[1].split('_');
+            var speed_split = rand_split[2].split('-');
+            if (rand_split[1] == 'minmax') {
+                Behaviour.minRandomSpeed = parseFloat(speed_split[0]);
+                Behaviour.maxRandomSpeed = parseFloat(speed_split[1]);
+                Behaviour.speed_prog_random = 'minmax';
+            }
+            if (rand_split[1] == 'minmaxfactor') {
+                Behaviour.minRandomSpeedFactor = parseFloat(speed_split[0]);
+                Behaviour.maxRandomSpeedFactor = parseFloat(speed_split[1]);
+                Behaviour.speed_prog_random = 'minmaxfactor';
+            }
+            Behaviour.speed_prog_factor = 1;
+        } else {
+            Behaviour.speed_prog_factor = parseFloat(split[1]);
+        }
     }
     rhythm.analyzeMeter();
     rhythm.visualizeAnalyzedRhythm();
