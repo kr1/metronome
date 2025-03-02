@@ -52,15 +52,15 @@
                     [Spacebar]
               %li{:class=>""}
                 %button{:data => {:toggle=>"modal"}, :href=>"#controlsContainer", :class=>"btn btn-small"} Show controls
-              %li{:class=>""}
-                %button{:data => {:toggle=>"modal"}, :id=>"unhideNewRhythmButton", :href=>"#rhythmEditorContainer", :class=>"btn btn-small"} Modify Rhythm
-              %li{:class=>""}
-                %button{:id=>"randomSpeedButton", :class=>"btn btn-small"} Random speed
               %li{:class => "speedMonitorCont"}
                 %span{:class => "speedMonitor Monitor", :title=>"keyboard: left/right arrow"}120.0
                 %span{:id=>"speedMonitorUnit", :title=>"keyboard: left/right arrow", :class=>"Monitor"} BPM
               %li
                 %span{:id=>"analyzedRhythmMonitor", :class=>"Monitor"}
+              %li{:class=>""}
+                %button{:id=>"randomSpeedButton", :class=>"btn btn-small"} Random speed
+              %li{:class=>""}
+                %button{:data => {:toggle=>"modal"}, :id=>"unhideNewRhythmButton", :href=>"#rhythmEditorContainer", :class=>"btn btn-small"} Modify Rhythm
     %div{:class=>"container"}
       %div{:class=>"nav-collapse collapse"}
         %ul{:class=>"left_nav"}
@@ -134,6 +134,8 @@
                 Bb
               %option{:id=>"drone_b"}
                 B
+          %li
+            %input{:style=>"width:20px"}
       %div{:class=>"hero-unit"}
         %div{:id=>"rhythmViewPort", :style=>"position:relative;min-height:300px;"}
           //%span{:id=>"meter", :style=>'background-color:#888888;position:absolute;'}
@@ -311,7 +313,6 @@
                   GitHub
 
       %hr
-      %input
       %footer
         &copy; Zanstaën -
         %a{:href=>"https://soundcloud.com/mo3b1us"} Elea
