@@ -88,6 +88,8 @@ $(document).ready(function(){
     var in_speed_prog = MetroURL.getHashParameterByName('speed_prog');
     var in_speed = Number(MetroURL.getHashParameterByName('speed'));
     var in_makams = MetroURL.getHashParameterByName('mak');
+    var in_links = MetroURL.getHashParameterByName('links');
+    var in_name = MetroURL.getHashParameterByName('name');
     if (in_bell) {
         Behaviour.bell_orig = in_bell;
         if (in_bell.search("_") > 0) {
@@ -182,6 +184,12 @@ $(document).ready(function(){
     rhythm.analyzeMeter();
     rhythm.visualizeAnalyzedRhythm();
     viewPort.drawRhythm();
+    if (in_name) {
+        var feat = $('#featured_rhythm').text('Featured rhythm - ' + in_name).data('spec', window.location.hash);
+    }
+    if (in_links) {
+        $('#links_list_toggler').click();
+    }
     if (in_makams == '1') {
         setUpMakams();
     } else if (in_makams == '2') {
