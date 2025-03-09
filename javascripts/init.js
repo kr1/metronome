@@ -88,6 +88,7 @@ $(document).ready(function(){
     var in_speed_prog = MetroURL.getHashParameterByName('speed_prog');
     var in_speed = Number(MetroURL.getHashParameterByName('speed'));
     var in_makams = MetroURL.getHashParameterByName('mak');
+    var in_vol = Number(MetroURL.getHashParameterByName('vol'));
     if (in_bell) {
         Behaviour.bell_orig = in_bell;
         if (in_bell.search("_") > 0) {
@@ -111,6 +112,10 @@ $(document).ready(function(){
         } else {
             alert("the specified meter '" + in_meter + "' contains invalid characters (only _,- and * are allowed)")
         }
+    }
+    if (in_vol) {
+        var vol_in_range = Math.min(Math.max(in_vol, 0.1), 2)
+        aGraph.gainNodeAll_initial = vol_in_range;
     }
     if (in_speed) {
         if (in_speed && in_speed > Behaviour.min_speed && in_speed < Behaviour.max_speed) {

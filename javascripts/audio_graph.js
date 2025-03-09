@@ -9,7 +9,7 @@ aGraph.setUpAudioGraph = function() {
     }
     // Create Main Volume Node
     aGraph.gainNodeAll = context.createGain();
-    aGraph.gainNodeAll.gain.value = 0.2;
+    aGraph.gainNodeAll.gain.value = aGraph.gainNodeAll_initial || 0.2;
     aGraph.setUpDrumGraph();
 
     aGraph.gainNodeDrone = context.createGain();
