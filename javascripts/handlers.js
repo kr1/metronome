@@ -7,14 +7,24 @@ $(document).ready(function() {
                 $('#playButton').click();
                 evt.preventDefault();
                 break;
-            case 45:
+            case 45: // -
                 val = Number($('#speedSlider').val())
                 $('#speedSlider').val(val-1)
                 $('#speedSlider').change()
                 break;
-            case 43:
+            case 43: // +
                 val = Number($('#speedSlider').val())
                 $('#speedSlider').val(val+1)
+                $('#speedSlider').change()
+                break;
+            case 40: // (
+                val = Number($('#speedSlider').val())
+                $('#speedSlider').val(val-10)
+                $('#speedSlider').change()
+                break;
+            case 41: // )
+                val = Number($('#speedSlider').val())
+                $('#speedSlider').val(val+10)
                 $('#speedSlider').change()
                 break;
             case 65: //a

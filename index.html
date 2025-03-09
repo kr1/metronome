@@ -37,7 +37,7 @@
 <div id='nav2'>
 <ul>
 <li>
-<a data-spec='/#speed=102/meter=_***_-***-_' href='javascript:void' id='featured_rhythm'>
+<a data-spec='/#speed=102/meter=_***_-***-_' href='javascript:void(0)' id='featured_rhythm'>
 Featured Rhythm
 </a>
 </li>
@@ -66,18 +66,18 @@ Play
 <li class=''>
 <button class='btn btn-small' data-toggle='modal' href='#controlsContainer'>Show controls</button>
 </li>
-<li class=''>
-<button class='btn btn-small' data-toggle='modal' href='#rhythmEditorContainer' id='unhideNewRhythmButton'>Modify Rhythm</button>
-</li>
-<li class=''>
-<button class='btn btn-small' id='randomSpeedButton'>Random speed</button>
-</li>
 <li class='speedMonitorCont'>
 <span class='speedMonitor Monitor' title='keyboard: left/right arrow'>120.0</span>
 <span class='Monitor' id='speedMonitorUnit' title='keyboard: left/right arrow'>BPM</span>
 </li>
 <li>
 <span class='Monitor' id='analyzedRhythmMonitor'></span>
+</li>
+<li class=''>
+<button class='btn btn-small' id='randomSpeedButton'>Random speed</button>
+</li>
+<li class=''>
+<button class='btn btn-small' data-toggle='modal' href='#rhythmEditorContainer' id='unhideNewRhythmButton'>Modify Rhythm</button>
 </li>
 </ul>
 </div>
@@ -160,6 +160,9 @@ B
 </option>
 </select>
 </li>
+<li>
+<input style='width:20px'>
+</li>
 </ul>
 </div>
 <div class='hero-unit'>
@@ -180,33 +183,33 @@ links
 Usuls
 </span>
 <br>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_--/pulse=0.1/bell=0.2/name=Semai/">Semai (https://metronome.zanstaen.org/#speed=140/meter=_--/pulse=0.1/bell=0.2/name=Semai/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_*--/pulse=0.1/bell=0.2/name=Sofyan/">Sofyan (https://metronome.zanstaen.org/#speed=140/meter=_*--/pulse=0.1/bell=0.2/name=Sofyan/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_*-*-/pulse=0.1/bell=0.2/name=Turk Aksagi/">Turk Aksagi (https://metronome.zanstaen.org/#speed=140/meter=_*-*-/pulse=0.1/bell=0.2/name=Turk Aksagi/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_*--*/pulse=0.1/bell=0.2/name=Turk Aksagi Evferi/">Turk Aksagi Evferi (https://metronome.zanstaen.org/#speed=140/meter=_*--*/pulse=0.1/bell=0.2/name=Turk Aksagi Evferi/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_--_-*/pulse=0.1/bell=0.2/name=Yuruk Semai/">Yuruk Semai (https://metronome.zanstaen.org/#speed=140/meter=_--_-*/pulse=0.1/bell=0.2/name=Yuruk Semai/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_--_*-*/pulse=0.1/bell=0.2/name=Devri Hindi/">Devri Hindi (https://metronome.zanstaen.org/#speed=140/meter=_--_*-*/pulse=0.1/bell=0.2/name=Devri Hindi/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_*-*-**/pulse=0.1/bell=0.2/name=Devri Turan/">Devri Turan (https://metronome.zanstaen.org/#speed=140/meter=_*-*-**/pulse=0.1/bell=0.2/name=Devri Turan/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_-*-_*-*/pulse=0.1/bell=0.2/name=Duyek/">Duyek (https://metronome.zanstaen.org/#speed=140/meter=_-*-_*-*/pulse=0.1/bell=0.2/name=Duyek/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_**-*-**/pulse=0.1/bell=0.2/name=Musemmen/">Musemmen (https://metronome.zanstaen.org/#speed=140/meter=_**-*-**/pulse=0.1/bell=0.2/name=Musemmen/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_*--_*-*-/pulse=0.1/bell=0.2/name=Aksak/">Aksak (https://metronome.zanstaen.org/#speed=140/meter=_*--_*-*-/pulse=0.1/bell=0.2/name=Aksak/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_*--_*--*/pulse=0.1/bell=0.2/name=Evfer/">Evfer (https://metronome.zanstaen.org/#speed=140/meter=_*--_*--*/pulse=0.1/bell=0.2/name=Evfer/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_--_*-*-*/pulse=0.1/bell=0.2/name=Oynak/">Oynak (https://metronome.zanstaen.org/#speed=140/meter=_--_*-*-*/pulse=0.1/bell=0.2/name=Oynak/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_*-**_*-*/pulse=0.1/bell=0.2/name=Raks Aksagi/">Raks Aksagi (https://metronome.zanstaen.org/#speed=140/meter=_*-**_*-*/pulse=0.1/bell=0.2/name=Raks Aksagi/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_*--*_*-*-/pulse=0.1/bell=0.2/name=Aksak semai/">Aksak semai (https://metronome.zanstaen.org/#speed=140/meter=_*--*_*-*-/pulse=0.1/bell=0.2/name=Aksak semai/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_*--*_*--*/pulse=0.1/bell=0.2/name=Aksak semai evferi/">Aksak semai evferi (https://metronome.zanstaen.org/#speed=140/meter=_*--*_*--*/pulse=0.1/bell=0.2/name=Aksak semai evferi/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_*-*_**-**/pulse=0.1/bell=0.2/name=Çeng-i Harbî/">Çeng-i Harbî (https://metronome.zanstaen.org/#speed=140/meter=_*-*_**-**/pulse=0.1/bell=0.2/name=Çeng-i Harbî/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_*-**_-*--/pulse=0.1/bell=0.2/name=Lenk fahte/">Lenk fahte (https://metronome.zanstaen.org/#speed=140/meter=_*-**_-*--/pulse=0.1/bell=0.2/name=Lenk fahte/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_*-*-_*-*-*/pulse=0.1/bell=0.2/name=Tek Vuruş/">Tek Vuruş (https://metronome.zanstaen.org/#speed=140/meter=_*-*-_*-*-*/pulse=0.1/bell=0.2/name=Tek Vuruş/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_--_*-*_*-*-/pulse=0.1/bell=0.2/name=Ikiz aksagi/">Ikiz aksagi (https://metronome.zanstaen.org/#speed=140/meter=_--_*-*_*-*-/pulse=0.1/bell=0.2/name=Ikiz aksagi/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=120/meter=__*__*_-_-_-/pulse=0.1/bell=0.2/name=Firenkçin/">Firenkçin (https://metronome.zanstaen.org/#speed=120/meter=__*__*_-_-_-/pulse=0.1/bell=0.2/name=Firenkçin/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=----*_***_***/pulse=0.1/bell=0.2/name=Nim Evsat/">Nim Evsat (https://metronome.zanstaen.org/#speed=140/meter=----*_***_***/pulse=0.1/bell=0.2/name=Nim Evsat/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_--_*-*_*-*--/pulse=0.1/bell=0.2/name=Nim Sarki Devri Revan/">Nim Sarki Devri Revan (https://metronome.zanstaen.org/#speed=140/meter=_--_*-*_*-*--/pulse=0.1/bell=0.2/name=Nim Sarki Devri Revan/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_*--_*-*-_*--/pulse=0.1/bell=0.2/name=Bektâşî Devr-i Revânı/">Bektâşî Devr-i Revânı (https://metronome.zanstaen.org/#speed=140/meter=_*--_*-*-_*--/pulse=0.1/bell=0.2/name=Bektâşî Devr-i Revânı/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_**_*-*_**-*-*/pulse=0.1/bell=0.2/name=Devr-i Revân/">Devr-i Revân (https://metronome.zanstaen.org/#speed=140/meter=_**_*-*_**-*-*/pulse=0.1/bell=0.2/name=Devr-i Revân/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_--_*--*_*-*--*/pulse=0.1/bell=0.2/name=Raksan/">Raksan (https://metronome.zanstaen.org/#speed=140/meter=_--_*--*_*-*--*/pulse=0.1/bell=0.2/name=Raksan/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_*--*_*--*_*-*-/pulse=0.1/bell=0.2/name=Bektâşî Raksani/">Bektâşî Raksani (https://metronome.zanstaen.org/#speed=140/meter=_*--*_*--*_*-*-/pulse=0.1/bell=0.2/name=Bektâşî Raksani/)</a><br/>
-<a href="https://metronome.zanstaen.org/#speed=140/meter=_*-_*-_*_-__-*--/pulse=0.1/bell=0.2/name=Nîm Berefşân/">Nîm Berefşân (https://metronome.zanstaen.org/#speed=140/meter=_*-_*-_*_-__-*--/pulse=0.1/bell=0.2/name=Nîm Berefşân/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_--/pulse=0.1/bell=0.2/name=Semai - 3/">Semai (https://metronome.zanstaen.org/#speed=140/meter=_--/pulse=0.1/bell=0.2/name=Semai - 3/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_*--/pulse=0.1/bell=0.2/name=Sofyan - 4/">Sofyan (https://metronome.zanstaen.org/#speed=140/meter=_*--/pulse=0.1/bell=0.2/name=Sofyan - 4/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_*-*-/pulse=0.1/bell=0.2/name=Turk Aksagi - 5/">Turk Aksagi (https://metronome.zanstaen.org/#speed=140/meter=_*-*-/pulse=0.1/bell=0.2/name=Turk Aksagi - 5/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_*--*/pulse=0.1/bell=0.2/name=Turk Aksagi Evferi - 5/">Turk Aksagi Evferi (https://metronome.zanstaen.org/#speed=140/meter=_*--*/pulse=0.1/bell=0.2/name=Turk Aksagi Evferi - 5/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_--_-*/pulse=0.1/bell=0.2/name=Yuruk Semai - 6/">Yuruk Semai (https://metronome.zanstaen.org/#speed=140/meter=_--_-*/pulse=0.1/bell=0.2/name=Yuruk Semai - 6/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_--_*-*/pulse=0.1/bell=0.2/name=Devri Hindi - 7/">Devri Hindi (https://metronome.zanstaen.org/#speed=140/meter=_--_*-*/pulse=0.1/bell=0.2/name=Devri Hindi - 7/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_*-*-**/pulse=0.1/bell=0.2/name=Devri Turan - 7/">Devri Turan (https://metronome.zanstaen.org/#speed=140/meter=_*-*-**/pulse=0.1/bell=0.2/name=Devri Turan - 7/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_-*-_*-*/pulse=0.1/bell=0.2/name=Duyek - 8/">Duyek (https://metronome.zanstaen.org/#speed=140/meter=_-*-_*-*/pulse=0.1/bell=0.2/name=Duyek - 8/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_**-*-**/pulse=0.1/bell=0.2/name=Musemmen - 8/">Musemmen (https://metronome.zanstaen.org/#speed=140/meter=_**-*-**/pulse=0.1/bell=0.2/name=Musemmen - 8/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_*--_*-*-/pulse=0.1/bell=0.2/name=Aksak - 9/">Aksak (https://metronome.zanstaen.org/#speed=140/meter=_*--_*-*-/pulse=0.1/bell=0.2/name=Aksak - 9/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_*--_*--*/pulse=0.1/bell=0.2/name=Evfer - 9/">Evfer (https://metronome.zanstaen.org/#speed=140/meter=_*--_*--*/pulse=0.1/bell=0.2/name=Evfer - 9/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_--_*-*-*/pulse=0.1/bell=0.2/name=Oynak - 9/">Oynak (https://metronome.zanstaen.org/#speed=140/meter=_--_*-*-*/pulse=0.1/bell=0.2/name=Oynak - 9/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_*-**_*-*/pulse=0.1/bell=0.2/name=Raks Aksagi - 9/">Raks Aksagi (https://metronome.zanstaen.org/#speed=140/meter=_*-**_*-*/pulse=0.1/bell=0.2/name=Raks Aksagi - 9/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_*--*_*-*-/pulse=0.1/bell=0.2/name=Aksak semai - 10/">Aksak semai (https://metronome.zanstaen.org/#speed=140/meter=_*--*_*-*-/pulse=0.1/bell=0.2/name=Aksak semai - 10/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_*--*_*--*/pulse=0.1/bell=0.2/name=Aksak semai evferi - 10/">Aksak semai evferi (https://metronome.zanstaen.org/#speed=140/meter=_*--*_*--*/pulse=0.1/bell=0.2/name=Aksak semai evferi - 10/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_*-*_**-**/pulse=0.1/bell=0.2/name=Çeng-i Harbî - 10/">Çeng-i Harbî (https://metronome.zanstaen.org/#speed=140/meter=_*-*_**-**/pulse=0.1/bell=0.2/name=Çeng-i Harbî - 10/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_*-**_-*--/pulse=0.1/bell=0.2/name=Lenk fahte - 10/">Lenk fahte (https://metronome.zanstaen.org/#speed=140/meter=_*-**_-*--/pulse=0.1/bell=0.2/name=Lenk fahte - 10/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_*-*-_*-*-*/pulse=0.1/bell=0.2/name=Tek Vuruş - 11/">Tek Vuruş (https://metronome.zanstaen.org/#speed=140/meter=_*-*-_*-*-*/pulse=0.1/bell=0.2/name=Tek Vuruş - 11/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_--_*-*_*-*-/pulse=0.1/bell=0.2/name=Ikiz aksagi - 12/">Ikiz aksagi (https://metronome.zanstaen.org/#speed=140/meter=_--_*-*_*-*-/pulse=0.1/bell=0.2/name=Ikiz aksagi - 12/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=120/meter=__*__*_-_-_-/pulse=0.1/bell=0.2/name=Firenkçin - 12/">Firenkçin (https://metronome.zanstaen.org/#speed=120/meter=__*__*_-_-_-/pulse=0.1/bell=0.2/name=Firenkçin - 12/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=----*_***_***/pulse=0.1/bell=0.2/name=Nim Evsat - 13/">Nim Evsat (https://metronome.zanstaen.org/#speed=140/meter=----*_***_***/pulse=0.1/bell=0.2/name=Nim Evsat - 13/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_--_*-*_*-*--/pulse=0.1/bell=0.2/name=Nim Sarki Devri Revan - 13/">Nim Sarki Devri Revan (https://metronome.zanstaen.org/#speed=140/meter=_--_*-*_*-*--/pulse=0.1/bell=0.2/name=Nim Sarki Devri Revan - 13/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_*--_*-*-_*--/pulse=0.1/bell=0.2/name=Bektâşî Devr-i Revânı - 13/">Bektâşî Devr-i Revânı (https://metronome.zanstaen.org/#speed=140/meter=_*--_*-*-_*--/pulse=0.1/bell=0.2/name=Bektâşî Devr-i Revânı - 13/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_**_*-*_**-*-*/pulse=0.1/bell=0.2/name=Devr-i Revân - 14/">Devr-i Revân (https://metronome.zanstaen.org/#speed=140/meter=_**_*-*_**-*-*/pulse=0.1/bell=0.2/name=Devr-i Revân - 14/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_--_*--*_*-*--*/pulse=0.1/bell=0.2/name=Raksan - 15/">Raksan (https://metronome.zanstaen.org/#speed=140/meter=_--_*--*_*-*--*/pulse=0.1/bell=0.2/name=Raksan - 15/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_*--*_*--*_*-*-/pulse=0.1/bell=0.2/name=Bektâşî Raksani - 15/">Bektâşî Raksani (https://metronome.zanstaen.org/#speed=140/meter=_*--*_*--*_*-*-/pulse=0.1/bell=0.2/name=Bektâşî Raksani - 15/)</a><br/>
+<a href="https://metronome.zanstaen.org/#speed=140/meter=_*-_*-_*_-__-*--/pulse=0.1/bell=0.2/name=Nîm Berefşân - 16/">Nîm Berefşân (https://metronome.zanstaen.org/#speed=140/meter=_*-_*-_*_-__-*--/pulse=0.1/bell=0.2/name=Nîm Berefşân - 16/)</a><br/>
 <span>
 Examples
 </span>
