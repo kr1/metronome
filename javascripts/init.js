@@ -18,6 +18,8 @@ Behaviour = {
     bell_num_cycles: null,
     pulse_volume: 0.1,
     bell_volume: 0.1,
+    kick_volume: 0.8,
+    snare_volume: 0.8,
     drone_notes: ["C",  "C",  "C#", "Db",
                   "D",  "D",  "D#", "Eb",
                   "E",  "E",  "F",  "F",
@@ -78,6 +80,7 @@ Behaviour.note_to_freq = function(note_name) {
 $(document).ready(function(){
     setUpRhythm();
     setUpRhythmEditor();
+    // read all incoming parameters
     var in_bell = MetroURL.getHashParameterByName('bell');
     var in_pulse = MetroURL.getHashParameterByName('pulse');
     var in_meter = MetroURL.getHashParameterByName('meter');
@@ -89,8 +92,11 @@ $(document).ready(function(){
     var in_speed = Number(MetroURL.getHashParameterByName('speed'));
     var in_makams = MetroURL.getHashParameterByName('mak');
     var in_vol = Number(MetroURL.getHashParameterByName('vol'));
+    var in_low_vol = Number(MetroURL.getHashParameterByName('low'));
+    var in_high_vol = Number(MetroURL.getHashParameterByName('high'));
     var in_links = MetroURL.getHashParameterByName('links');
     var in_name = MetroURL.getHashParameterByName('name');
+    //handle incoming parameters
     if (in_bell) {
         Behaviour.bell_orig = in_bell;
         if (in_bell.search("_") > 0) {
@@ -105,6 +111,12 @@ $(document).ready(function(){
     if (in_pulse) {
         Behaviour.pulse_orig = in_pulse;
         Behaviour.pulse_volume = parseFloat(in_pulse);
+    }
+    if (in_low_vol) {
+        Behaviour.kick_volume = parseFloat(in_low_vol);
+    }
+    if (in_high_vol) {
+        Behaviour.snare_volume = parseFloat(in_high_vol);
     }
     $("#hihatVolMonitor").text(Behaviour.pulse_volume.toString().slice(0, 4));
     $("#pulse_slider").val(Behaviour.pulse_volume);

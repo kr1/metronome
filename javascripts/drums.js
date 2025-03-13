@@ -21,7 +21,8 @@ aGraph.setUpDrumGraph = function(){
         gain.connect(panner);
         panner.connect(aGraph.gainNodeDrums);
     }
-    aGraph["kickBufferGainNode"].gain.value = 0.8;
+    aGraph["kickBufferGainNode"].gain.value = Behaviour.kick_volume;
+    aGraph["snareBufferGainNode"].gain.value = Behaviour.snare_volume;
     aGraph["bellBufferGainNode"].gain.value = Behaviour.bell_volume;
     aGraph["hihatBufferGainNode"].gain.value = Behaviour.pulse_volume;
 }
