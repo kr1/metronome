@@ -215,7 +215,21 @@ $(document).ready(function() {
         $onOff.attr('src', $onOff.data('offsrc'));
         state["audioPauseD"] = true;
     });
-
+    $('#only_bell').click(function (evt) {
+       aGraph["kickBufferGainNode"].gain.value = 0.0;
+       aGraph["snareBufferGainNode"].gain.value = 0.0;
+       aGraph["hihatBufferGainNode"].gain.value = 0.0;
+    });
+    $('#bell_and_low').click(function (evt) {
+       aGraph["kickBufferGainNode"].gain.value = Behaviour.kick_volume_orig;
+       aGraph["snareBufferGainNode"].gain.value = 0.0;
+       aGraph["hihatBufferGainNode"].gain.value = 0.0;
+    });
+    $('#volume_reset').click(function (evt) {
+       aGraph["kickBufferGainNode"].gain.value = Behaviour.kick_volume_orig;
+       aGraph["snareBufferGainNode"].gain.value = Behaviour.snare_volume_orig;
+       aGraph["hihatBufferGainNode"].gain.value = Behaviour.pulse_orig;
+    });
     $('#featured_rhythm').click(function (evt) {
         var url = window.location.origin + $(evt.target).data('spec');
         location.assign(url);

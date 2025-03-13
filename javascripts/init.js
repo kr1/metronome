@@ -19,7 +19,9 @@ Behaviour = {
     pulse_volume: 0.1,
     bell_volume: 0.1,
     kick_volume: 0.8,
+    kick_volume_orig: 0.8,
     snare_volume: 0.8,
+    snare_volume_orig: 0.8,
     drone_notes: ["C",  "C",  "C#", "Db",
                   "D",  "D",  "D#", "Eb",
                   "E",  "E",  "F",  "F",
@@ -114,9 +116,11 @@ $(document).ready(function(){
     }
     if (in_low_vol) {
         Behaviour.kick_volume = parseFloat(in_low_vol);
+        Behaviour.kick_volume_orig = parseFloat(in_low_vol);
     }
     if (in_high_vol) {
         Behaviour.snare_volume = parseFloat(in_high_vol);
+        Behaviour.snare_orig = parseFloat(in_high_vol);
     }
     $("#hihatVolMonitor").text(Behaviour.pulse_volume.toString().slice(0, 4));
     $("#pulse_slider").val(Behaviour.pulse_volume);
