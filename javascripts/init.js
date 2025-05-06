@@ -98,6 +98,7 @@ $(document).ready(function(){
     var in_high_vol = Number(MetroURL.getHashParameterByName('high'));
     var in_links = MetroURL.getHashParameterByName('links');
     var in_name = MetroURL.getHashParameterByName('name');
+    var in_hint = MetroURL.getHashParameterByName('hint');
     //handle incoming parameters
     if (in_bell) {
         Behaviour.bell_orig = in_bell;
@@ -207,6 +208,9 @@ $(document).ready(function(){
     viewPort.drawRhythm();
     if (in_name) {
         var feat = $('#featured_rhythm').text('Featured rhythm - ' + in_name).data('spec', window.location.hash);
+        if (in_hint) {
+            feat.attr('title', in_hint);
+        }
     }
     if (in_links) {
         $('#links_list_toggler').click();
