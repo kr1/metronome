@@ -20,6 +20,7 @@ Behaviour = {
     bell_volume: 0.1,
     kick_volume: 0.8,
     kick_volume_orig: 0.8,
+    octave_frequence_multiplier: 1,
     snare_volume: 0.8,
     snare_volume_orig: 0.8,
     drone_notes: ["C",  "C",  "C#", "Db",
@@ -75,8 +76,8 @@ Behaviour.note_to_freq = function(note_name) {
       "Bb": 233.08,
       "SEGAH": 242,
       "B":  246.94,
-    }[note_name];
-  return value;
+    }[note_name] * Behaviour.octave_frequence_multiplier;
+    return value;
 }
 
 $(document).ready(function(){
@@ -87,6 +88,7 @@ $(document).ready(function(){
     var in_pulse = MetroURL.getHashParameterByName('pulse');
     var in_meter = MetroURL.getHashParameterByName('meter');
     var in_drone = MetroURL.getHashParameterByName('drone');
+    var in_drone_octave = MetroURL.getHashParameterByName('drone_oct');
     var in_drone_vol = MetroURL.getHashParameterByName('drone_vol');
     var in_drone_seq = MetroURL.getHashParameterByName('drone_seq'); // note-repetition pairs: example A_4_D_2_A_2_E_1_D_2_A_1_E_1 or random_<num-of-cycles> or random_<num-of-cycles>_<note0>_<note1..10>
     var in_low_drone = MetroURL.getHashParameterByName('low_drone');
@@ -154,6 +156,13 @@ $(document).ready(function(){
         Behaviour.drone_orig = in_drone;
         var $drone_select = $("#drone_select");
         $drone_select.val(in_drone);
+    }
+    if (in_drone_octave) {
+        var octave_multipliers = {'-2': 0.25, '-1': 0.5, '0': 1, '1': 2, '2': 2, '3': 3};
+        if (in_drone_octave in octave_multipliers) {
+            Behaviour.drone_octave_orig = in_drone_octave;
+            Behaviour.octave_frequence_multiplier = octave_multipliers[in_drone_octave];
+        }
     }
     if (in_drone_seq) {
         Behaviour.drone_seq_orig = in_drone_seq;
