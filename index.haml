@@ -10,7 +10,7 @@
     %meta{:name=>"author", :content=>"christian wörner" }
     %meta{:name=>"author", :content=>"ernst modersohn" }
     %script{:type=>"text/javascript", :src=>"/javascripts/vendor/jquery-1.7.2.min.js"}
-    %script{:type=>"text/javascript", :src=>"/javascripts/vendor/bootstrap-modal.js"}
+    %script{:type=>"text/javascript", :src=>"/javascripts/modal.js"}
     %script{:type=>"text/javascript", :src=>"/javascripts/handlers.js"}
     %script{:type=>"text/javascript", :src=>"/javascripts/rhythmViewPort.js"}
     %script{:type=>"text/javascript", :src=>"/javascripts/audio_graph.js"}
@@ -22,47 +22,41 @@
     %script{:type=>"text/javascript", :src=>"/javascripts/init.js"}
     %script{:type=>"text/javascript", :src=>"/javascripts/makams.js"}
     %link{:id=>"favicon", :rel=>"shortcut icon", :href=>"/favicon.ico"}
-    %link{:href=>"/stylesheets/bootstrap-responsive.min.css", :rel=>"stylesheet"}
-    %link{:href=>"/stylesheets/bootstrap.min.css", :rel=>"stylesheet"}
     %link{:rel=>"stylesheet", :href=>"/stylesheets/metro.css", :type=>"text/css"}
   %body{:id=>"body"}
-    %div{:class=>"navbar navbar-inverse navbar-fixed-top"}
-      %div{:class=>"navbar-inner", :id=>"main_nav"}
-        %div{:class=>"container", :id=>"main_nav_container"}
-          %button{:type=>"button", :class=>"btn btn-navbar", :data => {:toggle=>"collapse", :target=>".nav-collapse"}}
-            %span{:class=>"icon-bar"}
-          %a{:class=>"brand", :href=>"/"} Metronome
-          #nav2
-            %ul
-              %li
-                %a{:href=>"javascript:void(0)", :id=>"featured_rhythm", :data => {:spec => "/#speed=102/meter=_***_-***-_"}}
-                  Featured Rhythm
-              %li
-                %a{:data => {:toggle=>"modal"}, :href=>"#aboutContainer", :id=>"openSaveMeterModal"}
-                  About
-              %li
-                %a{:data => {:toggle=>"modal"}, :href=>"#saveMeterContainer", :id=>"openSaveMeterModal"}
-                  Save Meter
-          %div{:class=>"nav-collapse collapse"}
-            %ul{:class=>"nav"}
-              %li{:class=>""}
-                %button{:id=>"playButton", :class=>"btn btn-danger play_btn", :title=>"keyboard: [space]"}
-                  Play
-                  %span.ff_btn
-                    [Spacebar]
-              %li{:class=>""}
-                %button{:data => {:toggle=>"modal"}, :href=>"#controlsContainer", :class=>"btn btn-small"} Show controls
-              %li{:class => "speedMonitorCont"}
-                %span{:class => "speedMonitor Monitor", :title=>"keyboard: left/right arrow"}120.0
-                %span{:id=>"speedMonitorUnit", :title=>"keyboard: left/right arrow", :class=>"Monitor"} BPM
-              %li
-                %span{:id=>"analyzedRhythmMonitor", :class=>"Monitor"}
-              %li{:class=>""}
-                %button{:id=>"randomSpeedButton", :class=>"btn btn-small"} Random speed
-              %li{:class=>""}
-                %button{:data => {:toggle=>"modal"}, :id=>"unhideNewRhythmButton", :href=>"#rhythmEditorContainer", :class=>"btn btn-small"} Modify Rhythm
+    %nav{:id=>"main_nav"}
+      %div{:id=>"main_nav_container"}
+        %a{:class=>"brand", :href=>"/"} Metronome
+        %ul{:class=>"nav"}
+          %li{:class=>""}
+            %button{:id=>"playButton", :class=>"btn-danger play_btn", :title=>"keyboard: [space]"}
+              Play
+              %span.ff_btn
+                [Spacebar]
+          %li{:class=>""}
+            %button{:data => {:toggle=>"modal"}, :href=>"#controlsContainer", :class=>"btn-sm"} Show controls
+          %li{:class => "speedMonitorCont"}
+            %span{:class => "speedMonitor Monitor", :title=>"keyboard: left/right arrow"}120.0
+            %span{:id=>"speedMonitorUnit", :title=>"keyboard: left/right arrow", :class=>"Monitor"} BPM
+          %li
+            %span{:id=>"analyzedRhythmMonitor", :class=>"Monitor"}
+          %li{:class=>""}
+            %button{:id=>"randomSpeedButton", :class=>"btn-sm"} Random speed
+          %li{:class=>""}
+            %button{:data => {:toggle=>"modal"}, :id=>"unhideNewRhythmButton", :href=>"#rhythmEditorContainer", :class=>"btn-sm"} Modify Rhythm
+        #nav2
+          %ul
+            %li
+              %a{:href=>"javascript:void(0)", :id=>"featured_rhythm", :data => {:spec => "/#speed=102/meter=_***_-***-_"}}
+                Featured Rhythm
+            %li
+              %a{:data => {:toggle=>"modal"}, :href=>"#aboutContainer"}
+                About
+            %li
+              %a{:data => {:toggle=>"modal"}, :href=>"#saveMeterContainer"}
+                Save Meter
     %div{:class=>"container"}
-      %div{:class=>"nav-collapse collapse"}
+      %div{:class=>"left-controls"}
         %ul{:class=>"left_nav"}
           %li
             %img{:id=>"audioOnOff", :class=>"onOffPic",
@@ -213,7 +207,7 @@
           %span{:id=>"makams_list_toggler"}
             makams
           %div{:id=>"makams_list", :style=>"display:none"}
-        %div{:id=>"rhythmEditorContainer", :class=>"modal hide fade in modalPanelContainer", :style=>"display:none;"}
+        %div{:id=>"rhythmEditorContainer", :class=>"modal-container"}
           %div{:id=>"newRhythm", :class=>"modalPanel"}
             %div.modal-header
               %h4 Number of Items
@@ -227,9 +221,9 @@
                   TIP: click on the circles to change instrument
                 // filled by JavaScript
             %div.modal-footer
-              %button{:id=>"saveNewRhythmButton", :class=>"btn btn-small", :data => {:dismiss=>"modal"}} Save New Rhythm
-              %button{:id=>"hideNewRhythmButton", :class=>"btn btn-small", :data => {:dismiss=>"modal"}} hide rhythm editor
-        %div{:id=>"controlsContainer", :class=>"modal hide fade in modalPanelContainer", :style=>"display:none;"}
+              %button{:id=>"saveNewRhythmButton", :class=>"btn-sm", :data => {:dismiss=>"modal"}} Save New Rhythm
+              %button{:id=>"hideNewRhythmButton", :class=>"btn-sm", :data => {:dismiss=>"modal"}} hide rhythm editor
+        %div{:id=>"controlsContainer", :class=>"modal-container"}
           %div{:id=>"controls" , :class=>"modalPanel"}
             %div.modal-header
               Controls
@@ -278,7 +272,7 @@
                     %span{:id=>"bellVolMonitor" , :class=>"Monitor"} 1.0
             %div.modal-footer
               %a{:href=>"#", :class=>"btn", :data => {:dismiss=>"modal"}} Close
-        %div{:id=>"saveMeterContainer", :class=>"modal hide fade in modalPanelContainer", :style=>"display:none;"}
+        %div{:id=>"saveMeterContainer", :class=>"modal-container"}
           %div{:id=>"newRhythm", :class=>"modalPanel"}
             %div.modal-header
               %h4 Save the current Meter
@@ -288,7 +282,7 @@
               %input{:type=>"text", :id=>"shareUrlInput", :style=>"width: 100%;font-size:1.2em;height:2em;"}
             %div.modal-footer
               %a{:href=>"#", :class=>"btn", :data => {:dismiss=>"modal"}} Ok
-        %div{:id=>"aboutContainer", :class=>"modal hide fade in modalPanelContainer", :style=>"display:none;"}
+        %div{:id=>"aboutContainer", :class=>"modal-container"}
           %div{:id=>"newRhythm", :class=>"modalPanel"}
             %div.modal-header
               %h3 Metronome

@@ -3,200 +3,115 @@ body {
     padding-bottom: 10px;
 }
 
-
-.container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
-  width: 92%;
+.container {
+    width: 92%;
 }
 
-.sidebar-nav {
-    padding: 9px 0;
+/* --- Navbar --- */
+#main_nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 65px;
+    background: #f3f3f3;
+    border-bottom: 1px solid #ddd;
+    z-index: 1000;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
-.nav {
-    width:85%;
-}
-.navbar-inner, #main_nav {
-  background-color: #f3f3f3; /* background color will be black for all browsers */
-  background-image: none;
-  background-repeat: no-repeat;
-  filter: none;
-}
-
-button {
-  font-size: 8px;
-  font-weight: bold;
-}
-
-.navbar .nav > li {
-    display: inline-block;
-    margin: 0 9px 0 0;
-}
-
-ul.left_nav  {
-    position: absolute;
-    margin: 25px 8px 0 0;
-    list-style: none;
-}
-
-ul.left_nav > li {
-}
-
-.onOffPic {
-    height: 40px;
-    padding: 5px 0px 0 10px;
-}
-
-li.speedMonitorCont {
-    vertical-align: center;
-    padding: 5px 0px 0px 0px;
-}
-
-.navbar .btn, .navbar .btn-group {margin:0;}
-.hero-unit {
-    height:80%!important;
-}
-li.broad {
-    width:22%
-}
-
-img#vis_switcher:hover {
-    opacity: 0.2;
-}
-
-.hidden {
-    display:none;
-}
-.broad {
-    width:100%
-}
-
-.play_btn {
-    width: 140px;
-    text-transform: uppercase;
-}
-
-.navbar .brand {
-    margin: 0 10px 0 0;
-    border: dashed 1px;
-}
-.navbar-inverse .brand {
-    color: #000;
-    text-shadow: 0 0 0;
-}
-
-.main_nav_container {
+#main_nav_container {
+    display: flex;
+    align-items: center;
+    height: 100%;
     line-height: 32px;
 }
-#controlsContainer {
-    width: 60%;
-    margin-left: -30%;
+.brand {
+    margin: 0 10px 0 0;
+    border: dashed 1px;
+    color: #000;
+    text-decoration: none;
+    flex-shrink: 0;
 }
-#aboutContainer {
-    width: 60%;
-    margin-left: -30%;
+.brand:hover, .brand:focus {
+    color: #999;
 }
-#about-body {
-    height: 480px;
-    max-height: 480px;
-}
-.modalPanel{
-    position:relative;
-    width:100%;
-}
-#speedSlider {
-    width: 70%;
-}
-#speedslider_cell {
-    width: 70%;
-}
-#speedMonitor {
-    width: 15%;
-}
-#speedmonitor_cell {
-    width: 20%;
-}
-#speedMonitorUnit {
-    width: 15%;
-}
-.volVertical {
-    width: 10px;
-    height: 120px;
-    -webkit-appearance: slider-vertical;
-}
-#makams_container {
-    display: block;
-}
-
-#rhythmViewPort, #rhythmEditor {
-     margin-left: auto;
-     margin-right: auto;
-     height: 300px;
-     width: 80%;
-     display:block;
-     text-align:center}
-
-#newRhythmLengthMonitor {
-    float: left;
-    display: inline-block;
-    min-width: 3em;
-}
-.light, .rhythmEditorItem.light {
-    background-Color: #466340;
-}
-.heavy, .rhythmEditorItem.heavy {
-    background-Color:#183E31;
-    color: #fff;
-}
-.fill, .rhythmEditorItem.fill {
-    background-Color:#9090AF;
-}
-.highlight {
-    background-Color: #EE680E;
-    color: #fff;
-    opacity: 1;
-}
-#newRhythm {
-    height:50%;
-}
-#rhythmEditor {
-    position:relative;
-    min-height:200px;
-    height:200px;
-}
-.rhythmGrouping {
-    padding: 2;
-    height: 23px;
-}
-
-.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
-    box-shadow:0 0 0 ;
-    border-bottom: 1px solid #DDDDDD;
-}
-
-#analyzedRhythmMonitor{
-}
-.navbar .nav {
-    width: 100%;
-    margin-top: 26px;
+#main_nav .nav {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
     height: 30px;
     overflow: hidden;
 }
-.navbar .nav > li.fr {
+#main_nav .nav > li {
+    display: inline-block;
+    margin: 0 9px 0 0;
+}
+#main_nav .nav > li.fr {
     float: right;
 }
-.fr {
-    float: right;
+#main_nav button, #main_nav .btn {
+    margin: 0;
 }
-.fl {
-    float:left;
+#nav2 {
+    flex-shrink: 0;
+    margin: 0 10px;
 }
-.hero-unit {
-    background: transparent;
-    margin: 20px;
+#nav2 ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#nav2 li {
+    display: inline-block;
+    margin: 0 0 0 20px;
+}
+#nav2 li a {
+    color: #999;
+    text-decoration: none;
+}
+#nav2 li a:hover, #nav2 li a:focus {
+    color: #666;
 }
 
-#main_nav {
-    height:45px;
-    padding:10px 0;
+/* --- Buttons --- */
+button {
+    font-size: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #f5f5f5;
+}
+.btn {
+    cursor: pointer;
+    display: inline-block;
+    padding: 4px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #f5f5f5;
+    font-size: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+.btn-sm {
+    font-size: 8px;
+    font-weight: bold;
+}
+.btn-danger {
+    background-color: #d9534f;
+    color: white;
+    border-color: #c9302c;
+}
+.btn-danger:hover {
+    background-color: #c9302c;
+}
+.play_btn {
+    width: 140px;
+    text-transform: uppercase;
 }
 .ff_btn {
     font-size: 10px;
@@ -206,34 +121,134 @@ img#vis_switcher:hover {
     vertical-align: top;
 }
 
-#nav2 {
-    float:right;margin:10px;
+/* --- Modals --- */
+.modal-container {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1050;
+    background: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
 }
-#nav2 li {
-    display:inline-block;margin:0 0 0 20px;
+.modal-container.is-open {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 60px;
 }
-#nav2 li a {
-    color:#999;
+.modal-container .modalPanel {
+    background: #fff;
+    border-radius: 4px;
+    width: 90%;
+    max-width: 560px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
 }
-p.tips {
-    font-size: 12px;
+#controlsContainer .modalPanel,
+#aboutContainer .modalPanel {
+    max-width: none;
+    width: 65%;
 }
+.modal-header {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+}
+.modal-body {
+    padding: 15px;
+}
+.modal-footer {
+    padding: 10px 15px;
+    border-top: 1px solid #ddd;
+    text-align: right;
+}
+
+/* --- Left sidebar --- */
+.sidebar-nav {
+    padding: 9px 0;
+}
+ul.left_nav {
+    position: absolute;
+    margin: 25px 8px 0 0;
+    list-style: none;
+}
+.onOffPic {
+    height: 40px;
+    padding: 5px 0px 0 10px;
+}
+img#vis_switcher:hover {
+    opacity: 0.2;
+}
+li.speedMonitorCont {
+    vertical-align: center;
+    padding: 5px 0px 0px 0px;
+}
+
+/* --- Main content --- */
+.hero-unit {
+    height: 80% !important;
+    background: transparent;
+    margin: 20px;
+}
+
+/* --- Layout utilities --- */
+.hidden { display: none; }
+.broad { width: 100%; }
+li.broad { width: 22%; }
+.fr { float: right; }
+.fl { float: left; }
+
+/* --- Rhythm viewport / editor --- */
+#rhythmViewPort, #rhythmEditor {
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    width: 80%;
+    display: block;
+    text-align: center;
+}
+.light, .rhythmEditorItem.light { background-color: #466340; }
+.heavy, .rhythmEditorItem.heavy { background-color: #183E31; color: #fff; }
+.fill, .rhythmEditorItem.fill { background-color: #9090AF; }
+.highlight { background-color: #EE680E; color: #fff; opacity: 1; }
+#newRhythm { height: 50%; }
+#rhythmEditor {
+    position: relative;
+    min-height: 200px;
+    height: 200px;
+}
+.rhythmGrouping { padding: 2; height: 23px; }
+#newRhythmLengthMonitor {
+    display: inline-block;
+    min-width: 3em;
+}
+
+/* --- Volume sliders --- */
+.volVertical {
+    width: 10px;
+    height: 120px;
+    -webkit-appearance: slider-vertical;
+}
+
+/* --- Speed slider --- */
+#speedSlider { width: 70%; }
+#speedslider_cell { width: 70%; }
+#speedMonitor { width: 15%; }
+#speedmonitor_cell { width: 20%; }
+#speedMonitorUnit { width: 15%; }
+#about-body {
+    height: 480px;
+    max-height: 480px;
+}
+
+/* --- Misc --- */
+#makams_container { display: block; }
+p.tips { font-size: 12px; }
 .claim {
     color: #999999;
     display: inline-block;
     font-size: 13px;
     margin: 12px 9px 0;
 }
-ul.base {
-    padding-left: 30px;
-}
-.navbar-inverse .brand:hover,
-.navbar-inverse .nav > li > a:hover,
-.navbar-inverse .brand:focus,
-.navbar-inverse .nav > li > a:focus {
-    color: #999;
-}
-#newRhythmLengthMonitor{
-    float: none;
-}
-
+ul.base { padding-left: 30px; }
