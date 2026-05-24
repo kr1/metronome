@@ -172,6 +172,7 @@ ul.left_nav {
     position: absolute;
     margin: 25px 8px 0 0;
     list-style: none;
+    z-index: 1;
 }
 .onOffPic {
     height: 40px;
