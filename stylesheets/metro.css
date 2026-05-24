@@ -1,6 +1,15 @@
 body {
     padding-top: 100px;
-    padding-bottom: 10px;
+    padding-bottom: 50px;
+}
+footer {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: #f3f3f3;
+    border-top: 1px solid #ddd;
+    padding: 8px 10px;
+    font-size: 13px;
+    z-index: 100;
 }
 
 .container {
