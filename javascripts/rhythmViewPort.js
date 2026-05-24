@@ -40,7 +40,7 @@ $(document).ready(function(){
                     "top": viewPort.fullHeight - (rhythm.weightToPosition[weight] * 60 * viewPort.heightMult),
                     "width": ele_radius,
                     "height": ele_radius,
-                    "border-radius": ele_radius * 0.5,
+                    "border-radius": ele_radius * 0.5 + "px",
                     "text-align":"center"
                 });
             } else {
@@ -53,7 +53,7 @@ $(document).ready(function(){
                                       viewPort.circle.y_stretch) - ele_radius * 0.5,
                     "width": ele_radius,
                     "height": ele_radius,
-                    "border-radius": ele_radius* 0.5,
+                    "border-radius": ele_radius * 0.5 + "px",
                     "text-align":"center"
                 });
             }
