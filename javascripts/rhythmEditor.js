@@ -51,7 +51,7 @@ setUpRhythmEditor = function() {
         return eles
     }
 
-    $('.rhythmEditorItem').live("click", function(){
+    $(document).on("click", '.rhythmEditorItem', function(){
         var pos = Number($(this).text())
         var nextSym = rhythmEditor.nextWeightSymbol(rhythmEditor.meter[pos])
         rhythmEditor.meter[pos] = nextSym;

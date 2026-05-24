@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('body').bind("keypress", function(evt) {
+    $('body').on("keypress", function(evt) {
         var val;
         // console.log(evt.which)
         switch (evt.which){
@@ -51,12 +51,12 @@ $(document).ready(function() {
         }
     });
 
-    $('#unhideControlsButton').bind("click", function(e){
+    $('#unhideControlsButton').on("click", function(e){
         $('.modalPanelContainer').hide();
         $("#controlsContainer").show();
     })
 
-    $('#randomSpeedButton').bind("click", function(e){
+    $('#randomSpeedButton').on("click", function(e){
           var minRandomSpeed = 25;
           var maxRandomSpeed = 250;
           var newSpeed = minRandomSpeed + Math.floor(Math.random() * (maxRandomSpeed - minRandomSpeed));
@@ -64,24 +64,24 @@ $(document).ready(function() {
           $('#speedSlider').change()
     })
 
-    $('#links_list_toggler').bind("click", function(e){
+    $('#links_list_toggler').on("click", function(e){
         $("#links_list").toggle();
     });
-    $('#makams_list_toggler').bind("click", function(e){
+    $('#makams_list_toggler').on("click", function(e){
         $("#makams_list").toggle();
     });
-    $('#hideControls').bind("click", function(e){
+    $('#hideControls').on("click", function(e){
         $("#controlsContainer").hide();
     })
 
-    $('#unhideNewRhythmButton').bind("click", function(e){
+    $('#unhideNewRhythmButton').on("click", function(e){
         rhythmEditor.takeMetroMeter();
         rhythmEditor.drawRhythm();
         $('#newRhythmLengthMonitor').text(rhythmEditor.meter.length);
         $('#newRhythmLengthSlider').val(rhythmEditor.meter.length);
     })
 
-    $('#hideNewRhythmButton').bind("click", function(e){
+    $('#hideNewRhythmButton').on("click", function(e){
         $("#newRhythmContainer").hide();
     })
 
@@ -92,7 +92,7 @@ $(document).ready(function() {
         Behaviour.manual_drone_selected = selected_drone;
     });
 
-    $('#playButton').bind("click",
+    $('#playButton').on("click",
         function (evt) {
             var $drone_select = $("#drone_select");
             $drone_select.removeAttr("disabled");
@@ -124,26 +124,26 @@ $(document).ready(function() {
         }
     );
 
-    $('#speedSlider').bind("input change", function(e){
+    $('#speedSlider').on("input change", function(e){
         var newSpeed = Number($(this).val());
         state.speed.newSpeedBpm(newSpeed);
         Behaviour.manual_tempo_selected = newSpeed;
         $(".speedMonitor").text(newSpeed);
     });
 
-    $('#newRhythmLengthSlider').bind("input",function(e){
+    $('#newRhythmLengthSlider').on("input",function(e){
         var newRhythmLength = Number($(this).val());
         rhythmEditor.takeMetroMeter(newRhythmLength);
         rhythmEditor.drawRhythm();
         $("#newRhythmLengthMonitor").text(newRhythmLength);
     })
 
-    $('#saveNewRhythmButton').bind("click",function(e){
+    $('#saveNewRhythmButton').on("click",function(e){
         rhythm.saveNewMeter(rhythmEditor.meter);
         MetroURL.set_hash(MetroURL.make_hash_representation());
     });
 
-    $('.volVertical').bind("change", function(e){
+    $('.volVertical').on("change", function(e){
         var val = $(this).val(),
             which = $(this).attr('rel'),
             gainNodeName = which + "BufferGainNode";
@@ -156,7 +156,7 @@ $(document).ready(function() {
         $("#"+ which + "VolMonitor").text(val)
     })
 
-    $('.onOffPic').live("click",function(e){
+    $(document).on("click", '.onOffPic', function(e){
          var $this = $(this),
              data = $this.data(),
              turningOff = data['onsrc'] == $this.attr('src');
