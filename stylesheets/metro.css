@@ -209,6 +209,9 @@ li.broad { width: 22%; }
     display: block;
     text-align: center;
 }
+#rhythmViewPort {
+    z-index: 0;
+}
 .light, .rhythmEditorItem.light { background-color: #466340; }
 .heavy, .rhythmEditorItem.heavy { background-color: #183E31; color: #fff; }
 .fill, .rhythmEditorItem.fill { background-color: #9090AF; }
@@ -244,8 +247,8 @@ li.broad { width: 22%; }
 }
 
 /* --- Misc --- */
-#links_list_toggler { position: relative; cursor: pointer; }
-#links_list { position: relative; }
+#links_list_toggler { position: relative; z-index: 1; cursor: pointer; }
+#links_list { position: relative; z-index: 1; }
 #makams_container { display: block; }
 p.tips { font-size: 12px; }
 .claim {
